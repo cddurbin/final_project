@@ -19,14 +19,14 @@ CKEDITOR.editorConfig = function( config ) {
     { name: 'paragraph',   groups: [ 'list', 'blocks' ] },
     // { name: 'editing',     groups: [ 'spellchecker' ] },
     { name: 'links' },
-    { name: 'insert', groups: [ 'spellchecker' ] }, 
+    { name: 'insert' }, 
     // { name: 'forms' },
     // { name: 'tools' },
     { name: 'document',    groups: [ 'mode', 'document', 'doctools', 'undo' ] },
     // { name: 'others' },
     // '/',
     
-    // { name: 'styles' },
+    { name: 'styles' },
     // { name: 'colors' },
     // { name: 'about' }
   ];
@@ -38,5 +38,7 @@ CKEDITOR.editorConfig = function( config ) {
   config.removePlugins = 'elementspath,save,font,find,selection,selectall, flash, image, maximize, showblocks, templates, smiley, iframe, newpage, preview, print, pastefromword';
 
   config.extraPlugins = 'codeTag';
+
+  config.skin = 'minimalist';
 
 }
