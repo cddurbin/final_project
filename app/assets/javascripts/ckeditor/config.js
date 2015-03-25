@@ -7,6 +7,10 @@ CKEDITOR.editorConfig = function( config ) {
   // Define changes to default configuration here.
   // For complete reference see:
   // http://docs.ckeditor.com/#!/api/CKEDITOR.config
+  // config.toolbar_mini = [
+  //     ["Bold",  "Italic",  "Underline",  "Strike",  "-",  "Subscript",  "Superscript"],
+  //   ];
+  // config.toolbar = "simple";
 
   // The toolbar groups arrangement, optimized for two toolbar rows.
   config.toolbarGroups = [
@@ -31,3 +35,6 @@ CKEDITOR.editorConfig = function( config ) {
   config.removeButtons = 'Underline,Subscript,Superscript';
 
   config.removePlugins = 'elementspath,save,font';
+
+  config.extraPlugins = 'codeTag';
+}

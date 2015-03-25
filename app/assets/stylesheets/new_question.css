@@ -1,3 +1,7 @@
 .editor {
   width: 500px;
 }
+
+code {
+  background-color: lightgrey;
+}
