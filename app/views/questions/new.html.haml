@@ -2,6 +2,7 @@
 %p Find me in app/views/questions/new.html.haml
 .editor
   = form_for @question do |f|
+    -# = f.hidden_field :user_id, current_user
     = f.label :title
     = f.text_field :title
     = f.cktext_area :content, rows: 10
