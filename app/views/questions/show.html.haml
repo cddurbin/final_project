@@ -7,3 +7,9 @@
   %p= comment.content
 - @question.answers.each do |answer|
   %p= answer.content
+%h3= @question.votes.map { |vote| vote.score }.inject(:+)
+- @question.watchers.each do |watcher| 
+  = watcher.first_name
+%h3= @question.watchers.count
+  
+ 
