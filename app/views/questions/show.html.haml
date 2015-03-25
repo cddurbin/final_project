@@ -1,15 +1,16 @@
 %h1 Questions#show
 %p Find me in app/views/questions/show.html.haml
-%h1= @question.title
-%p= @question.content.html_safe
-%p Comment
-- @question.comments.each do |comment| 
-  %p= comment.content
-- @question.answers.each do |answer|
-  %p= answer.content
-%h3= @question.votes.map { |vote| vote.score }.inject(:+)
-- @question.watchers.each do |watcher| 
-  = watcher.first_name
-%h3= @question.watchers.count
+.question{ value: @question.id }
+  %h1= @question.title
+  %p= @question.content.html_safe
+  %p Comment
+  - @question.comments.each do |comment| 
+    %p= comment.content
+  - @question.answers.each do |answer|
+    %p= answer.content
+  %h3= @question.votes.map { |vote| vote.score }.inject(:+)
+  - @question.watchers.each do |watcher| 
+    = watcher.first_name
+  %h3= @question.watchers.count
   
  
