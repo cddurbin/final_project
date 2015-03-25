@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   resources :questions, shallow: true do
     resources :answers do
       resources :comments, only: [:index, :new, :create]
+      resources :votes, only: [:index, :new, :create]
     end
     resources :comments
+    resources :votes
   end
 
   # Example of regular route:

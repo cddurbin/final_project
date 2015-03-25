@@ -13,7 +13,6 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    binding.pry
     @question = Question.create(question_params)
     if @question.save
        redirect_to questions_path, notice: "The question has been successfully created."

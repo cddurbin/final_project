@@ -2,3 +2,8 @@
 %p Find me in app/views/questions/show.html.haml
 %h1= @question.title
 %p= @question.content.html_safe
+%p Comment
+- @question.comments.each do |comment| 
+  %p= comment.content
+- @question.answers.each do |answer|
+  %p= answer.content
