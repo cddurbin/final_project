@@ -33,6 +33,15 @@ function getQuestion(){
   });
 };
 
+function getQuestionComments () {
+  var questionId = $('#question-container').attr('value');
+  
+  request("GET", '/questions/' + questionId + '/comments', null).done(function(response) {
+    console.log(response);
+  });
+};
+
 $(document).ready(function() {
   getQuestion();
+  getQuestionComments ();
 });

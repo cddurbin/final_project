@@ -9,7 +9,6 @@ class QuestionsController < ApplicationController
     
     respond_to do |format|
       format.html
-      # format.json { render json: [@question, @question.user, @question.answers]}
       format.json { render json: @question.as_json(include: { user: {}, answers: {include: [:user]}})}
       # format.json { render json: @question.as_json(include: { user: {}, comments: {include: [:user]}, answers: {include: [:comments ]}, votes: {}, watches: {}, watchers: {} })}
     end
