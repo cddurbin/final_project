@@ -1,11 +1,13 @@
 %h1 Questions#show
 %p Find me in app/views/questions/show.html.haml
-
-#question-container{ value: @question.id}
-#comments-container
-#answers-container
-
-#answer-comments-container
+.row
+  .small-2.columns
+  .small-8.small-centered.columns
+    #question-container{ value: @question.id}
+    #comments-container
+    #answers-container
+    #answer-comments-container
+  .small-2.columns
 
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
   .question
@@ -28,7 +30,7 @@
   %p {{ content }}
   %p {{user.first_name}}
   %button{:data=>{:id =>'{{id}}'}} Comments
-  -# %p {{> answer-comment }} 
+  -# %p {{> answer-comment this}} 
   {{/answers}}
 
 %script{ id: 'answer-comment-partial', type: 'text/x-handlebars-template'}

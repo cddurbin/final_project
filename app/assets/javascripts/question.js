@@ -61,7 +61,7 @@ function getAnswerComments (answerId) {
     var source = $("#answers-tpl").html();
     var template = Handlebars.compile(source);
     $("#answers-container").html(template(response));
-    Handlebars.registerPartial("answer-comment", $("#answer-comment-partial").html());
+    // Handlebars.registerPartial("answer-comment", $("#answer-comment-partial").html());
   });
 };
 
