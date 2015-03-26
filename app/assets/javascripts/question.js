@@ -55,8 +55,26 @@ function getAnswers () {
   });
 };
 
+function getAnswerComments (answerId) {
+  request("GET", '/answers/' + answerId + '/comments', null).done(function(response) {
+    console.log(response);
+    var source = $("#answer-comments-tpl").html();
+    var template = Handlebars.compile(source);
+    $("#answer-comments-container").html(template(response));
+    // Handlebars.registerPartial("answer-comment", $("#answer-comment-partial").html());
+  });
+};
+
 $(document).ready(function() {
   getQuestion();
   getQuestionComments ();
   getAnswers();
+
+  $('#answers-container').on('click', $('.button'), function() {
+
+    console.log($(this))
+    // var answerId = $('.answer-container').attr('value');
+    // console.log(answerId);
+    // getAnswerComments (answerId);
+  });
 });

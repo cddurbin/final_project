@@ -1,9 +1,10 @@
 %h1 Questions#show
 %p Find me in app/views/questions/show.html.haml
+
 #question-container{ value: @question.id}
 #comments-container
 #answers-container
-
+#answer-comments-container
 
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
   .question
@@ -22,10 +23,28 @@
 %script{ id: 'answers-tpl', type: 'text/x-handlebars-template'}
   %h1 Answer
   {{#answers}}
-  .answer-container{ id: 'answer-{{ id }}'}
+  .answer-container{ id: 'answer-{{ id }}',  value: '{{ id }}'}
+  %button
+  %p {{ content }}
+  %p {{user.first_name}}
+  -# %p {{< answer-comment }} 
+  {{/answers}}
+
+-# %script{ id: 'answer-comment-partial', type: 'text/x-handlebars-template'}
+-#   %h3 Comments
+-#   {{#comments}}
+-#   .comment-container{ id: 'comment-{{ id }}'}
+-#   %p {{ content }}
+-#   %p {{user.first_name}} 
+-#   {{/comments}}
+
+%script{ id: 'answer-comment-tpl', type: 'text/x-handlebars-template'}
+  %h3 Comments
+  {{#comments}}
+  .comment-container{ id: 'comment-{{ id }}'}
   %p {{ content }}
   %p {{user.first_name}} 
-  {{/answers}}
+  {{/comments}}
 
 
  
