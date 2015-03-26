@@ -5,6 +5,20 @@
 %script{ id: 'questiontpl', type: 'text/x-handlebars-template'}
   .question
     %h1 {{ title }}
+    %h3 {{ content }}
+  .comments 
+    {{#comments}} {{ content }} {{ commentable_type }} {{/comments}}
+  .answers 
+    {{#answers}} {{ accepted }} {{/answers}}
+  .votes
+    {{#votes}} {{ score }} {{/votes}}
+    
+
+  
+
+  
+    
+    
 -# %script{ id: 'questiontpl', type: 'text/template'}
 -#   .question{ value: @question.id }
 -#     %h1 {{ title }}
