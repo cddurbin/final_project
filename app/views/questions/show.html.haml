@@ -1,18 +1,31 @@
 %h1 Questions#show
 %p Find me in app/views/questions/show.html.haml
 #question-container{ value: @question.id}
+#comments-container
+#answers-container
 
-%script{ id: 'questiontpl', type: 'text/x-handlebars-template'}
+
+%script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
   .question
     %h1 {{ title }}
     %h3 {{ content }}
     %h3 {{ user.first_name  }}
+  
+%script{ id: 'question-comments-tpl', type: 'text/x-handlebars-template'}
+  .comment
+    %h3 Comments
+    {{#comments}}
+    %p {{ content }}
+    %p {{user.first_name}} 
+    {{/comments}}
+
+%script{ id: 'answers-tpl', type: 'text/x-handlebars-template'}
   .answers
     %h1 Answer
     {{#answers}}
     %p {{ content }}
     %p {{user.first_name}} 
     {{/answers}}
-  
-  
+
+
  

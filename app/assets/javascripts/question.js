@@ -27,7 +27,7 @@ function getQuestion(){
     //   return total;
     // });
 
-    var source = $("#questiontpl").html();
+    var source = $("#question-tpl").html();
     var template = Handlebars.compile(source);
     $("#question-container").html(template(response));
   });
@@ -38,6 +38,20 @@ function getQuestionComments () {
   
   request("GET", '/questions/' + questionId + '/comments', null).done(function(response) {
     console.log(response);
+    var source = $("#question-comments-tpl").html();
+    var template = Handlebars.compile(source);
+    $("#comments-container").html(template(response));
+  });
+};
+
+function getAnswers () {
+  var questionId = $('#question-container').attr('value');
+  
+  request("GET", '/questions/' + questionId + '/answers', null).done(function(response) {
+    console.log(response);
+    var source = $("#question-comments-tpl").html();
+    var template = Handlebars.compile(source);
+    $("#comments-container").html(template(response));
   });
 };
 
