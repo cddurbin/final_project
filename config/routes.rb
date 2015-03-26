@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'answers/index'
+
   get 'comments/index'
 
   devise_for :users

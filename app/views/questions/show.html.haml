@@ -12,20 +12,20 @@
     %h3 {{ user.first_name  }}
   
 %script{ id: 'question-comments-tpl', type: 'text/x-handlebars-template'}
-  .comment
-    %h3 Comments
-    {{#comments}}
-    %p {{ content }}
-    %p {{user.first_name}} 
-    {{/comments}}
+  %h3 Comments
+  {{#comments}}
+  .comment-container{ id: 'comment-{{ id }}'}
+  %p {{ content }}
+  %p {{user.first_name}} 
+  {{/comments}}
 
 %script{ id: 'answers-tpl', type: 'text/x-handlebars-template'}
-  .answers
-    %h1 Answer
-    {{#answers}}
-    %p {{ content }}
-    %p {{user.first_name}} 
-    {{/answers}}
+  %h1 Answer
+  {{#answers}}
+  .answer-container{ id: 'answer-{{ id }}'}
+  %p {{ content }}
+  %p {{user.first_name}} 
+  {{/answers}}
 
 
  

@@ -49,13 +49,14 @@ function getAnswers () {
   
   request("GET", '/questions/' + questionId + '/answers', null).done(function(response) {
     console.log(response);
-    var source = $("#question-comments-tpl").html();
+    var source = $("#answers-tpl").html();
     var template = Handlebars.compile(source);
-    $("#comments-container").html(template(response));
+    $("#answers-container").html(template(response));
   });
 };
 
 $(document).ready(function() {
   getQuestion();
   getQuestionComments ();
+  getAnswers();
 });
