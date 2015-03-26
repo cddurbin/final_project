@@ -7,29 +7,29 @@ function request(method, url, data) {
           })
 }
 
+
+
 function getQuestion(){
   var questionId = $('#question-container').attr('value');
   console.log(questionId);
   request("GET", '/questions/' + questionId, null).done(function(response) {
     console.log(response);
-    var source = $("#questiontpl").html();
-    var template = Handlebars.compile(source);
-    var votes = response.votes
-    console.log(votes);
-    $("#question-container").html(template(response));
     Handlebars.registerHelper('voteTotal', function(votes) {
       var scores = []
-      for (var i = 0; i <= votes.length; i++) {
-        console.log(i);
-        scores.push(i);
-        console.log(scores);
-        $.each(arr,function() {
-            total += this;
-        });
-        
-
-      };;
+      var total = 0;
+      for(var i = 0; i < votes.length; i++){
+        var vote = votes[i];
+        scores.push(vote.score);
+      }
+      console.log(scores);
+      $.each(scores,function() {
+        total += parseInt(this);
+      });
+      return total;
     });
+    var source = $("#questiontpl").html();
+    var template = Handlebars.compile(source);
+    $("#question-container").html(template(response));
   });
 };
 
