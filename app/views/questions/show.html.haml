@@ -7,11 +7,18 @@
     %h1 {{ title }}
     %h3 {{ content }}
   .comments 
-    {{#comments}} {{ content }} {{ commentable_type }} {{/comments}}
+    {{#comments}} 
+    %p {{ content }} 
+    %p {{ commentable_type }} 
+    {{/comments}}
   .answers 
-    {{#answers}} {{ accepted }} {{/answers}}
+    {{#answers}} 
+    %p {{ accepted }} 
+    {{/answers}}
   .votes
-    {{#votes}} {{ score }} {{/votes}}
+    {{#votes}} 
+    %p {{ score }} 
+    {{/votes}}
     
 
   

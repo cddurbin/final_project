@@ -18,8 +18,16 @@ function getQuestion(){
     console.log(votes);
     $("#question-container").html(template(response));
     Handlebars.registerHelper('voteTotal', function(votes) {
+      var scores = []
       for (var i = 0; i <= votes.length; i++) {
-        console.log(votes.score);
+        console.log(i);
+        scores.push(i);
+        console.log(scores);
+        $.each(arr,function() {
+            total += this;
+        });
+        
+
       };;
     });
   });
