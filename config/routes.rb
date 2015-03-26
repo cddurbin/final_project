@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     resources :watches
   end
 
+  #question routes
+  # get '/patients/:id', to: 'patients#show', as: 'patient'
+
 
 
   # Example of regular route:

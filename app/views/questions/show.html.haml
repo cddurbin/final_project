@@ -6,41 +6,13 @@
   .question
     %h1 {{ title }}
     %h3 {{ content }}
-  .comments 
-    {{#comments}} 
-    %p {{ content }} 
-    %p {{ commentable_type }} 
-    {{/comments}}
-  .answers 
-    {{#answers}} 
-    %p {{ accepted }} 
+    %h3 {{ user.first_name  }}
+  .answers
+    %h1 Answer
+    {{#answers}}
+    %p {{ content }}
+    %p {{user.first_name}} 
     {{/answers}}
-  .votes
-    %p {{voteTotal votes}} 
-    
-    
-    
-
   
-
-  
-    
-    
--# %script{ id: 'questiontpl', type: 'text/template'}
--#   .question{ value: @question.id }
--#     %h1 {{ title }}
--# .test
--# .question{ value: @question.id }
--#   %h1= @question.title
--#   %p= @question.content.html_safe
--#   %p Comment
--#   - @question.comments.each do |comment| 
--#     %p= comment.content
--#   - @question.answers.each do |answer|
--#     %p= answer.content
--#   %h3= @question.votes.map { |vote| vote.score }.inject(:+)
--#   - @question.watchers.each do |watcher| 
--#     = watcher.first_name
--#   %h3= @question.watchers.count
   
  
