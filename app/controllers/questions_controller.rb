@@ -6,10 +6,12 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+
     respond_to do |format|
       format.html
-      format.json { render json: @question}
+      format.json { render json: @question.as_json(include: {user: {}, comments: {}, answers: {}, votes: {}, watches: {}, watchers: {} })}
     end
+
   end
 
   def new
