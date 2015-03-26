@@ -4,6 +4,7 @@
 #question-container{ value: @question.id}
 #comments-container
 #answers-container
+
 #answer-comments-container
 
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
@@ -23,28 +24,26 @@
 %script{ id: 'answers-tpl', type: 'text/x-handlebars-template'}
   %h1 Answer
   {{#answers}}
-  .answer-container{ id: 'answer-{{ id }}',  value: '{{ id }}'}
-  %button
+  .answer-container{ id: 'answer-{{ id }}', value: '{{ id }}'}
   %p {{ content }}
   %p {{user.first_name}}
-  -# %p {{< answer-comment }} 
+  %button{:data=>{:id =>'{{id}}'}} Comments
+  -# %p {{> answer-comment }} 
   {{/answers}}
 
--# %script{ id: 'answer-comment-partial', type: 'text/x-handlebars-template'}
--#   %h3 Comments
--#   {{#comments}}
--#   .comment-container{ id: 'comment-{{ id }}'}
--#   %p {{ content }}
--#   %p {{user.first_name}} 
--#   {{/comments}}
-
-%script{ id: 'answer-comment-tpl', type: 'text/x-handlebars-template'}
-  %h3 Comments
+%script{ id: 'answer-comment-partial', type: 'text/x-handlebars-template'}
   {{#comments}}
   .comment-container{ id: 'comment-{{ id }}'}
   %p {{ content }}
   %p {{user.first_name}} 
   {{/comments}}
+
+-# %script{ id: 'answer-comments-tpl', type: 'text/x-handlebars-template'}
+-#   {{#comments}}
+-#   .comment-container{ id: 'comment-{{ id }}'}
+-#   %p {{ content }}
+-#   %p {{user.first_name}} 
+-#   {{/comments}}
 
 
  

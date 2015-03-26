@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   
   def index
-    
     @question = Question.find(params[:question_id])
     respond_to do |format|
       format.html

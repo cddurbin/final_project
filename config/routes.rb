@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'answers/index'
+  # get 'answers/index'
 
-  get 'comments/index'
+  # get 'comments/index'
+
+  get '/answers/:answer_id/comments', to: 'answers#get_comments'
 
   devise_for :users
 
