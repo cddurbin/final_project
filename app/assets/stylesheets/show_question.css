@@ -1,13 +1,10 @@
-#answer-comments-container {
-  display: none;
-}
-
 .answer-container {
   border: 1px solid red;
 }
 
-#answer-comments-container {
+.answer-comments-container {
   background-color: green;
+  display: none;
 }
 
 .question-comments-container {

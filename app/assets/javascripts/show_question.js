@@ -65,7 +65,7 @@ function toggleQuestionComments () {
 function toggleAnswerComments () {
   $('#answers-container').on('click', '#answer-comments-btn', function() {
   console.log('clicked');
-    $('#answer-comments-container').toggle();
+    $('.answer-comments-container').toggle();
   });
 };
 
