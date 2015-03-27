@@ -55,6 +55,13 @@ function getAnswers () {
   });
 };
 
+function toggleAnswerComments () {
+  $('#answers-container').on('click', '#answer-comments-btn', function() {
+  console.log('clicked');
+    $('#answer-comments-container').toggle();
+  });
+};
+
 // function getAnswerComments (answerId) {
 //   request("GET", '/answers/' + answerId + '/comments', null).done(function(response) {
 //     console.log(response);
@@ -75,10 +82,8 @@ $(document).ready(function() {
   getQuestion();
   getQuestionComments ();
   getAnswers();
-  $('#answers-container').on('click', '#answer-comments-btn', function() {
-    console.log('clicked');
-    $('#answer-comments-container').toggle();
-  })
+  toggleAnswerComments ()
+  
   
  
 });
