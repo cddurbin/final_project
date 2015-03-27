@@ -17,8 +17,8 @@
   .question-comments-container
     {{#comments}}
     .question-comment-container{ id: 'question-comment-{{ id }}'}
-    %p {{ content }}
-    %p {{user.first_name}} 
+      %p {{ content }}
+      %p {{user.first_name}} 
     {{/comments}}
   
 -# %script{ id: 'question-comments-tpl', type: 'text/x-handlebars-template'}
@@ -37,11 +37,11 @@
     .answer-user
       %p {{user.first_name}}
   %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
-  .answer-comments-container
+  .answer-comments-container{ id: 'answer-comments-{{ id }}'}
     {{#comments}}
     .answer-comment-container{ id: 'answer-comment-{{ id }}'}
-    %p {{ content }}
-    %p {{ user.last_name }}
+      %p {{ content }}
+      %p {{ user.last_name }}
     {{/comments}}
     -# %p {{> answer-comment}} 
   {{/answers}}
