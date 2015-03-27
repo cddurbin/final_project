@@ -69,6 +69,10 @@ function toggleAnswerComments () {
   });
 };
 
+function loadAnswerEditor () {
+  CKEDITOR.replace('answer-editor');
+}
+
 // function getAnswerComments (answerId) {
 //   request("GET", '/answers/' + answerId + '/comments', null).done(function(response) {
 //     console.log(response);

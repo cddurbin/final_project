@@ -1,9 +1,11 @@
-
 .row
   .small-2.columns
   .small-8.small-centered.columns
     #question-container{ value: @question.id}
     #answers-container
+    #answer-editor-container
+      %form
+        %textarea#editor1{:cols => "80", :name => "editor1", :rows => "10"}
   .small-2.columns
 
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
@@ -45,6 +47,10 @@
     {{/comments}}
     -# %p {{> answer-comment}} 
   {{/answers}}
+  
+
+             
+  
 
 -# %script{ id: 'answer-comment-partial', type: 'text/x-handlebars-template'}
 -#   {{#comments}}
