@@ -14,7 +14,7 @@
     %h3 {{ user.first_name  }}
   
 %script{ id: 'question-comments-tpl', type: 'text/x-handlebars-template'}
-  %h3 Comments
+  %h4 Comments
   {{#comments}}
   .comment-container{ id: 'comment-{{ id }}'}
   %p {{ content }}
@@ -22,18 +22,18 @@
   {{/comments}}
 
 %script{ id: 'answers-tpl', type: 'text/x-handlebars-template'}
-  %h1 Answer
+  %h3 Answer
   {{#answers}}
   .answer-container{ id: 'answer-{{ id }}', value: '{{ id }}'}
   %p {{ content }}
   %p {{user.first_name}}
-  %button{:data=>{:id =>'{{id}}'}} Comments
-  .answer-comments-container
-  {{#comments}}
-  %p {{ content }}
-  %p {{ user.last_name }}
-  {{/comments}}
-  -# %p {{> answer-comment}} 
+  %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
+  #answer-comments-container
+    {{#comments}}
+    %p {{ content }}
+    %p {{ user.last_name }}
+    {{/comments}}
+    -# %p {{> answer-comment}} 
   {{/answers}}
 
 -# %script{ id: 'answer-comment-partial', type: 'text/x-handlebars-template'}

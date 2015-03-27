@@ -1,3 +1,11 @@
-#templates {
+#answer-comments-container {
   display: none;
+}
+
+.answer-container {
+  border: 1px solid red;
+}
+
+#answer-comments-container {
+  background-color: green;
 }

@@ -65,15 +65,20 @@ function getAnswers () {
 //     $(".answers-comments-container").html(template(response));
 //   });
 // };
+// $('#answers-container').on('click', 'button', function() {
+//   var answerId = $(this).data('id');
+//   console.log(answerId);
+//   getAnswerComments (answerId);
+// });
 
 $(document).ready(function() {
   getQuestion();
   getQuestionComments ();
   getAnswers();
+  $('#answers-container').on('click', '#answer-comments-btn', function() {
+    console.log('clicked');
+    $('#answer-comments-container').toggle();
+  })
   
-  $('#answers-container').on('click', 'button', function() {
-    var answerId = $(this).data('id');
-    console.log(answerId);
-    getAnswerComments (answerId);
-  });
+ 
 });
