@@ -9,7 +9,6 @@ function request(method, url, data) {
 
 function getQuestion(){
   var questionId = $('#question-container').attr('value');
-  
   request("GET", '/questions/' + questionId, null).done(function(response) {
     console.log(response);
 
@@ -103,21 +102,20 @@ function removeAnswerEditor () {
 };
 
 function submitAnswer (){
-  var value = CKEDITOR.instances['my-editor'].getData();
+  var data = CKEDITOR.instances['add-answer-editor'].getData();
+  console.log(data);
+  var questionId = $('#question-container').attr('value');
+  request("POST", '/questions/' + questionId + '/answers', {answer:{content: data}}).done
 }
 
 $(document).ready(function() {
   getQuestion();
   toggleQuestionComments ();
-  // getQuestionComments ();
+
   getAnswers();
   toggleAnswerComments ();
  
-
-  // $('#answer-submit').on('click', function (){
-  //   var data = CKEDITOR.instances.answer-editor.getData();
-  //   console.log(data);
-  // });
   $('#add-answer-btn').on('click', createAnswerEditor);
+  $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
 
 });

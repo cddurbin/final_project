@@ -7,6 +7,11 @@ class AnswersController < ApplicationController
     end
   end
 
+  def create
+    @answer = Answer.create(params.require(:answer).permit(:content))
+    render json: @answer, status: :created
+  end
+
   def get_comments
     @answer = Answer.find(params[:answer_id])
     respond_to do |format|
