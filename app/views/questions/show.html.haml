@@ -2,9 +2,9 @@
   .small-2.columns
   .small-8.small-centered.columns
     #question-container{ value: @question.id, :name => @question.user.first_name }
-    #submit-answer-container
-      %button#submit-answer-btn Help #{@question.user.first_name} out.
-      #submit-answer-editor
+    #add-answer-container
+      %button#add-answer-btn Help #{@question.user.first_name} out.
+      #add-answer-editor
     #answers-container 
       -# %form
       -#   %textarea#answer-editor{:cols => "80", :name => "answer-editor", :rows => "10"}

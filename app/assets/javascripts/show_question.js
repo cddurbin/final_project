@@ -69,10 +69,6 @@ function toggleAnswerComments () {
   });
 };
 
-function loadAnswerEditor () {
-  // CKEDITOR.replace('answer-editor');
-}
-
 
 // function getAnswerComments (answerId) {
 //   request("GET", '/answers/' + answerId + '/comments', null).done(function(response) {
@@ -92,14 +88,14 @@ function loadAnswerEditor () {
 
 
 function createAnswerEditor () {
-  $('#submit-answer-btn').off('click').on('click', removeAnswerEditor);
-  CKEDITOR.appendTo('submit-answer-editor');
+  $('#add-answer-btn').off('click').on('click', removeAnswerEditor);
+  CKEDITOR.appendTo('add-answer-editor');
   $(this).text('Nevermind');
 };
 
 function removeAnswerEditor () {
-  $('#submit-answer-editor').empty();
-  $('#submit-answer-btn').off('click').on('click', createAnswerEditor);
+  $('#add-answer-editor').empty();
+  $('#add-answer-btn').off('click').on('click', createAnswerEditor);
   var user_name = $('#question-container').attr('name');
   $(this).text('Help ' + user_name + ' out.');
 };
@@ -110,16 +106,12 @@ $(document).ready(function() {
   // getQuestionComments ();
   getAnswers();
   toggleAnswerComments ();
-  // loadAnswerEditor ();
+ 
 
   // $('#answer-submit').on('click', function (){
   //   var data = CKEDITOR.instances.answer-editor.getData();
   //   console.log(data);
   // });
-  $('#submit-answer-btn').on('click', createAnswerEditor);
+  $('#add-answer-btn').on('click', createAnswerEditor);
 
-
-  
-  
- 
 });
