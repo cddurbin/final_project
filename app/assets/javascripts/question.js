@@ -55,15 +55,16 @@ function getAnswers () {
   });
 };
 
-function getAnswerComments (answerId) {
-  request("GET", '/answers/' + answerId + '/comments', null).done(function(response) {
-    console.log(response);
-    var source = $("#answers-tpl").html();
-    var template = Handlebars.compile(source);
-    $("#answers-container").html(template(response));
-    // Handlebars.registerPartial("answer-comment", $("#answer-comment-partial").html());
-  });
-};
+// function getAnswerComments (answerId) {
+//   request("GET", '/answers/' + answerId + '/comments', null).done(function(response) {
+//     console.log(response);
+
+//     // Handlebars.registerPartial("answer-comment", $("#answer-comment-partial").html(response));
+//     var source = $("#answer-comments-tpl").html();
+//     var template = Handlebars.compile(source);
+//     $(".answers-comments-container").html(template(response));
+//   });
+// };
 
 $(document).ready(function() {
   getQuestion();
