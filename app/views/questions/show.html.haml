@@ -7,8 +7,10 @@
   .small-2.columns
 
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
-  %h1 {{ title }}
-  %h3 {{ content }}
+  .question-title
+    %h1 {{ title }}
+  .question-content
+    %h3 {{ content }}
   .question-user
     %h4 {{ user.first_name  }}
   %button{ id: 'question-comments-btn', :data=>{:id =>'{{id}}'} } Comments
