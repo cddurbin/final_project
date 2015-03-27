@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.create(params.require(:answer).permit(:content))
+    @answer = Answer.create(params.require(:answer).permit(:content, :question_id, :user_id))
     render json: @answer, status: :created
   end
 

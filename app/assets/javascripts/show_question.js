@@ -105,7 +105,10 @@ function submitAnswer (){
   var data = CKEDITOR.instances['add-answer-editor'].getData();
   console.log(data);
   var questionId = $('#question-container').attr('value');
-  request("POST", '/questions/' + questionId + '/answers', {answer:{content: data}}).done
+  request("POST", '/questions/' + questionId + '/answers', {answer:{content: data, question_id: questionId, user_id: 4 }}).done(function(){
+    console.log('done');
+    getAnswers();
+  });
 }
 
 $(document).ready(function() {
