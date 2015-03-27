@@ -33,16 +33,16 @@ function getQuestion(){
   });
 };
 
-function getQuestionComments () {
-  var questionId = $('#question-container').attr('value');
+// function getQuestionComments () {
+//   var questionId = $('#question-container').attr('value');
   
-  request("GET", '/questions/' + questionId + '/comments', null).done(function(response) {
-    console.log(response);
-    var source = $("#question-comments-tpl").html();
-    var template = Handlebars.compile(source);
-    $("#comments-container").html(template(response));
-  });
-};
+//   request("GET", '/questions/' + questionId + '/comments', null).done(function(response) {
+//     console.log(response);
+//     var source = $("#question-comments-tpl").html();
+//     var template = Handlebars.compile(source);
+//     $("#question-comments-container").html(template(response));
+//   });
+// };
 
 function getAnswers () {
   var questionId = $('#question-container').attr('value');
@@ -52,6 +52,13 @@ function getAnswers () {
     var source = $("#answers-tpl").html();
     var template = Handlebars.compile(source);
     $("#answers-container").html(template(response));
+  });
+};
+
+function toggleQuestionComments () {
+  $("#question-container").on('click', '#question-comments-btn', function() {
+  console.log('clicked');
+    $('.question-comments-container').toggle();
   });
 };
 
@@ -80,9 +87,11 @@ function toggleAnswerComments () {
 
 $(document).ready(function() {
   getQuestion();
-  getQuestionComments ();
+  toggleQuestionComments ()
+  // getQuestionComments ();
   getAnswers();
   toggleAnswerComments ()
+
   
   
  

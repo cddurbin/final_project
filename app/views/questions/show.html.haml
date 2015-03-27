@@ -3,23 +3,28 @@
   .small-2.columns
   .small-8.small-centered.columns
     #question-container{ value: @question.id}
-    #comments-container
     #answers-container
   .small-2.columns
 
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
-  .question
-    %h1 {{ title }}
-    %h3 {{ content }}
-    %h3 {{ user.first_name  }}
+  %h1 {{ title }}
+  %h3 {{ content }}
+  %h3 {{ user.first_name  }}
+  %button{ id: 'question-comments-btn', :data=>{:id =>'{{id}}'} } Comments
+  .question-comments-container
+    {{#comments}}
+    .question-comment-container{ id: 'comment-{{ id }}'}
+    %p {{ content }}
+    %p {{user.first_name}} 
+    {{/comments}}
   
-%script{ id: 'question-comments-tpl', type: 'text/x-handlebars-template'}
-  %h4 Comments
-  {{#comments}}
-  .comment-container{ id: 'comment-{{ id }}'}
-  %p {{ content }}
-  %p {{user.first_name}} 
-  {{/comments}}
+-# %script{ id: 'question-comments-tpl', type: 'text/x-handlebars-template'}
+-#   %h4 Comments
+-#   {{#comments}}
+-#   .comment-container{ id: 'comment-{{ id }}'}
+-#   %p {{ content }}
+-#   %p {{user.first_name}} 
+-#   {{/comments}}
 
 %script{ id: 'answers-tpl', type: 'text/x-handlebars-template'}
   %h3 Answer

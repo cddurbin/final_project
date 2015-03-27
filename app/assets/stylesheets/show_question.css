@@ -9,3 +9,7 @@
 #answer-comments-container {
   background-color: green;
 }
+
+.question-comments-container {
+  display: none;
+}
