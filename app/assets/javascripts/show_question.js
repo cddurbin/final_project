@@ -70,8 +70,9 @@ function toggleAnswerComments () {
 };
 
 function loadAnswerEditor () {
-  CKEDITOR.replace('answer-editor');
+  // CKEDITOR.replace('answer-editor');
 }
+
 
 // function getAnswerComments (answerId) {
 //   request("GET", '/answers/' + answerId + '/comments', null).done(function(response) {
@@ -89,12 +90,34 @@ function loadAnswerEditor () {
 //   getAnswerComments (answerId);
 // });
 
+function createAnswerEditor () {
+  var button = $('#answer-btn');
+  button.text('Nevermind');
+  CKEDITOR.appendTo('answer-editor-container');
+};
+
+function removeAnswerEditor () {
+  var button = $('#answer-btn');
+  button.text('Nevermind');
+  CKEDITOR.appendTo('answer-editor-container');
+};
+
 $(document).ready(function() {
   getQuestion();
-  toggleQuestionComments ()
+  toggleQuestionComments ();
   // getQuestionComments ();
   getAnswers();
-  toggleAnswerComments ()
+  toggleAnswerComments ();
+  // loadAnswerEditor ();
+
+  // $('#answer-submit').on('click', function (){
+  //   var data = CKEDITOR.instances.answer-editor.getData();
+  //   console.log(data);
+  // });
+  $('#answer-btn').on('click', createAnswerEditor);
+  
+
+  $('').on('click', '#remove')
 
   
   

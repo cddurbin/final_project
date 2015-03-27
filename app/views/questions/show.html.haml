@@ -3,9 +3,14 @@
   .small-8.small-centered.columns
     #question-container{ value: @question.id}
     #answers-container
+    %button#answer-btn
     #answer-editor-container
-      %form
-        %textarea#editor1{:cols => "80", :name => "editor1", :rows => "10"}
+      -# %form
+      -#   %textarea#answer-editor{:cols => "80", :name => "answer-editor", :rows => "10"}
+      -#   %button{ id: 'answer-sumbit'} Submit
+      -#   %script
+      -#     CKEDITOR.replace('answer-editor');
+
   .small-2.columns
 
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
