@@ -4,7 +4,7 @@
     #question-container{ value: @question.id, :name => @question.user.first_name }
     #add-answer-container
       %button#add-answer-btn Help #{@question.user.first_name} out.
-      #add-answer-editor
+      #answer-editor-container
     #answers-container 
       -# %form
       -#   %textarea#answer-editor{:cols => "80", :name => "answer-editor", :rows => "10"}

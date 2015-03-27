@@ -88,17 +88,23 @@ function toggleAnswerComments () {
 
 
 function createAnswerEditor () {
+  $('#answer-editor-container').append("<textarea id='add-answer-editor'></textarea><input type='button' text='Submit' id='answer-submit'></input>")
   $('#add-answer-btn').off('click').on('click', removeAnswerEditor);
-  CKEDITOR.appendTo('add-answer-editor');
+  CKEDITOR.replace('add-answer-editor');
   $(this).text('Nevermind');
 };
 
 function removeAnswerEditor () {
-  $('#add-answer-editor').empty();
+  CKEDITOR.instances['add-answer-editor'].destroy();
+  $('#answer-editor-container').empty();
   $('#add-answer-btn').off('click').on('click', createAnswerEditor);
   var user_name = $('#question-container').attr('name');
   $(this).text('Help ' + user_name + ' out.');
 };
+
+function submitAnswer (){
+  var value = CKEDITOR.instances['my-editor'].getData();
+}
 
 $(document).ready(function() {
   getQuestion();
