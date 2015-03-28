@@ -1,11 +1,20 @@
-#questions-container 
-  %h1 hello
--# %script{ id: 'questions-tpl', type: 'text/x-handlebars-template'}
--#   {{#questions}}
--#   .question-title
--#     %h1 {{{ title }}}
--#   .question-content
--#     %h3 {{{ content }}}
--#   .question-user
--#     %h4 {{{ user.first_name  }}}
--#   {{/questions}}
+#wrapper
+  .row
+    .small-2.columns
+    .small-8.small-centered.columns
+      - @questions.each do |question| 
+        %h3= question.title
+        %h5= question.content
+        %p= question.user
+      #questions-container 
+    .small-2.columns
+
+%script{ id: 'questions-tpl', type: 'text/x-handlebars-template'}
+  %h3 Questions
+  {{#questions}}
+  .question-container.index{ id: 'question-{{ id }}', value: '{{ id }}'}
+    %h3 {{ title }}
+    %p {{ content }}
+    .question-user.index{ id: 'user-{{ id }}', value: '{{ id }}'}
+      %p {{user.first_name}}
+  {{/questions}}

@@ -15,17 +15,15 @@
       %ul.title-area
         %li.name
           %h1
-            %li= link_to(image_tag('ga_logo.png', class:'img-thumbnail'), root_path)
+            %li= link_to(image_tag('ga_logo.png', class:'ga-logo'), root_path)
         
-        
-
       %section.top-bar-section
         / Right Nav Section
         %ul.right
           - if user_signed_in?
             %li.has-dropdown
               %a{:href => "#"}
-                %img{:src => "https://ga-core-production-herokuapp-com.global.ssl.fastly.net/assets/account-icon-502b44fc640bc09ce0de7dcabe84f35f.svg"}/
+                = image_tag('ga_account_icon.svg', class:'ga-account')
               %ul.dropdown
                 %li= link_to 'Logout', 'destroy_user_session_path, :method => :delete'
                 %li.active= link_to 'MY ACCOUNT', user_path(current_user)
@@ -34,7 +32,7 @@
               %li= link_to 'Login', new_user_session_path
               %li.active= link_to 'Register', new_user_registration_path
              
-          
-    %p.notice= notice
-    %p.alert= alert
-    = yield
+    #main-container      
+      %p.notice= notice
+      %p.alert= alert
+      = yield
