@@ -1,0 +1,41 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "foundation-rails"
+    %link{:href => "http://fonts.googleapis.com/css?family=Varela+Round", :rel => "stylesheet", :type => "text/css"}/
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/modernizr"
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    
+  %body
+    %nav.top-bar{"data-topbar" => "", :role => "navigation"}
+      %ul.title-area
+        %li.name
+          %h1
+            %a{:href => "#"} Open Forum
+        
+        %li.toggle-topbar.menu-icon
+          %a{:href => "#"}= image_tag "ga_logo.png"
+
+      %section.top-bar-section
+        / Right Nav Section
+        %ul.right
+          - if user_signed_in?
+            %li.has-dropdown
+              %a{:href => "#"}
+                %img{:src => "https://ga-core-production-herokuapp-com.global.ssl.fastly.net/assets/account-icon-502b44fc640bc09ce0de7dcabe84f35f.svg"}/
+              %ul.dropdown
+                %li= link_to 'Logout', destroy_user_session_path, :method => :delete
+                %li.active= link_to 'MY ACCOUNT', user_path(current_user)
+          - else
+            %ul
+              %li= link_to('Login', new_user_session_path)
+              %li.active= link_to('Register', new_user_registration_path)
+             
+          
+    %p.notice= notice
+    %p.alert= alert
+    = yield

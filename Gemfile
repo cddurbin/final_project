@@ -4,6 +4,14 @@ gem "haml-rails", "~> 0.9"
 gem 'devise'
 gem 'ckeditor'
 gem 'foundation-rails'
+gem 'html2haml'
+gem 'ransack'
+gem 'carrierwave'
+gem 'rmagick'
+gem 'rails_12factor', group: :production
+gem 'cancancan', '~> 1.10'
+
+gem 'fog'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
