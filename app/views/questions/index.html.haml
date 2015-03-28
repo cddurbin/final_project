@@ -1,0 +1,11 @@
+#questions-container
+
+%script{ id: 'questions-tpl', type: 'text/x-handlebars-template'}
+  {{#questions}}
+  .question-title
+    %h1 {{{ title }}}
+  .question-content
+    %h3 {{{ content }}}
+  .question-user
+    %h4 {{{ user.first_name  }}}
+  {{/questions}}

@@ -2,6 +2,11 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @questions.as_json(include: { user: {}})}
+    end
   end
 
   def show
