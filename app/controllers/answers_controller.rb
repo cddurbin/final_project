@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  
   def index
     @question = Question.find(params[:question_id])
     respond_to do |format|
