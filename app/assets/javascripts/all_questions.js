@@ -26,5 +26,5 @@ function getAllQuestions(){
 };
 
 $(document).ready(function(){
-  getAllQuestions();
+  // getAllQuestions();
 });

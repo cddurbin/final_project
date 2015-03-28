@@ -17,17 +17,25 @@
  */
 
 
- *{
-   /*font-family: 'Open Sans Condensed', sans-serif;*/
-   font-family: 'Varela Round', sans-serif;
- }
- body{
-   font-size: 0;
-   width:100%;
- }
+*{
+ /*font-family: 'Open Sans Condensed', sans-serif;*/
+ font-family: 'Varela Round', sans-serif;
+}
+
+div {
+  border: 2px solid #ff0000;
+}
+
+body {
+ font-size: 0;
+ width:100%;
+}
+
+.top-bar {
+ height: 3.5 rem;
+}
 
 
-
- .top-bar {
-   height: 3.5 rem;
- }
+.name img {
+  width:200px;
+}

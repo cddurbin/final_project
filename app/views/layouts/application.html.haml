@@ -7,7 +7,7 @@
     %link{:href => "http://fonts.googleapis.com/css?family=Varela+Round", :rel => "stylesheet", :type => "text/css"}/
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
-    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = javascript_include_tag "application"
     = csrf_meta_tags
     
   %body
@@ -15,10 +15,9 @@
       %ul.title-area
         %li.name
           %h1
-            %a{:href => "#"} Open Forum
+            %li= link_to(image_tag('ga_logo.png', class:'img-thumbnail'), root_path)
         
-        %li.toggle-topbar.menu-icon
-          %a{:href => "#"}= image_tag "ga_logo.png"
+        
 
       %section.top-bar-section
         / Right Nav Section
@@ -28,12 +27,12 @@
               %a{:href => "#"}
                 %img{:src => "https://ga-core-production-herokuapp-com.global.ssl.fastly.net/assets/account-icon-502b44fc640bc09ce0de7dcabe84f35f.svg"}/
               %ul.dropdown
-                %li= link_to 'Logout', destroy_user_session_path, :method => :delete
+                %li= link_to 'Logout', 'destroy_user_session_path, :method => :delete'
                 %li.active= link_to 'MY ACCOUNT', user_path(current_user)
           - else
             %ul
-              %li= link_to('Login', new_user_session_path)
-              %li.active= link_to('Register', new_user_registration_path)
+              %li= link_to 'Login', new_user_session_path
+              %li.active= link_to 'Register', new_user_registration_path
              
           
     %p.notice= notice
