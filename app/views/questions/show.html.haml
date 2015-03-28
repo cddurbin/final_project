@@ -6,27 +6,21 @@
       %button#add-answer-btn Help #{@question.user.first_name} out.
       #answer-editor-container
     #answers-container 
-      -# %form
-      -#   %textarea#answer-editor{:cols => "80", :name => "answer-editor", :rows => "10"}
-      -#   %button{ id: 'answer-sumbit'} Submit
-      -#   %script
-      -#     CKEDITOR.replace('answer-editor');
-
   .small-2.columns
 
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
   .question-title
-    %h1 {{ title }}
+    %h1 {{{ title }}}
   .question-content
-    %h3 {{ content }}
+    %h3 {{{ content }}}
   .question-user
-    %h4 {{ user.first_name  }}
+    %h4 {{{ user.first_name  }}}
   %button{ id: 'question-comments-btn', :data=>{:id =>'{{id}}'} } Comments
   .question-comments-container
     {{#comments}}
     .question-comment-container{ id: 'question-comment-{{ id }}'}
-      %p {{ content }}
-      %p {{user.first_name}} 
+      %p {{{ content }}}
+      %p {{{user.first_name}}} 
     {{/comments}}
 
 
@@ -43,15 +37,15 @@
   %h3 Answer
   {{#answers}}
   .answer-container{ id: 'answer-{{ id }}', value: '{{ id }}'}
-    %p {{ content }}
+    %p {{{ content }}}
     .answer-user
-      %p {{user.first_name}}
+      %p {{{user.first_name}}}
   %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
   .answer-comments-container{ id: 'answer-comments-{{ id }}'}
     {{#comments}}
     .answer-comment-container{ id: 'answer-comment-{{ id }}'}
-      %p {{ content }}
-      %p {{ user.last_name }}
+      %p {{{ content }}}
+      %p {{{ user.last_name }}}
     {{/comments}}
     -# %p {{> answer-comment}} 
   {{/answers}}

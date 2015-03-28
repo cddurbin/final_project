@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title GA Overflow
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300", :rel => "stylesheet"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Varela+Round", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"}
+    = csrf_meta_tags
+  %body
+    %nav.top-bar{"data-topbar" => "", :role => "navigation"}
+      %ul.title-area
+        %li.name
+          %h1
+            %a{:href => "#"} Open Forum
+        / Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
+        %li.toggle-topbar.menu-icon
+          %a{:href => "#"}
+            %img{:src => "assets/images/ga_logo.png"}/
+      %section.top-bar-section
+        / Right Nav Section
+        %ul.right
+          / <li class="active"><a href="#">Right Button Active</a></li>
+          %li.has-dropdown
+            %a{:href => "#"}
+              %img{:src => "https://ga-core-production-herokuapp-com.global.ssl.fastly.net/assets/account-icon-502b44fc640bc09ce0de7dcabe84f35f.svg"}/
+            %ul.dropdown
+              %li
+                %a{:href => "#"} First link in dropdown
+              %li.active
+                %a{:href => "#"} Active link in dropdown
+    %p.notice= notice
+    %p.alert= alert
+    = yield

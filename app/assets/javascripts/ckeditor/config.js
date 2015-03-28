@@ -19,7 +19,7 @@ CKEDITOR.editorConfig = function( config ) {
     { name: 'paragraph',   groups: [ 'list', 'blocks' ] },
     // { name: 'editing',     groups: [ 'spellchecker' ] },
     { name: 'links' },
-    { name: 'insert' }, 
+    { name: 'insert', groups: [ 'codesnippet']},
     // { name: 'forms' },
     // { name: 'tools' },
     { name: 'document',    groups: [ 'mode', 'document', 'doctools', 'undo' ] },
@@ -37,7 +37,7 @@ CKEDITOR.editorConfig = function( config ) {
 
   config.removePlugins = 'elementspath,save,font,find,selection,selectall, flash, image, maximize, showblocks, templates, smiley, iframe, newpage, preview, print, pastefromword';
 
-  config.extraPlugins = 'codeTag';
+  config.extraPlugins = 'codeTag', 'codesnippet';
 
   config.skin = 'minimalist';
 
