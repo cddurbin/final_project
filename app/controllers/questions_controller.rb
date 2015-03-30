@@ -2,8 +2,8 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
-    @questions = Question.all
-
+    @questions = Question.all.order('created_at DESC')
+    
     respond_to do |format|
       format.html 
       format.json { render json: @questions.as_json(include: { user: {} })}

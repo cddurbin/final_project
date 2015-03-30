@@ -1,25 +1,38 @@
 #wrapper
   .row
-    .small-2.columns
-    .small-8.small-centered.columns
+    .small-12.columns
       .questions-container
-        - @questions.each do |question|
-          .index-question-container
-            .index-question-title 
-              %h1= link_to("#{question.title}", question_path(question))
-            .index-question-user
-              .user-image
-              .user-name
-                %h2= question.user.first_name
-              .user-courseapp
-                %h3= question.user.ga_course
-              .submitted
-                %h3= "Submitted on #{question.created_at}"
-            %button.more-content More
-            .index-question-content
-              %p= raw question.content
-          -#   %p= question.user 
-    .small-2.columns
+        .row
+          - @questions.each do |question|
+            .small-2.columns
+              .index-question-stats
+                .vote-total
+                  %h3= question.votes.map {|vote| vote.score}.inject(:+)
+                  %h3 Votes
+            .small-10.columns
+              .question-container.index
+                .question-title.index
+                  %h1= link_to("#{question.title}", question_path(question))
+                .question-details.index
+                  .row
+                    .small-6.columns
+                      .question-tags.index
+                        %h4 Tags Tags Tags
+                      %button.more-content More
+                    .small-6.columns
+                      .question-user.index
+                        .user-image
+                        .ul.user-details
+                          %li.user-name
+                            %h2= question.user.first_name
+                          %li.user-course
+                            %h3= question.user.ga_course.upcase
+                            %h3= question.user.location
+                          %li.submit-date
+                            %h3= "Submitted on #{question.created_at}"
+                .index-question-content
+                  %p= raw question.content
+            
 
 -# %script{ id: 'questions-tpl', type: 'text/x-handlebars-template'}
 -#   %h3 Questions

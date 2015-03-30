@@ -6,4 +6,7 @@ class Question < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :watches
   has_many :watchers, through: :watches
+
+ 
+
 end
