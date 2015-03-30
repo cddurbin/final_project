@@ -1,47 +1,13 @@
-function request(method, url, data) {
-  return $.ajax({
-            url: url,
-            method: method,
-            dataType: "json",
-            data: data
-          })
-}
-
 function getQuestion(){
   var questionId = $('#question-container').attr('value');
   request("GET", '/questions/' + questionId, null).done(function(response) {
     console.log(response);
-
-    // Handlebars.registerHelper('voteTotal', function(votes) {
-    //   var scores = []
-    //   var total = 0;
-    //   for(var i = 0; i < votes.length; i++){
-    //     var vote = votes[i];
-    //     scores.push(vote.score);
-    //   }
-      
-    //   $.each(scores,function() {
-    //     total += parseInt(this);
-    //   });
-    //   return total;
-    // });
 
     var source = $("#question-tpl").html();
     var template = Handlebars.compile(source);
     $("#question-container").html(template(response));
   });
 };
-
-// function getQuestionComments () {
-//   var questionId = $('#question-container').attr('value');
-  
-//   request("GET", '/questions/' + questionId + '/comments', null).done(function(response) {
-//     console.log(response);
-//     var source = $("#question-comments-tpl").html();
-//     var template = Handlebars.compile(source);
-//     $("#question-comments-container").html(template(response));
-//   });
-// };
 
 function getAnswers () {
   var questionId = $('#question-container').attr('value');
@@ -67,24 +33,6 @@ function toggleAnswerComments () {
     $(this).next().toggle();
   });
 };
-
-
-// function getAnswerComments (answerId) {
-//   request("GET", '/answers/' + answerId + '/comments', null).done(function(response) {
-//     console.log(response);
-
-//     // Handlebars.registerPartial("answer-comment", $("#answer-comment-partial").html(response));
-//     var source = $("#answer-comments-tpl").html();
-//     var template = Handlebars.compile(source);
-//     $(".answers-comments-container").html(template(response));
-//   });
-// };
-// $('#answers-container').on('click', 'button', function() {
-//   var answerId = $(this).data('id');
-//   console.log(answerId);
-//   getAnswerComments (answerId);
-// });
-
 
 function createAnswerEditor () {
   $('#answer-editor-container').append("<textarea id='add-answer-editor'></textarea><input type='button' text='Submit' id='answer-submit'></input>")
@@ -113,7 +61,7 @@ function submitAnswer (){
 
 function loadQuestions() {
   if($('body').is('.questions.show')) {
-    console.log('loaded Questions');
+    console.log('loaded Question');
     getQuestion();
     getAnswers();
     toggleQuestionComments ();
@@ -121,9 +69,49 @@ function loadQuestions() {
   };
 };
 
-$(document).ready(function() {
-  loadQuestions ();
-  $('#add-answer-btn').on('click', createAnswerEditor);
-  $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
 
-});
+// -------------------------------------------------
+
+// Handlebars.registerHelper('voteTotal', function(votes) {
+//   var scores = []
+//   var total = 0;
+//   for(var i = 0; i < votes.length; i++){
+//     var vote = votes[i];
+//     scores.push(vote.score);
+//   }
+  
+//   $.each(scores,function() {
+//     total += parseInt(this);
+//   });
+//   return total;
+// });
+
+// ----------------------------------------------
+
+// function getAnswerComments (answerId) {
+//   request("GET", '/answers/' + answerId + '/comments', null).done(function(response) {
+//     console.log(response);
+
+//     // Handlebars.registerPartial("answer-comment", $("#answer-comment-partial").html(response));
+//     var source = $("#answer-comments-tpl").html();
+//     var template = Handlebars.compile(source);
+//     $(".answers-comments-container").html(template(response));
+//   });
+// };
+// $('#answers-container').on('click', 'button', function() {
+//   var answerId = $(this).data('id');
+//   console.log(answerId);
+//   getAnswerComments (answerId);
+// });
+
+// ---------------------------------------------
+// function getQuestionComments () {
+//   var questionId = $('#question-container').attr('value');
+  
+//   request("GET", '/questions/' + questionId + '/comments', null).done(function(response) {
+//     console.log(response);
+//     var source = $("#question-comments-tpl").html();
+//     var template = Handlebars.compile(source);
+//     $("#question-comments-container").html(template(response));
+//   });
+// };
