@@ -2,52 +2,59 @@
 .row
   .small-2.columns
   .small-10.columns
-    #question-container{ value: @question.id, :name => @question.user.first_name }
-    #add-answer-container
-      %button#add-answer-btn Help #{@question.user.first_name} Out
-      #answer-editor-container
-    #answers-container 
+    .row
+      .small-1.columns
+        .post-voting-container
+          .post-vote-total
+      .small-11.columns
+        #question-container{ value: @question.id, :name => @question.user.first_name }
+        #add-answer-container
+          %button#add-answer-btn Help #{@question.user.first_name} Out
+          #answer-editor-container
+        #answers-container 
 
-%script{ id: 'question-user-partial', type: 'text/x-handlebars-template'}
+%script{ id: 'user-partial', type: 'text/x-handlebars-template'}
   .row
     .small-6.columns
-      .question-details
+      .post-details.question
     .small-6.columns
-      .question-user
+      .post-signature-user.question
         .user-image
         .ul.user-details
           %li.user-name
             %h2 {{user.first_name}}
           %li.user-course
             %h3 {{user.ga_course}}
+          %li.user-location
             %h3 {{user.location}}
-          %li.submit-date
-            %h3 Submitted on {{created_at}}
+        .submit-date
+          %h3 Submitted on {{created_at}}
 
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
-  .question-title
+  .post-title.question-show
     %h1 {{{ title }}}
     %button#more-content More
-  .question-content
+  .post-content.question
     %h3 {{{ content }}}
-  .row
+  .row.post-signature
     .small-6.columns
-      .question-details
+      .post-details.question
     .small-6.columns
-      .question-user
+      .post-signature-user.question
         .user-image
         .ul.user-details
           %li.user-name
             %h2 {{user.first_name}}
           %li.user-course
             %h3 {{user.ga_course}}
+          %li.user-location
             %h3 {{user.location}}
-          %li.submit-date
-            %h3 Submitted on {{created_at}}
+        .action-time
+          %h3 {{updated_at}}
   %button{ id: 'question-comments-btn', :data=>{:id =>'{{id}}'} } Comments
-  .question-comments-container
+  .post-comments-container.question
     {{#comments}}
-    .question-comment-container{ id: 'question-comment-{{ id }}'}
+    .post-comment-container.question{ id: 'question-comment-{{ id }}'}
       %p {{{ content }}}
       {{>user}} 
     {{/comments}}
@@ -65,14 +72,14 @@
 %script{ id: 'answers-tpl', type: 'text/x-handlebars-template'}
   %h3 Answer
   {{#answers}}
-  .answer-container{ id: 'answer-{{ id }}', value: '{{ id }}'}
+  .post-container.answer{ id: 'answer-{{ id }}', value: '{{ id }}'}
     %p {{{ content }}}
-    .answer-user
+    .post-signature-user.answer
       {{> user }}
   %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
-  .answer-comments-container{ id: 'answer-comments-{{ id }}'}
+  .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
     {{#comments}}
-    .answer-comment-container{ id: 'answer-comment-{{ id }}'}
+    .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
       %p {{{ content }}}
       {{> user}}
     {{/comments}} 

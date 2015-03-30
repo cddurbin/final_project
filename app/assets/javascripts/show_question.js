@@ -3,12 +3,16 @@ function getQuestion(){
   request("GET", '/questions/' + questionId, null).done(function(response) {
     console.log(response);
 
+    
+
     var source = $("#question-tpl").html();
     var template = Handlebars.compile(source);
-    Handlebars.registerPartial("user", $("#question-user-partial").html());
+    
     $("#question-container").html(template(response));
   });
 };
+
+
 
 function getAnswers () {
   var questionId = $('#question-container').attr('value');
@@ -63,7 +67,7 @@ function submitAnswer (){
 function loadQuestionShowPage() {
   if($('body').is('.questions.show')) {
     console.log('loaded Question');
-    
+    Handlebars.registerPartial("user", $("#user-partial").html());
     getQuestion();
     getAnswers();
     toggleQuestionComments ();
