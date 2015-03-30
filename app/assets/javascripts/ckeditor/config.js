@@ -11,20 +11,20 @@ CKEDITOR.editorConfig = function( config ) {
   //     ["Bold",  "Italic",  "Underline",  "Strike",  "-",  "Subscript",  "Superscript"],
   //   ];
   // config.toolbar = "simple";
-  config.language = 'en';
+  config.assets_languages = ['en'];
 
   // The toolbar groups arrangement, optimized for two toolbar rows.
   config.toolbarGroups = [
-    // { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
+    { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
     { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
     { name: 'paragraph',   groups: [ 'list', 'blocks' ] },
-    // { name: 'editing',     groups: [ 'spellchecker' ] },
+    { name: 'editing',     groups: [ 'spellchecker' ] },
     { name: 'links' },
     { name: 'insert', groups: [  'codesnippet' ]},
     // { name: 'forms' },
-    // { name: 'tools' },
+    { name: 'tools' },
     { name: 'document',    groups: [ 'mode', 'document', 'doctools', 'undo' ] },
-    // { name: 'others' },
+    { name: 'others' },
     // '/',
     
     { name: 'styles' },
@@ -40,6 +40,5 @@ CKEDITOR.editorConfig = function( config ) {
 
   config.extraPlugins = 'lineutils,widget,codesnippet,codeTag';
 
-  // config.skin = 'minimalist';
 
 }

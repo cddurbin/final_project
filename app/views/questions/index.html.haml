@@ -2,19 +2,19 @@
   .row
     .small-2.columns
     .small-8.small-centered.columns
-      -# - @questions.each do |question| 
-      -#   %h3= question.title
-      -#   %h5= question.content
+      - @questions.each do |question| 
+        %h3= question.title
+        %h5= raw question.content
       -#   %p= question.user
       #questions-container 
     .small-2.columns
 
-%script{ id: 'questions-tpl', type: 'text/x-handlebars-template'}
-  %h3 Questions
-  {{#questions}}
-  .question-container.index{ id: 'question-{{ id }}', value: '{{ id }}'}
-    %h3 {{if title }}
-    %p {{ content }}
-    .question-user.index{ id: 'user-{{ id }}', value: '{{ id }}'}
-      -# %p {{user.first_name}}
-  {{/questions}}
+-# %script{ id: 'questions-tpl', type: 'text/x-handlebars-template'}
+-#   %h3 Questions
+-#   {{#questions}}
+-#   .question-container.index{ id: 'question-{{ id }}', value: '{{ id }}'}
+-#     -# %h3 {{{ title }}}
+-#     %p {{{ content }}}
+-#     .question-user.index{ id: 'user-{{ id }}', value: '{{ id }}'}
+-#       -# %p {{user.first_name}}
+-#   {{/questions}}

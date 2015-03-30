@@ -5,9 +5,11 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %title= content_for?(:title) ? yield(:title) : "foundation-rails"
     %link{:href => "http://fonts.googleapis.com/css?family=Varela+Round", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "assets/javascripts/ckeditor/plugins/codesnippet/lib/highlight/styles/default.css", :rel=>'stylesheet'}
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
     = javascript_include_tag "application"
+    %script{:src => "ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"}
     = csrf_meta_tags
     
   %body{ class: "#{controller_name} #{action_name}"}

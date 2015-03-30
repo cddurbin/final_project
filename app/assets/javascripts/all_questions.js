@@ -2,10 +2,11 @@ function getAllQuestions(){
   request("GET", '/questions', null).done(function(response) {
     console.log(response);
     
-    var source = $("#questions-tpl").html();
+    var source = $('#questions-tpl').html();
     // console.log(source);
     var template = Handlebars.compile(source);
-    $("#questions-container").html(template(response));
+
+    $('#questions-container').html(template(response));
   });
 };
 
