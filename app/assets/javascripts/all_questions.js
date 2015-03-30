@@ -1,9 +1,6 @@
-
-
-
 function getAllQuestions(){
   request("GET", '/questions', null).done(function(response) {
-    // console.log(response);
+    console.log(response);
     
     var source = $("#questions-tpl").html();
     // console.log(source);
@@ -12,9 +9,6 @@ function getAllQuestions(){
   });
 };
 
-$(document).ready(function(){
-  getAllQuestions();
-});
 
 // Handlebars.registerHelper('voteTotal', function(votes) {
 //   var scores = []

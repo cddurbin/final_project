@@ -8,7 +8,10 @@ function request(method, url, data) {
 }
 
 $(document).ready(function() {
-  loadQuestions ();
+  hljs.initHighlightingOnLoad();
+  $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+  loadQuestionShowPage ();
+  getAllQuestions();
   $('#add-answer-btn').on('click', createAnswerEditor);
   $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
 

@@ -59,7 +59,7 @@ function submitAnswer (){
   });
 }
 
-function loadQuestions() {
+function loadQuestionShowPage() {
   if($('body').is('.questions.show')) {
     console.log('loaded Question');
     getQuestion();
