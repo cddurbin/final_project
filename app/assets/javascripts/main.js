@@ -14,5 +14,6 @@ $(document).ready(function() {
   // getAllQuestions();
   $('#add-answer-btn').on('click', createAnswerEditor);
   $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
+  $(".more-content").on("click", toggleQuestionContent);
 
 });

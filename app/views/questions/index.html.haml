@@ -3,8 +3,10 @@
     .small-2.columns
     .small-8.small-centered.columns
       - @questions.each do |question| 
-        %h3= question.title
-        %h5= raw question.content
+        %h1= question.title
+        .question-content
+          %p= raw question.content
+        %button.more-content More
       -#   %p= question.user
       #questions-container 
     .small-2.columns

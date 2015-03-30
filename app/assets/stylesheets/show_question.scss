@@ -2,16 +2,7 @@
   border: 1px solid red;
 }
 
-.answer-comments-container {
-  background-color: green;
-  display: none;
-}
-
-.question-comments-container {
-  display: none;
-}
-
-code {
+pre code {
   white-space: pre-wrap;       /* CSS 3 */
   white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
   white-space: -pre-wrap;      /* Opera 4-6 */

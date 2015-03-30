@@ -10,6 +10,24 @@ function getAllQuestions(){
   });
 };
 
+function toggleQuestionContent() {
+  console.log($(this));
+  var content = $(this).prev("div.question-content");
+  console.log(content);
+  var label = $(this).text();
+
+  if(label === "More") {
+    label = "Less";
+    content.toggle();
+  } else {
+    label = "More";
+    content.toggle();
+  };
+  $(this).text(label);
+};
+
+
+
 
 // Handlebars.registerHelper('voteTotal', function(votes) {
 //   var scores = []
