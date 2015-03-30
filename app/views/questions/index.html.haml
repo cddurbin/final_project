@@ -5,32 +5,22 @@
         .row
           - @questions.each do |question|
             .small-2.columns
-              .index-question-stats
+              .post-vote-container.index
                 .vote-total
                   %h3= question.votes.map {|vote| vote.score}.inject(:+)
                   %h3 Votes
             .small-10.columns
-              .question-container.index
-                .question-title.index
+              .post-container.index
+                .post-title.index
                   %h1= link_to("#{question.title}", question_path(question))
-                .question-details.index
-                  .row
-                    .small-6.columns
-                      .question-tags.index
-                        %h4 Tags Tags Tags
-                    .small-6.columns
-                      .question-user.index
-                        .user-image
-                        .ul.user-details
-                          %li.user-name
-                            %h2= question.user.first_name
-                          %li.user-course
-                            %h3= question.user.ga_course.upcase
-                            %h3= question.user.location
-                          %li.submit-date
-                            %h3= "Submitted on #{question.created_at}"
-                .index-question-content
-                  %p= raw question.content
+                .row
+                  .small-6.columns
+                    .post-details.index
+                      %h4 Tags Tags Tags
+                  .small-6.columns
+                    .post-signature-user.index
+                      %h3 Asked by #{question.user.first_name} #{question.user.last_name} #{question.created_at}
+                  
             
 
 -# %script{ id: 'questions-tpl', type: 'text/x-handlebars-template'}

@@ -7,6 +7,7 @@ function getAllQuestions(){
     var template = Handlebars.compile(source);
 
     $('#questions-container').html(template(response));
+    
   });
 };
 
