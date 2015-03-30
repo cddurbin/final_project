@@ -111,13 +111,18 @@ function submitAnswer (){
   });
 }
 
-$(document).ready(function() {
-  getQuestion();
-  toggleQuestionComments ();
+function loadQuestions() {
+  if($('body').is('.questions.show')) {
+    console.log('loaded Questions');
+    getQuestion();
+    getAnswers();
+    toggleQuestionComments ();
+    toggleAnswerComments ();
+  };
+};
 
-  getAnswers();
-  toggleAnswerComments ();
- 
+$(document).ready(function() {
+  loadQuestions ();
   $('#add-answer-btn').on('click', createAnswerEditor);
   $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
 
