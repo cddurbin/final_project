@@ -12,9 +12,9 @@ Vote.delete_all
 Comment.delete_all
 Watch.delete_all
 
-u1 = User.create(first_name: 'Colin', last_name: 'Durbin', email: 'colin@gmail.com', location: 'London, UK', ga_course: 'wdi', role: 'student', graduated_date: 'current student', password: 'password')
+u1 = User.create(first_name: 'Colin', last_name: 'Durbin', email: 'colin@gmail.com', location: 'London, UK', ga_course: 'wdi', role: 'Student', graduated_date: 'current student', password: 'password')
 
-u2 = User.create(first_name: 'Becky', last_name: 'Smith', email: 'becky@gmail.com', location: 'London, UK', ga_course: 'uxdi', role: 'instuctor', graduated_date: 'na', password: 'password')
+u2 = User.create(first_name: 'Becky', last_name: 'Smith', email: 'becky@gmail.com', location: 'New York City, USA', ga_course: 'uxdi', role: 'Instuctor', password: 'password')
 
 q1 = Question.create(title: 'How do I create seed data in rails?', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque tempore, nam beatae provident illo nobis optio ad, nulla neque incidunt eos obcaecati deleniti placeat voluptates laboriosam alias dolor temporibus natus.', viewed: 5, user_id: u1.id)
 

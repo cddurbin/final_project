@@ -8,8 +8,13 @@
             .index-question-title 
               %h1= link_to("#{question.title}", question_path(question))
             .index-question-user
-              %h2= question.user.first_name
-              %h3= question.user.ga_course
+              .user-image
+              .user-name
+                %h2= question.user.first_name
+              .user-courseapp
+                %h3= question.user.ga_course
+              .submitted
+                %h3= "Submitted on #{question.created_at}"
             %button.more-content More
             .index-question-content
               %p= raw question.content

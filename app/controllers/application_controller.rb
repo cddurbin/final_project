@@ -14,6 +14,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  
+
   # after_filter :set_csrf_cookie
 
   # def set_csrf_cookie

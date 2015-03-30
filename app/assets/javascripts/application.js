@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
 //= require ckeditor/init
 //= require jquery-ui
+//= require foundation
 //= require_tree .
 
 $(document).foundation();

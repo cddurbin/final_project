@@ -11,9 +11,9 @@ function getAllQuestions(){
 };
 
 function toggleQuestionContent() {
-  console.log($(this));
+  // console.log($(this));
   var content = $(this).next();
-  console.log(content);
+  // console.log(content);
   var label = $(this).text();
 
   if(label === "More") {

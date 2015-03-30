@@ -22,12 +22,14 @@
       %section.top-bar-section
         / Right Nav Section
         %ul.right
+          %li= link_to 'Logout', destroy_user_session_path, :method => :delete
+        
           - if user_signed_in?
             %li.has-dropdown
               %a{:href => "#"}
                 = image_tag('ga_account_icon.svg', class:'ga-account')
               %ul.dropdown
-                %li= link_to 'Logout', 'destroy_user_session_path, :method => :delete'
+                %li= link_to 'Logout', destroy_user_session_path, :method => :delete
                 %li.active= link_to 'MY ACCOUNT', user_path(current_user)
           - else
             %ul

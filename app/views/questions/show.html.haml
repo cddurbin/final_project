@@ -1,13 +1,12 @@
 
 .row
   .small-2.columns
-  .small-8.small-centered.columns
+  .small-10.columns
     #question-container{ value: @question.id, :name => @question.user.first_name }
     #add-answer-container
       %button#add-answer-btn Help #{@question.user.first_name} Out
       #answer-editor-container
     #answers-container 
-  .small-2.columns
 
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
   .question-title
