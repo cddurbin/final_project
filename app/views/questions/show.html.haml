@@ -8,33 +8,48 @@
       #answer-editor-container
     #answers-container 
 
-%script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
-  .question-title
-    %h1 {{{ title }}}
+%script{ id: 'question-user-partial', type: 'text/x-handlebars-template'}
   .row
     .small-6.columns
       .question-details
     .small-6.columns
       .question-user
-        .question-user
-          .user-image
-          .ul.user-details
-            %li.user-name
-              %h2 {{user.first_name}}
-            %li.user-course
-              %h3 {{user.ga_course}}
-              %h3 {{user.location}}
-            %li.submit-date
-              %h3 Submitted on {{created_at}}
+        .user-image
+        .ul.user-details
+          %li.user-name
+            %h2 {{user.first_name}}
+          %li.user-course
+            %h3 {{user.ga_course}}
+            %h3 {{user.location}}
+          %li.submit-date
+            %h3 Submitted on {{created_at}}
+
+%script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
+  .question-title
+    %h1 {{{ title }}}
+    %button#more-content More
   .question-content
     %h3 {{{ content }}}
-  
+  .row
+    .small-6.columns
+      .question-details
+    .small-6.columns
+      .question-user
+        .user-image
+        .ul.user-details
+          %li.user-name
+            %h2 {{user.first_name}}
+          %li.user-course
+            %h3 {{user.ga_course}}
+            %h3 {{user.location}}
+          %li.submit-date
+            %h3 Submitted on {{created_at}}
   %button{ id: 'question-comments-btn', :data=>{:id =>'{{id}}'} } Comments
   .question-comments-container
     {{#comments}}
     .question-comment-container{ id: 'question-comment-{{ id }}'}
       %p {{{ content }}}
-      %p {{{user.first_name}}} 
+      {{>user}} 
     {{/comments}}
 
 
@@ -53,16 +68,17 @@
   .answer-container{ id: 'answer-{{ id }}', value: '{{ id }}'}
     %p {{{ content }}}
     .answer-user
-      %p {{{user.first_name}}}
+      {{> user }}
   %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
   .answer-comments-container{ id: 'answer-comments-{{ id }}'}
     {{#comments}}
     .answer-comment-container{ id: 'answer-comment-{{ id }}'}
       %p {{{ content }}}
-      %p {{{ user.last_name }}}
-    {{/comments}}
-    -# %p {{> answer-comment}} 
+      {{> user}}
+    {{/comments}} 
   {{/answers}}
+
+
   
 
              

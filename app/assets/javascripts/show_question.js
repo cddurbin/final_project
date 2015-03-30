@@ -5,6 +5,7 @@ function getQuestion(){
 
     var source = $("#question-tpl").html();
     var template = Handlebars.compile(source);
+    Handlebars.registerPartial("user", $("#question-user-partial").html());
     $("#question-container").html(template(response));
   });
 };
@@ -22,14 +23,14 @@ function getAnswers () {
 
 function toggleQuestionComments () {
   $("#question-container").on('click', '#question-comments-btn', function() {
-  console.log('clicked');
+    console.log('toggle question comments');
     $('.question-comments-container').toggle();
   });
 };
 
 function toggleAnswerComments () {
   $('#answers-container').on('click', '#answer-comments-btn', function() {
-    console.log('clicked');
+    console.log('toggle Answer comments');
     $(this).next().toggle();
   });
 };
@@ -62,12 +63,40 @@ function submitAnswer (){
 function loadQuestionShowPage() {
   if($('body').is('.questions.show')) {
     console.log('loaded Question');
+    
     getQuestion();
     getAnswers();
     toggleQuestionComments ();
     toggleAnswerComments ();
+
   };
 };
+
+function toggleQuestionContent() {
+  console.log('toggle question content');
+  var content = $(this);
+  console.log(content);
+  var label = $(this).text();
+  console.log(content);
+
+  // if(label === "More") {
+  //   label = "Less";
+  //   content.toggle();
+  // } else {
+  //   label = "More";
+  //   content.toggle();
+  // };
+  // $(this).text(label);
+};
+
+// $(Handlebars.partials["user"]()).appendTo('#question-container');
+
+// $(document).ready(function() {
+//    var template = Handlebars.compile($("#question-tpl").html());
+//    Handlebars.registerPartial("user", $("#question-user-partial").html());
+
+//    template(yourData);
+//  }
 
 
 // -------------------------------------------------

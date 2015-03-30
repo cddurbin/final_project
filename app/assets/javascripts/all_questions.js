@@ -10,21 +10,7 @@ function getAllQuestions(){
   });
 };
 
-function toggleQuestionContent() {
-  // console.log($(this));
-  var content = $(this).next();
-  // console.log(content);
-  var label = $(this).text();
 
-  if(label === "More") {
-    label = "Less";
-    content.toggle();
-  } else {
-    label = "More";
-    content.toggle();
-  };
-  $(this).text(label);
-};
 
 
 
