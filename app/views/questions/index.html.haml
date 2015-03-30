@@ -2,13 +2,18 @@
   .row
     .small-2.columns
     .small-8.small-centered.columns
-      - @questions.each do |question| 
-        %h1= question.title
-        .question-content
-          %p= raw question.content
-        %button.more-content More
-      -#   %p= question.user
-      #questions-container 
+      .questions-container
+        - @questions.each do |question|
+          .index-question-container
+            .index-question-title 
+              %h1= link_to("#{question.title}", question_path(question))
+            .index-question-user
+              %h2= question.user.first_name
+              %h3= question.user.ga_course
+            %button.more-content More
+            .index-question-content
+              %p= raw question.content
+          -#   %p= question.user 
     .small-2.columns
 
 -# %script{ id: 'questions-tpl', type: 'text/x-handlebars-template'}

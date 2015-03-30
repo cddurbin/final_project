@@ -12,7 +12,7 @@ function getAllQuestions(){
 
 function toggleQuestionContent() {
   console.log($(this));
-  var content = $(this).prev("div.question-content");
+  var content = $(this).next();
   console.log(content);
   var label = $(this).text();
 
