@@ -6,14 +6,15 @@
     .row
       .small-1.columns
         .post-vote-container.question
-        .watch-selector
-          
       .small-11.columns
         .post-container.question{ value: @question.id, :name => @question.user.first_name }
         #add-answer-container
           %button#add-answer-btn Help #{@question.user.first_name} Out
           #answer-editor-container
-        .answers-container 
+    .row.answers-container
+      %h3 Answers
+      
+      
 
 //Handlebars ----------------------------------------------
 
@@ -75,26 +76,41 @@
       {{> comment}}
     {{/comments}}
 
+
+
 %script{ id: 'answers-tpl', type: 'text/x-handlebars-template'}
-  %h3 Answer
   {{#answers}}
-  .post-container.answer{ id: 'answer-{{ id }}', value: '{{ id }}'}
-    %p {{{ content }}}
-    .post-signature-user.answer
-      {{> user }}
-  %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
-  .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
-    {{#comments}}
-    .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
-      {{> comment}}
-    {{/comments}} 
+  .small-1.columns
+    .post-vote-container.answer
+    {{> answer-voting}}
+  .small-11.columns
+    .post-container.answer{ id: 'answer-{{ id }}', value: '{{ id }}'}
+      %p {{{ content }}}
+      .post-signature-user.answer
+        {{> user }}
+    %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
+    .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
+      {{#comments}}
+      .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
+        {{> comment}}
+      {{/comments}} 
   {{/answers}}
 
-%script{ id: 'voting-tpl', type: 'text/x-handlebars-template'}
+%script{ id: 'question-voting-tpl', type: 'text/x-handlebars-template'}
   .upvote
   .vote-total
     %h3 {{voteTotal votes}}
   .downvote
+  .watch-selector
+
+%script{ id: 'answer-voting-partial', type: 'text/x-handlebars-template'}
+  .upvote
+  .vote-total
+    %h3 {{voteTotal votes}}
+  .downvote
+  .accepted-selector
+    %h3 {{accepted}}
+
   
 
 

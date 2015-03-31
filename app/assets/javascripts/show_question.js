@@ -6,7 +6,7 @@ function getQuestion(){
     var template = Handlebars.compile(source);
     $(".post-container.question").html(template(response));
 
-    var voting = $('#voting-tpl').html();
+    var voting = $('#question-voting-tpl').html();
     console.log(voting)
     var votingTemplate = Handlebars.compile(voting);
     $(".post-vote-container.question").html(votingTemplate(response));
@@ -20,7 +20,14 @@ function getAnswers () {
     console.log(response);
     var source = $("#answers-tpl").html();
     var template = Handlebars.compile(source);
-    $(".answers-container").html(template(response));
+    $(".row.answers-container").html(template(response));
+
+    // var voting = $('#answer-voting-tpl').html();
+    // console.log(voting)
+    // var votingTemplate = Handlebars.compile(voting);
+    // $(".post-vote-container.answer").html(votingTemplate(response));
+
+   
   });
 };
 
@@ -66,6 +73,8 @@ function submitAnswer (){
 function loadQuestionShowPage() {
     Handlebars.registerPartial("user", $("#user-partial").html());
     Handlebars.registerPartial("comment", $("#comment-partial").html());
+    Handlebars.registerPartial("answer-voting", $("#answer-voting-partial").html());
+  
     getQuestion();
     console.log('loaded Question');
     getAnswers();
@@ -89,9 +98,7 @@ function toggleQuestionContent() {
   $(this).text(label);
 };
 
-function voteTotal () {
 
-};
 
 Handlebars.registerHelper('voteTotal', function(votes) {
   var scores = []
