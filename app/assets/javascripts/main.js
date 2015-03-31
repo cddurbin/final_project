@@ -18,11 +18,11 @@ $(document).ready(function() {
   $('#add-answer-btn').on('click', createAnswerEditor);
   $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
   $('.post-container.question').on('click', '#more-content', toggleQuestionContent);
-  $('.post-vote-container.question').on('click', '.upvote.question', function(){
+  $('.post-vote-container.question').on('click', '#question-upvote', function(){
     console.log('this is an upvote');
     vote('Question', 1);
   });
-  $('.post-vote-container.question').on('click', '.downvote.question', function(){
+  $('.post-vote-container.question').on('click', '#question-downvote', function(){
     console.log('this is a downvote');
     vote('Question', -1);
   });

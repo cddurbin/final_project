@@ -1,13 +1,13 @@
 function getQuestion(){
   var questionId = $('.post-container.question').attr('value');
   request("GET", '/questions/' + questionId, null).done(function(response) {
-    console.log(response);
+    
     var source = $("#question-tpl").html();
     var template = Handlebars.compile(source);
     $(".post-container.question").html(template(response));
 
     var voting = $('#question-voting-tpl').html();
-    console.log(voting)
+    
     var votingTemplate = Handlebars.compile(voting);
     $(".post-vote-container.question").html(votingTemplate(response));
   });
@@ -17,7 +17,7 @@ function getAnswers () {
   var questionId = $('.post-container.question').attr('value');
   
   request("GET", '/questions/' + questionId + '/answers', null).done(function(response) {
-    console.log(response);
+    
     var source = $("#answers-tpl").html();
     var template = Handlebars.compile(source);
     $(".row.answers-container").html(template(response));
@@ -67,7 +67,7 @@ function submitAnswer (){
   var questionId = $('.post-container.question').attr('value');
   var currentUserId = $('body').attr('name');
   request("POST", '/questions/' + questionId + '/answers', {answer:{content: data, question_id: questionId, user_id: currentUserId }}).done(function(){
-    console.log('done');
+    console.log('submit done');
     var user_name = $('.post-container.question').attr('name');
     $('#add-answer-btn').text('Help ' + user_name + ' out.');
     getAnswers();
@@ -108,9 +108,7 @@ function vote (votable_type, value) {
   var questionId = $('.post-container.question').attr('value');
   var currentUserId = $('body').attr('name');
   var votable_type;
-  console.log(currentUserId);
   request("POST", '/questions/' + questionId + '/votes', {vote:{user_id: currentUserId, votable_id: questionId, votable_type: votable_type, score: value }}).done(function(){
-    console.log('done');
     getQuestion();
   });
 };

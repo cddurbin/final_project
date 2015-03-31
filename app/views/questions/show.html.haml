@@ -101,12 +101,12 @@
 %script{ id: 'question-voting-tpl', type: 'text/x-handlebars-template'}
   .upvote.question
     %h4
-      %a{class: 'upvote', href: '#'} +
+      %a{id: 'question-upvote', href: '#'} +
   .vote-total.question
     %h3 {{voteTotal votes}}
   .downvote.question
     %h4
-      %a{href: '#'} -
+      %a{id: 'question-downvote', href: '#'} -
   .watch-selector
 
 %script{ id: 'answer-voting-partial', type: 'text/x-handlebars-template'}
