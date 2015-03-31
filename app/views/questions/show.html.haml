@@ -1,3 +1,4 @@
+//HTML
 
 .row
   .small-2.columns
@@ -7,11 +8,13 @@
         .post-vote-container
           .post-vote-total
       .small-11.columns
-        #question-container{ value: @question.id, :name => @question.user.first_name }
+        .post-container.question{ value: @question.id, :name => @question.user.first_name }
         #add-answer-container
           %button#add-answer-btn Help #{@question.user.first_name} Out
           #answer-editor-container
-        #answers-container 
+        .answers-container 
+
+//Handlebars' Templates
 
 %script{ id: 'user-partial', type: 'text/x-handlebars-template'}
   .row
@@ -33,10 +36,10 @@
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
   .post-title.question-show
     %h1 {{{ title }}}
-    %button#more-content More
+    %button#more-content{ value: @question.id} More
   .post-content.question
     %h3 {{{ content }}}
-  .row.post-signature
+  .row
     .small-6.columns
       .post-details.question
     .small-6.columns

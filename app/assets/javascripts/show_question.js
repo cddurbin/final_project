@@ -1,39 +1,36 @@
 function getQuestion(){
-  var questionId = $('#question-container').attr('value');
+  var questionId = $('.post-container.question').attr('value');
   request("GET", '/questions/' + questionId, null).done(function(response) {
     console.log(response);
-
-    
-
     var source = $("#question-tpl").html();
     var template = Handlebars.compile(source);
     
-    $("#question-container").html(template(response));
+    $(".post-container.question").html(template(response));
   });
 };
 
 
 
 function getAnswers () {
-  var questionId = $('#question-container').attr('value');
+  var questionId = $('.post-container.question').attr('value');
   
   request("GET", '/questions/' + questionId + '/answers', null).done(function(response) {
     console.log(response);
     var source = $("#answers-tpl").html();
     var template = Handlebars.compile(source);
-    $("#answers-container").html(template(response));
+    $(".answers-container").html(template(response));
   });
 };
 
 function toggleQuestionComments () {
-  $("#question-container").on('click', '#question-comments-btn', function() {
+  $(".post-comments-container.question").on('click', '#question-comments-btn', function() {
     console.log('toggle question comments');
-    $('.question-comments-container').toggle();
+    $('.post-comments-container.question').toggle();
   });
 };
 
 function toggleAnswerComments () {
-  $('#answers-container').on('click', '#answer-comments-btn', function() {
+  $('.answers-container').on('click', '#answer-comments-btn', function() {
     console.log('toggle Answer comments');
     $(this).next().toggle();
   });
@@ -57,7 +54,7 @@ function removeAnswerEditor () {
 function submitAnswer (){
   var data = CKEDITOR.instances['add-answer-editor'].getData();
   console.log(data);
-  var questionId = $('#question-container').attr('value');
+  var questionId = $('.post-container.question').attr('value');
   request("POST", '/questions/' + questionId + '/answers', {answer:{content: data, question_id: questionId, user_id: 4 }}).done(function(){
     console.log('done');
     getAnswers();
@@ -65,23 +62,22 @@ function submitAnswer (){
 }
 
 function loadQuestionShowPage() {
-  if($('body').is('.questions.show')) {
-    console.log('loaded Question');
     Handlebars.registerPartial("user", $("#user-partial").html());
     getQuestion();
+    console.log('loaded Question');
     getAnswers();
+    console.log('loaded Answers');
     toggleQuestionComments ();
     toggleAnswerComments ();
-
-  };
 };
 
 function toggleQuestionContent() {
   console.log('toggle question content');
-  var content = $(this);
-  console.log(content);
+  console.log($(this));
+  // var content = $(this).nextAll('#more-content');
+  // console.log(content);
   var label = $(this).text();
-  console.log(content);
+  
 
   // if(label === "More") {
   //   label = "Less";

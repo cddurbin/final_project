@@ -10,10 +10,12 @@ function request(method, url, data) {
 $(document).ready(function() {
   hljs.initHighlightingOnLoad();
   // $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
-  loadQuestionShowPage ();
+  if($('body').is('.questions.show')){
+    loadQuestionShowPage ();
+  }
   // getAllQuestions();
   $('#add-answer-btn').on('click', createAnswerEditor);
   $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
-  $("#question-container").on("click", $('#more-content'), toggleQuestionContent);
+  $('.post-container.question').on('click', $('#more-content'), toggleQuestionContent);
 
 });
