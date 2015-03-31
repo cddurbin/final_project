@@ -84,18 +84,24 @@
   {{#answers}}
   .small-1.columns
     .post-vote-container.answer
-    {{> answer-voting}}
+      {{> answer-voting}}
+      .accepted-selector
+        {{#if accepted}}
+        %p Accepted
+        {{/if}}
   .small-11.columns
     .post-container.answer{ id: 'answer-{{ id }}'}
       %p {{{ content }}}
       .post-signature-user.answer
         {{> user }}
+      {{#if comments}}
     %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
     .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
       {{#comments}}
       .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
         {{> comment}}
-      {{/comments}} 
+      {{/comments}}
+      {{/if}} 
   {{/answers}}
 
 %script{ id: 'question-voting-tpl', type: 'text/x-handlebars-template'}
@@ -118,12 +124,6 @@
   .downvote.answer
     %h4
       %a{id: 'answer-downvote', href: '#', value: '{{id}}'} -
-  .accepted-selector
-    %h3 {{accepted}}
 
-  
+      
 
-
-
-
- 
