@@ -116,6 +116,10 @@ Handlebars.registerHelper('voteTotal', function(votes) {
   return total;
 });
 
+Handlebars.registerHelper('answerTotal', function(answers) {
+  return Object.keys(answers).length;
+});
+
 // $(Handlebars.partials["user"]()).appendTo('#question-container');
 
 // $(document).ready(function() {

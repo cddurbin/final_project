@@ -12,7 +12,7 @@
           %button#add-answer-btn Help #{@question.user.first_name} Out
           #answer-editor-container
     .row.answers-container
-      %h3 Answers
+      
       
       
 
@@ -79,6 +79,8 @@
 
 
 %script{ id: 'answers-tpl', type: 'text/x-handlebars-template'}
+  .answers-heading
+    %h3 {{answerTotal answers}} Answers
   {{#answers}}
   .small-1.columns
     .post-vote-container.answer
