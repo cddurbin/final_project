@@ -16,11 +16,18 @@ function getQuestion(){
 function getAnswers () {
   var questionId = $('.post-container.question').attr('value');
   
-  request("GET", '/questions/' + questionId + '/answers', null).done(function(response) {
-    
+  request("GET", '/questions/' + questionId + '/answers', null).done(function(response){
+
+    var sorted = response.answers.sort(function(a, b){
+      return new Date(a.created_at) - new Date(b.created_at);
+    });
+    console.log(sorted);
+      
+   
     var source = $("#answers-tpl").html();
     var template = Handlebars.compile(source);
     $(".row.answers-container").html(template(response));
+
 
     // var voting = $('#answer-voting-tpl').html();
     // console.log(voting)
