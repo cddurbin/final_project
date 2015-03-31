@@ -73,20 +73,17 @@ function loadQuestionShowPage() {
 
 function toggleQuestionContent() {
   console.log('toggle question content');
-  console.log($(this));
-  // var content = $(this).nextAll('#more-content');
-  // console.log(content);
+  var content = $('.post-content.question');
   var label = $(this).text();
   
-
-  // if(label === "More") {
-  //   label = "Less";
-  //   content.toggle();
-  // } else {
-  //   label = "More";
-  //   content.toggle();
-  // };
-  // $(this).text(label);
+  if(label === "More") {
+    label = "Less";
+    content.toggle();
+  } else {
+    label = "More";
+    content.toggle();
+  };
+  $(this).text(label);
 };
 
 // $(Handlebars.partials["user"]()).appendTo('#question-container');
