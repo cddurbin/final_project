@@ -3,9 +3,10 @@ class AnswersController < ApplicationController
   
   def index
     @question = Question.find(params[:question_id])
+    sorted_answers = @question.answers.order('created_at DESC')
     respond_to do |format|
       format.html
-      format.json { render json: @question.as_json(include: { answers: {include: [:user, :votes, comments: {include: [:user]}]}})}
+      format.json { render json: sorted_answers.as_json(include: { user: {}, votes: {}, comments: {include: [:user]}})}
     end
   end
 

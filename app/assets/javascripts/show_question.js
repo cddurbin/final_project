@@ -17,13 +17,7 @@ function getAnswers () {
   var questionId = $('.post-container.question').attr('value');
   
   request("GET", '/questions/' + questionId + '/answers', null).done(function(response){
-
-    var sorted = response.answers.sort(function(a, b){
-      return new Date(a.created_at) - new Date(b.created_at);
-    });
-    console.log(sorted);
-      
-   
+    console.log(response);
     var source = $("#answers-tpl").html();
     var template = Handlebars.compile(source);
     $(".row.answers-container").html(template(response));
@@ -89,9 +83,7 @@ function loadQuestionShowPage() {
     Handlebars.registerPartial("answer-voting", $("#answer-voting-partial").html());
   
     getQuestion();
-    console.log('loaded Question');
     getAnswers();
-    console.log('loaded Answers');
     toggleQuestionComments ();
     toggleAnswerComments ();
 };
@@ -126,6 +118,8 @@ function answerVote (answerId, votable_type, value) {
     getAnswers();
   });
 };
+
+// function updateVoteTotal
 
 
 
