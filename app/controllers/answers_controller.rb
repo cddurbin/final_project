@@ -4,9 +4,10 @@ class AnswersController < ApplicationController
   def index
     @question = Question.find(params[:question_id])
     answers = @question.answers
-    @sorted_answers = @question.answers.order('created_at DESC')
     @accepted_answer = answers.where(accepted: true)
-    @data = {accpepted_answer: @accepted_answer, :sorted_answers => @sorted_answers}
+    @without_accepted = answers.reject {|answer| answer.accepted == true }
+    @sorted_answers = @without_accepted.sort_by { |obj| obj[:created_at] }.reverse!
+    @data = {accepted_answer: @accepted_answer, :sorted_answers => @sorted_answers}
 
     respond_to do |format|
       format.html
