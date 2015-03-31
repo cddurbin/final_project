@@ -9,8 +9,6 @@ function getQuestion(){
   });
 };
 
-
-
 function getAnswers () {
   var questionId = $('.post-container.question').attr('value');
   
@@ -23,7 +21,7 @@ function getAnswers () {
 };
 
 function toggleQuestionComments () {
-  $(".post-comments-container.question").on('click', '#question-comments-btn', function() {
+  $(".post-container.question").on('click', '#question-comments-btn', function() {
     console.log('toggle question comments');
     $('.post-comments-container.question').toggle();
   });
