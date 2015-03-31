@@ -141,8 +141,8 @@ Handlebars.registerHelper('voteTotal', function(votes) {
   return total;
 });
 
-Handlebars.registerHelper('answerTotal', function(answers) {
-  return Object.keys(answers).length;
+Handlebars.registerHelper('answerTotal', function(sorted_answers) {
+  return Object.keys(sorted_answers).length;
 });
 
 // $(Handlebars.partials["user"]()).appendTo('#question-container');

@@ -6,7 +6,6 @@ class AnswersController < ApplicationController
     answers = @question.answers
     @sorted_answers = @question.answers.order('created_at DESC')
     @accepted_answer = answers.where(accepted: true)
-    # @sorted_answers_data = sorted_answers(include: { user: {}, votes: {}, comments: {include: [:user]}})
     @data = {accpepted_answer: @accepted_answer, :sorted_answers => @sorted_answers}
 
     respond_to do |format|
