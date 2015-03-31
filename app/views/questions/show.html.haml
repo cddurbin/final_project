@@ -69,12 +69,14 @@
             %h3 {{user.location}}
         .action-time
           %h3 {{updated_at}}
+  {{#if comments}}
   %button{ id: 'question-comments-btn', :data=>{:id =>'{{id}}'} } Comments
   .post-comments-container.question
     {{#comments}}
     .post-comment-container.question{ id: 'question-comment-{{ id }}'}
       {{> comment}}
     {{/comments}}
+  {{/if}}
 
 
 
