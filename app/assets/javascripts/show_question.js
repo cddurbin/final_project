@@ -114,15 +114,17 @@ function questionVote (votable_type, value) {
   });
 };
 
-function answerVote (answerId, votable_type, value) {
+function postAnswerVote (answerId, votable_type, value) {
   console.log(answerId);
   var currentUserId = $('body').attr('name');
   request("POST", '/answers/' + answerId + '/votes', {vote:{user_id: currentUserId, votable_id: answerId, votable_type: votable_type, score: value }}).done(function(){
-    getAnswers();
+  
   });
 };
 
-// function updateVoteTotal
+
+
+
 
 
 

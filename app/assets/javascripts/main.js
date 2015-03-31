@@ -29,12 +29,17 @@ $(document).ready(function() {
   $('.row.answers-container').on('click', '#answer-upvote', function(){
     console.log('this is an answer upvote');
     var answerId = $(this).attr('value');
-    answerVote(answerId, 'Answer', 1);
+    console.log($(this).attr('value'));
+    console.log($(this).attr('data-id'));
+    console.log($('.vote-total.answer#' + answerId));
+
+    postAnswerVote(answerId, 'Answer', 1);
   });
   $('.row.answers-container').on('click', '#answer-downvote', function(){
     console.log('this is an answer downvote');
     var answerId = $(this).attr('value');
     answerVote(answerId, 'Answer', -1);
   });
+  
 
 });

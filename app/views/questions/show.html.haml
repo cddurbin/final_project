@@ -115,9 +115,7 @@
     .post-vote-container.answer
       {{> answer-voting}}
       .accepted-selector
-        {{#if accepted}}
-        %p Accepted
-        {{/if}}
+        %p Not
   .small-11.columns
     .post-container.answer{ id: 'answer-{{ id }}'}
       %p {{{ content }}}
@@ -137,18 +135,21 @@
   .upvote.question
     %h4
       %a{id: 'question-upvote', href: '#'} +
-  .vote-total.question
+  .vote-total.question{id: "{{id}}"}
     %h3 {{voteTotal votes}}
   .downvote.question
     %h4
       %a{id: 'question-downvote', href: '#'} -
   .watch-selector
 
+
+
+
 %script{ id: 'answer-voting-partial', type: 'text/x-handlebars-template'}
   .upvote.answer
     %h4
-      %a{id: 'answer-upvote', href: '#', value: '{{id}}'} +
-  .vote-total.answer
+      %a{id: 'answer-upvote', href: '#', value: '{{id}}', 'data-id' => "{{voteTotal votes}}" } +
+  .vote-total.answer{id: "{{id}}"}
     %h3 {{voteTotal votes}}
   .downvote.answer
     %h4
