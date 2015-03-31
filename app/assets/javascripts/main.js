@@ -20,11 +20,15 @@ $(document).ready(function() {
   $('.post-container.question').on('click', '#more-content', toggleQuestionContent);
   $('.post-vote-container.question').on('click', '#question-upvote', function(){
     console.log('this is an upvote');
-    vote('Question', 1);
+    questionVote('Question', 1);
   });
   $('.post-vote-container.question').on('click', '#question-downvote', function(){
     console.log('this is a downvote');
-    vote('Question', -1);
+    questionVote('Question', -1);
   });
+  // $('.row.answers-container').on('click', '#answer-downvote', function(){
+  //   console.log('this is a downvote');
+  //   vote('Answer', -1);
+  // });
 
 });

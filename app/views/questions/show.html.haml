@@ -111,9 +111,13 @@
 
 %script{ id: 'answer-voting-partial', type: 'text/x-handlebars-template'}
   .upvote.answer
+    %h4
+      %a{id: 'answer-upvote', href: '#'} +
   .vote-total.answer
     %h3 {{voteTotal votes}}
   .downvote.answer
+    %h4
+      %a{id: 'answer-downvote', href: '#'} -
   .accepted-selector
     %h3 {{accepted}}
 
