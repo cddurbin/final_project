@@ -5,8 +5,9 @@
   .small-10.columns
     .row
       .small-1.columns
-        .post-vote-container
-          .post-vote-total
+        .post-vote-container.question
+        .watch-selector
+          
       .small-11.columns
         .post-container.question{ value: @question.id, :name => @question.user.first_name }
         #add-answer-container
@@ -88,6 +89,14 @@
       {{> comment}}
     {{/comments}} 
   {{/answers}}
+
+%script{ id: 'voting-tpl', type: 'text/x-handlebars-template'}
+  .upvote
+  .vote-total
+    %h3 {{voteTotal votes}}
+  .downvote
+  
+
 
 
 

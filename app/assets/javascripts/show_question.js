@@ -4,8 +4,12 @@ function getQuestion(){
     console.log(response);
     var source = $("#question-tpl").html();
     var template = Handlebars.compile(source);
-    
     $(".post-container.question").html(template(response));
+
+    var voting = $('#voting-tpl').html();
+    console.log(voting)
+    var votingTemplate = Handlebars.compile(voting);
+    $(".post-vote-container.question").html(votingTemplate(response));
   });
 };
 
@@ -85,6 +89,24 @@ function toggleQuestionContent() {
   $(this).text(label);
 };
 
+function voteTotal () {
+
+};
+
+Handlebars.registerHelper('voteTotal', function(votes) {
+  var scores = []
+  var total = 0;
+  for(var i = 0; i < votes.length; i++){
+    var vote = votes[i];
+    scores.push(vote.score);
+  }
+  
+  $.each(scores,function() {
+    total += parseInt(this);
+  });
+  return total;
+});
+
 // $(Handlebars.partials["user"]()).appendTo('#question-container');
 
 // $(document).ready(function() {
@@ -97,19 +119,7 @@ function toggleQuestionContent() {
 
 // -------------------------------------------------
 
-// Handlebars.registerHelper('voteTotal', function(votes) {
-//   var scores = []
-//   var total = 0;
-//   for(var i = 0; i < votes.length; i++){
-//     var vote = votes[i];
-//     scores.push(vote.score);
-//   }
-  
-//   $.each(scores,function() {
-//     total += parseInt(this);
-//   });
-//   return total;
-// });
+
 
 // ----------------------------------------------
 
