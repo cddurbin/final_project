@@ -65,7 +65,8 @@ function submitAnswer (){
   var data = CKEDITOR.instances['add-answer-editor'].getData();
   console.log(data);
   var questionId = $('.post-container.question').attr('value');
-  request("POST", '/questions/' + questionId + '/answers', {answer:{content: data, question_id: questionId, user_id: 4 }}).done(function(){
+  var currentUserId = $('body').attr('name');
+  request("POST", '/questions/' + questionId + '/answers', {answer:{content: data, question_id: questionId, user_id: currentUserId }}).done(function(){
     console.log('done');
     var user_name = $('.post-container.question').attr('name');
     $('#add-answer-btn').text('Help ' + user_name + ' out.');
@@ -102,6 +103,19 @@ function toggleQuestionContent() {
   };
   $(this).text(label);
 };
+
+// function vote (value) {
+//   var questionId = $('.post-container.question').attr('value');
+//   var currentUserId = $('body').attr('name');
+//   console.log(currentUserId);
+//   request("POST", '/questions/' + questionId + '/votes', {vote:{user_id: currentUserId, question_id: questionId, score: value }}).done(function(){
+//     console.log('done');
+//   });
+// };
+
+
+
+
 
 
 

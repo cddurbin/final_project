@@ -13,9 +13,13 @@ $(document).ready(function() {
   if($('body').is('.questions.show')){
     loadQuestionShowPage ();
   }
+
   // getAllQuestions();
   $('#add-answer-btn').on('click', createAnswerEditor);
   $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
   $('.post-container.question').on('click', '#more-content', toggleQuestionContent);
+  $('.post-vote-container.question').on('click', '.upvote.question', function(){
+    console.log('this is an upvote');
+  });
 
 });

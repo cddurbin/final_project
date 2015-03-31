@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'users/show'
-
   get '/answers/:answer_id/comments', to: 'answers#get_comments'
 
   devise_for :users
