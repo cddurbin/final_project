@@ -111,6 +111,7 @@ function vote (votable_type, value) {
   console.log(currentUserId);
   request("POST", '/questions/' + questionId + '/votes', {vote:{user_id: currentUserId, votable_id: questionId, votable_type: votable_type, score: value }}).done(function(){
     console.log('done');
+    getQuestion();
   });
 };
 

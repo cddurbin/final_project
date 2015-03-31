@@ -22,5 +22,9 @@ $(document).ready(function() {
     console.log('this is an upvote');
     vote('Question', 1);
   });
+  $('.post-vote-container.question').on('click', '.downvote.question', function(){
+    console.log('this is a downvote');
+    vote('Question', -1);
+  });
 
 });
