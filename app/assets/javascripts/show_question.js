@@ -142,7 +142,13 @@ Handlebars.registerHelper('voteTotal', function(votes) {
 });
 
 Handlebars.registerHelper('answerTotal', function(sorted_answers) {
-  return Object.keys(sorted_answers).length;
+  var num = Object.keys(sorted_answers).length;
+  var answer = 'Answer'
+  if(num > 1){
+    return num + ' Answers'
+  } else {
+    return num + ' Answer'
+  }
 });
 
 // $(Handlebars.partials["user"]()).appendTo('#question-container');
