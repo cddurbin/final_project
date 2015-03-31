@@ -1,7 +1,7 @@
 function getQuestion(){
   var questionId = $('.post-container.question').attr('value');
   request("GET", '/questions/' + questionId, null).done(function(response) {
-    
+    console.log(response);
     var source = $("#question-tpl").html();
     var template = Handlebars.compile(source);
     $(".post-container.question").html(template(response));
