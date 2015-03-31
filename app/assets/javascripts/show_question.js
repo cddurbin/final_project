@@ -46,7 +46,7 @@ function toggleAnswerComments () {
 };
 
 function createAnswerEditor () {
-  $('#answer-editor-container').append("<textarea id='add-answer-editor'></textarea><input type='button' text='Submit' id='answer-submit'></input>")
+  $('#answer-editor-container').append("<textarea id='add-answer-editor'></textarea><button id='answer-submit'>Add Answer</button>")
   $('#add-answer-btn').off('click').on('click', removeAnswerEditor);
   CKEDITOR.replace('add-answer-editor');
   $(this).text('Nevermind');
@@ -56,7 +56,7 @@ function removeAnswerEditor () {
   CKEDITOR.instances['add-answer-editor'].destroy();
   $('#answer-editor-container').empty();
   $('#add-answer-btn').off('click').on('click', createAnswerEditor);
-  var user_name = $('#question-container').attr('name');
+  var user_name = $('.post-container.question').attr('name');
   $(this).text('Help ' + user_name + ' out.');
 };
 
@@ -67,6 +67,8 @@ function submitAnswer (){
   request("POST", '/questions/' + questionId + '/answers', {answer:{content: data, question_id: questionId, user_id: 4 }}).done(function(){
     console.log('done');
     getAnswers();
+    removeAnswerEditor();
+    
   });
 }
 
