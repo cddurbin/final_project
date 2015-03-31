@@ -55,9 +55,10 @@ function createAnswerEditor () {
 function removeAnswerEditor () {
   CKEDITOR.instances['add-answer-editor'].destroy();
   $('#answer-editor-container').empty();
-  $('#add-answer-btn').off('click').on('click', createAnswerEditor);
   var user_name = $('.post-container.question').attr('name');
   $(this).text('Help ' + user_name + ' out.');
+  $('#add-answer-btn').off('click').on('click', createAnswerEditor);
+  
 };
 
 function submitAnswer (){
@@ -66,6 +67,8 @@ function submitAnswer (){
   var questionId = $('.post-container.question').attr('value');
   request("POST", '/questions/' + questionId + '/answers', {answer:{content: data, question_id: questionId, user_id: 4 }}).done(function(){
     console.log('done');
+    var user_name = $('.post-container.question').attr('name');
+    $('#add-answer-btn').text('Help ' + user_name + ' out.');
     getAnswers();
     removeAnswerEditor();
     
