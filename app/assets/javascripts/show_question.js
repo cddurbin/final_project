@@ -61,6 +61,7 @@ function submitAnswer (){
 
 function loadQuestionShowPage() {
     Handlebars.registerPartial("user", $("#user-partial").html());
+    Handlebars.registerPartial("comment", $("#comment-partial").html());
     getQuestion();
     console.log('loaded Question');
     getAnswers();
