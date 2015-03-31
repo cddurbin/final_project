@@ -58,8 +58,13 @@
   .post-comments-container.question
     {{#comments}}
     .post-comment-container.question{ id: 'question-comment-{{ id }}'}
-      %p {{{ content }}}
-      {{>user}} 
+      .row
+        .small-6.columns
+          .post-details.show
+            %p {{{ content }}}
+        .small-6.columns
+          .post-signature-user.show
+            %h3 Asked by {{user.first_name}} {{user.last_name}} {{created_at}}
     {{/comments}}
 
 
