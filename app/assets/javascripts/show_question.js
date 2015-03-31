@@ -107,18 +107,16 @@ function toggleQuestionContent() {
 function questionVote (votable_type, value) {
   var questionId = $('.post-container.question').attr('value');
   var currentUserId = $('body').attr('name');
-  var votable_type;
   request("POST", '/questions/' + questionId + '/votes', {vote:{user_id: currentUserId, votable_id: questionId, votable_type: votable_type, score: value }}).done(function(){
     getQuestion();
   });
 };
 
-function answerVote (votable_type, value) {
-  var questionId = $('.post-container.question').attr('value');
+function answerVote (answerId, votable_type, value) {
+  console.log(answerId);
   var currentUserId = $('body').attr('name');
-  var votable_type;
-  request("POST", '/questions/' + questionId + '/votes', {vote:{user_id: currentUserId, votable_id: questionId, votable_type: votable_type, score: value }}).done(function(){
-    getQuestion();
+  request("POST", '/answers/' + answerId + '/votes', {vote:{user_id: currentUserId, votable_id: answerId, votable_type: votable_type, score: value }}).done(function(){
+    getAnswers();
   });
 };
 

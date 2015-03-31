@@ -86,7 +86,7 @@
     .post-vote-container.answer
     {{> answer-voting}}
   .small-11.columns
-    .post-container.answer{ id: 'answer-{{ id }}', value: '{{ id }}'}
+    .post-container.answer{ id: 'answer-{{ id }}'}
       %p {{{ content }}}
       .post-signature-user.answer
         {{> user }}
@@ -112,7 +112,7 @@
 %script{ id: 'answer-voting-partial', type: 'text/x-handlebars-template'}
   .upvote.answer
     %h4
-      %a{id: 'answer-upvote', href: '#'} +
+      %a{id: 'answer-upvote', href: '#', value: '{{id}}'} +
   .vote-total.answer
     %h3 {{voteTotal votes}}
   .downvote.answer
