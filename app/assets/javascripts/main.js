@@ -20,6 +20,7 @@ $(document).ready(function() {
   $('.post-container.question').on('click', '#more-content', toggleQuestionContent);
   $('.post-vote-container.question').on('click', '.upvote.question', function(){
     console.log('this is an upvote');
+    vote('Question', 1);
   });
 
 });

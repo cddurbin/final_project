@@ -104,14 +104,15 @@ function toggleQuestionContent() {
   $(this).text(label);
 };
 
-// function vote (value) {
-//   var questionId = $('.post-container.question').attr('value');
-//   var currentUserId = $('body').attr('name');
-//   console.log(currentUserId);
-//   request("POST", '/questions/' + questionId + '/votes', {vote:{user_id: currentUserId, question_id: questionId, score: value }}).done(function(){
-//     console.log('done');
-//   });
-// };
+function vote (votable_type, value) {
+  var questionId = $('.post-container.question').attr('value');
+  var currentUserId = $('body').attr('name');
+  var votable_type;
+  console.log(currentUserId);
+  request("POST", '/questions/' + questionId + '/votes', {vote:{user_id: currentUserId, votable_id: questionId, votable_type: votable_type, score: value }}).done(function(){
+    console.log('done');
+  });
+};
 
 
 
