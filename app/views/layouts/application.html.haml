@@ -16,7 +16,7 @@
       %ul.title-area
         %li.name
           %h1
-            %li= link_to(image_tag('ga_logo.png', class:'ga-logo'), root_path)
+            %li= link_to(image_tag('https://s3-eu-west-1.amazonaws.com/wdi11-final-project/images/ga_logo.png', class:'ga-logo'), root_path)
         
       %section.top-bar-section
         / Right Nav Section
@@ -26,7 +26,7 @@
           - if user_signed_in?
             %li.has-dropdown
               %a{:href => "#"}
-                = image_tag('ga_account_icon.svg', class:'ga-account')
+                = image_tag('https://s3-eu-west-1.amazonaws.com/wdi11-final-project/images/ga_account_icon.svg', class:'ga-account')
               %ul.dropdown
                 %li= link_to 'Logout', destroy_user_session_path, :method => :delete
                 %li.active= link_to 'MY ACCOUNT', user_path(current_user)
