@@ -83,26 +83,33 @@
 %script{ id: 'answers-tpl', type: 'text/x-handlebars-template'}
   .answers-heading
     %h3 {{answerTotal sorted_answers}}
-  -# {{#if accepted_answer}}
-  -# .small-1.columns
-  -#   .post-vote-container.answer
-  -#     {{> answer-voting}}
-  -#     .accepted-selector
-  -#       %p Accepted
-  -# .small-11.columns
-  -#   .post-container.answer{ id: 'answer-{{ id }}'}
-  -#     %p {{{ content }}}
-  -#     .post-signature-user.answer
-  -#       {{> user }}
-  -#     {{#if comments}}
-  -#   %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
-  -#   .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
-  -#     {{#comments}}
-  -#     .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
-  -#       {{> comment}}
-  -#     {{/comments}}
-  -#     {{/if}}
-  -# {{/if}}
+  {{#if accepted_answer}}
+  .small-1.columns
+    .post-vote-container.answer
+      .upvote.answer
+        %h4
+          %a{id: 'answer-upvote', href: '#', value: '{{id}}'} +
+      .vote-total.answer
+        %h3 
+      .downvote.answer
+        %h4
+          %a{id: 'answer-downvote', href: '#', value: '{{id}}'}
+      .accepted-selector
+        %p Accepted
+  .small-11.columns
+    .post-container.answer{ id: 'answer-{{ id }}'}
+      %p {{{ content }}}
+      .post-signature-user.answer
+        {{> user }}
+      {{#if comments}}
+    %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
+    .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
+      {{#comments}}
+      .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
+        {{> comment}}
+      {{/comments}}
+      {{/if}}
+  {{/if}}
   {{#sorted_answers}}
   .small-1.columns
     .post-vote-container.answer

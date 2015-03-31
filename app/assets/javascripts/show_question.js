@@ -18,9 +18,12 @@ function getAnswers () {
   
   request("GET", '/questions/' + questionId + '/answers', null).done(function(response){
     console.log(response);
+
     var source = $("#answers-tpl").html();
     var template = Handlebars.compile(source);
     $(".row.answers-container").html(template(response));
+
+
 
 
     // var voting = $('#answer-voting-tpl').html();
