@@ -1,4 +1,5 @@
 #wrapper
+  #sub-top-bar
   .row
     .small-12.columns
       .questions-container
@@ -6,17 +7,17 @@
           - @questions.each do |question|
             .small-2.columns
               %ul.post-stats-container.index
-                %li.vote-total
+                %li.stat-box.want-answer
                   - if (question.votes.length == 0)
                     .total 0
                     .vote-total-label Want Answer
                   - else
                     .total= question.votes.map {|vote| vote.score}.inject(:+)
                     .vote-total-label Want Answer
-                %li.answer-total
+                %li.stat-box-answers
                   .total= question.answers.length
                   .answer-total-label Answers
-                %li.viewed-total
+                %li.stat-box-views
                   .total= question.viewed
                   .viewed-total-label Views 
             .small-10.columns
