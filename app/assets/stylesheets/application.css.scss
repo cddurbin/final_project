@@ -19,16 +19,20 @@
 $color-red: #fa4542;
 $color-deep-red: #be0201;
 $color-input-grey: #f6f6f6;
+$color-background-grey: #ececec;
+$font-paragraph: "News706BT-RomanC",Georgia;
+$font-button: "Varela Round", sans-serif;
+$font-title: 'Source Sans Pro', sans-serif;
+$font-alt: 'Open Sans Condensed', sans-serif;
 
-*{
- /*font-family: 'Open Sans Condensed', sans-serif;*/
- font-family: 'Varela Round', sans-serif;
+.button {
+  border-radius: 3px;
 }
 
 
 #sub-top-bar {
   height: 80px;
-  background-color: $color-input-grey;
+  background-color: $color-background-grey;
 
   #search-field, #search-submit {
     display: inline-block;
@@ -44,6 +48,9 @@ $color-input-grey: #f6f6f6;
 
   .button.submit {
     box-shadow: 0 3px 0 0 #a2a2a2;
+    color: #383838;
+    background-color: #f6f6f6;
+    font-family: "News706BT-RomanC",Georgia;
   }
 
   .search-form {
