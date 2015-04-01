@@ -1,11 +1,12 @@
 #wrapper
   #sub-top-bar
-    .search-form
-      = search_form_for @q do |f|
-        #search-field
-          = f.search_field :title_or_content_cont
-        #search-submit
-          = f.submit 'Search', :class => 'button secondary submit' 
+    .heading
+      .app-title
+        %h1 OPEN FORUM
+      .search-container
+        = search_form_for @q do |f|
+          #search-field
+            = f.search_field :title_or_content_cont, :placeholder => 'Search'
   .row
     .small-12.columns
       .questions-container

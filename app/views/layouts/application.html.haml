@@ -7,6 +7,8 @@
     = Gon::Base.render_data({})
     %link{:href => "http://fonts.googleapis.com/css?family=Varela+Round", :rel => "stylesheet", :type => "text/css"}/
     %link{ href: "http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700", :rel => "stylesheet", :type => "text/css"}
+    %link{ href:'http://fonts.googleapis.com/css?family=Montserrat:400,700', :rel=>'stylesheet', :type=>'text/css' }
+    %link{ href: 'http://fonts.googleapis.com/css?family=Archivo+Narrow:400,700', :rel=>'stylesheet', :type=>'text/css' }
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
     = javascript_include_tag "application"
@@ -14,7 +16,7 @@
     = csrf_meta_tags
     
   %body{ class: "#{controller_name} #{action_name}" }
-    %nav.top-bar{"data-topbar" => "", :role => "navigation"}
+    %nav.top-bar#mastead{"data-topbar" => "", :role => "navigation"}
       %ul.title-area
         %li.name
           %h1

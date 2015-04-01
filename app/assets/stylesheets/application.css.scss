@@ -18,53 +18,93 @@
  */
 $color-red: #fa4542;
 $color-deep-red: #be0201;
+$color-green: #24b296;
+$color-green-shadow: #00725b ;
+
 $color-input-grey: #f6f6f6;
 $color-background-grey: #ececec;
 $font-paragraph: "News706BT-RomanC",Georgia;
 $font-button: "Varela Round", sans-serif;
-$font-title: 'Source Sans Pro', sans-serif;
+$font-title: 'Montserrat', sans-serif;
+$font-title-backup: 'Source Sans Pro', sans-serif;
+$font-title-alt: 'Archivo Narrow', sans-serif;
 $font-alt: 'Open Sans Condensed', sans-serif;
+
+// .button.submit:hover {
+//   background-color: white;
+// }
+
+// .button.submit {
+//   box-shadow: 0 3px 0 0 #a2a2a2;
+//   color: #383838;
+//   background-color: #f6f6f6;
+//   font-family: $font-button;
+//   // -webkit-font-smoothing: antialiased;
+// }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
 
 .button {
   border-radius: 3px;
 }
 
-
 #sub-top-bar {
   height: 80px;
-  background-color: $color-background-grey;
-
-  #search-field, #search-submit {
+  background-color: $color-input-grey;
+  
+  .app-title {
     display: inline-block;
-    margin: 10px 0px;
-  }
-  .button.submit, input {
-    margin-bottom: 0px;
+    float: left;
+    margin: 0.75rem 0;
+    background-color: #666;
+    border-radius: 2px;
+
+    h1 {
+      font-size: 1.25rem;
+      font-style: bold;
+      font-family: $font-title;
+      font-weight: 400;
+      margin: 0;
+      color: white;
+      padding: 0.75rem;
+    }
   }
 
-  .button.submit:hover {
-    background-color: white;
-  }
-
-  .button.submit {
-    box-shadow: 0 3px 0 0 #a2a2a2;
-    color: #383838;
-    background-color: #f6f6f6;
-    font-family: "News706BT-RomanC",Georgia;
-  }
-
-  .search-form {
+  .search-container {
+    float: left;
+    text-align: left;
     width: 400px;
     max-height: 100%;
-    text-align: center;
+    display: inline;
+    // margin: 0 0 3rem 0;
+  }
+
+  #search-field {
+    display: inline-block;
+    margin: 0 0 0 1rem;
+    width: 220px;
+    padding-top: 1.25rem;
+    font-size: 1rem;
 
   }
 
+  .heading {
+    width: 1000px;
+    text-align: right;
+    margin: 0 auto;
+    max-height: 100%
+  }
 
 
+}
 
-
-
+.post-container.index {
+  font-family: $font-title;
 }
 
 
