@@ -2,12 +2,10 @@
   #sub-top-bar
     .search-form
       = search_form_for @q do |f|
-        #search-label
-          = f.label :title_or_content_cont, 'Search'
         #search-field
           = f.search_field :title_or_content_cont
         #search-submit
-          = f.button 'Search' 
+          = f.submit 'Search', :class => 'button secondary submit' 
   .row
     .small-12.columns
       .questions-container

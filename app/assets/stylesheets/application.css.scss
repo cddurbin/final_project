@@ -25,6 +25,42 @@ $color-input-grey: #f6f6f6;
  font-family: 'Varela Round', sans-serif;
 }
 
+
+#sub-top-bar {
+  height: 80px;
+  background-color: $color-input-grey;
+
+  #search-field, #search-submit {
+    display: inline-block;
+    margin: 10px 0px;
+  }
+  .button.submit, input {
+    margin-bottom: 0px;
+  }
+
+  .button.submit:hover {
+    background-color: white;
+  }
+
+  .button.submit {
+    box-shadow: 0 3px 0 0 #a2a2a2;
+  }
+
+  .search-form {
+    width: 400px;
+    max-height: 100%;
+    text-align: center;
+
+  }
+
+
+
+
+
+
+}
+
+
 div {
   border: 1px solid red;
 }
