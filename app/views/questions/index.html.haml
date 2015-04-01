@@ -5,28 +5,30 @@
         .row
           - @questions.each do |question|
             .small-2.columns
-              .post-stats-container.index
-                .vote-total
-                  %h3= question.votes.map {|vote| vote.score}.inject(:+)
-                  .vote-total-label
-                    %h3 Votes
-                .answer-total
-                  %h3= question.answers.length
-                  .answer-total-label
-                    %h3 Answers
-                .viewed-total
-                  %h3= question.viewed
-                  .viewed-total-label
-                    %h3 Views
+              %ul.post-stats-container.index
+                %li.vote-total
+                  - if (question.votes.length == 0)
+                    .total 0
+                    .vote-total-label Want Answer
+                  - else
+                    .total= question.votes.map {|vote| vote.score}.inject(:+)
+                    .vote-total-label Want Answer
+                %li.answer-total
+                  .total= question.answers.length
+                  .answer-total-label Answers
+                %li.viewed-total
+                  .total= question.viewed
+                  .viewed-total-label Views 
             .small-10.columns
               .post-container.index
                 .post-title.index
                   %h1= link_to("#{question.title}", question_path(question))
                 .row
                   .small-6.columns
-                  - question.tag_list.each do |tag|
                     .post-details.index
-                      %h4 tag
+                    - question.tag_list.each do |tag|
+                      %ul.post-tags
+                        %li= tag
                   .small-6.columns
                     .post-signature-user.index
                       %h3 By #{question.user.first_name} #{question.user.last_name} #{question.created_at}
