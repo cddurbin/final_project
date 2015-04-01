@@ -12,15 +12,21 @@ Vote.delete_all
 Comment.delete_all
 Watch.delete_all
 
+list = ['ruby', 'rails', 'javascript', 'angular', 'jquery', 'html', 'css', 'bootstrap', 'foundation', 'sinatra', 'ajax', 'array', 'hash', 'string', 'function', 'method', 'json', 'associations', 'model', 'controller', 'scope', 'promises', 'osx', 'terminal', 'console', 'rake tasks', 'git', 'github', 'heroku']
+
+list.each do |tag|
+  ActsAsTaggableOn::Tag.new(:name => tag).save
+end
+
 u1 = User.create(first_name: 'Colin', last_name: 'Durbin', email: 'colin@gmail.com', location: 'London, UK', ga_course: 'wdi', role: 'Student', graduated_date: 'current student', password: 'password')
 
 u2 = User.create(first_name: 'Becky', last_name: 'Smith', email: 'becky@gmail.com', location: 'New York City, USA', ga_course: 'uxdi', role: 'Instuctor', password: 'password')
 
-q1 = Question.create(title: 'How do I create seed data in rails?', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque tempore, nam beatae provident illo nobis optio ad, nulla neque incidunt eos obcaecati deleniti placeat voluptates laboriosam alias dolor temporibus natus.', viewed: 5, user_id: u1.id)
+q1 = Question.create(title: 'How do I create seed data in rails?', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque tempore, nam beatae provident illo nobis optio ad, nulla neque incidunt eos obcaecati deleniti placeat voluptates laboriosam alias dolor temporibus natus.', viewed: 5, user_id: u1.id, tag_list: 'ruby, rails, javascript')
 
-q2 = Question.create(title: 'Why does seed data take so long?', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque tempore, nam beatae provident illo nobis optio ad, nulla neque incidunt eos obcaecati deleniti placeat voluptates laboriosam alias dolor temporibus natus.', viewed: 18, user_id: u2.id)
+q2 = Question.create(title: 'Why does seed data take so long?', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque tempore, nam beatae provident illo nobis optio ad, nulla neque incidunt eos obcaecati deleniti placeat voluptates laboriosam alias dolor temporibus natus.', viewed: 18, user_id: u2.id, tag_list: 'ruby, javascript')
 
-q3 = Question.create(title: 'Who is buried in Grant tomb?', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque tempore, nam beatae provident illo nobis optio ad, nulla neque incidunt eos obcaecati deleniti placeat voluptates laboriosam alias dolor temporibus natus.', viewed: 12, user_id: u1.id)
+q3 = Question.create(title: 'Who is buried in Grant tomb?', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque tempore, nam beatae provident illo nobis optio ad, nulla neque incidunt eos obcaecati deleniti placeat voluptates laboriosam alias dolor temporibus natus.', viewed: 12, user_id: u1.id, tag_list: 'angular, rails, jquery')
 
 a1 = Answer.create(user_id: u1.id, question_id: q1.id, content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus voluptate suscipit, porro enim error odit quis ut odio commodi tempora ab laudantium ducimus perferendis beatae ad a, pariatur explicabo aperiam.')
 
