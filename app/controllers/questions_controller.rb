@@ -5,8 +5,14 @@ class QuestionsController < ApplicationController
 
   def index
     gon.current_user = current_user
+
+    @q = Question.ransack(params[:q])
+    
     if params[:tag]
       @questions = Question.tagged_with(params[:tag])
+    elsif params[:q]
+      @q = Question.ransack(params[:q])
+      @questions = @q.result(distinct: true)
     else
       @questions = Question.all.order('created_at DESC')
     end
