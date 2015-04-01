@@ -61,6 +61,17 @@ Handlebars.registerHelper('answerTotal', function(sorted_answers) {
   }
 });
 
+Handlebars.registerHelper('acceptedAnswerTotal', function(sorted_answers) {
+
+  var num = Object.keys(sorted_answers).length + 1;
+  var answer = 'Answer'
+  if(num > 1){
+    return num + ' Answers'
+  } else {
+    return num + ' Answer'
+  }
+});
+
 $(document).ready(function(){
   $('.post-container.question').on('click', '#more-content', toggleQuestionContent);
 });

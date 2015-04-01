@@ -81,9 +81,9 @@
 
 
 %script{ id: 'answers-tpl', type: 'text/x-handlebars-template'}
-  .answers-heading
-    %h3 {{answerTotal sorted_answers}}
   {{#if accepted_answer}}
+  .answers-heading
+    %h3 {{acceptedAnswerTotal sorted_answers}}
   .small-1.columns
     .post-vote-container.answer
       .upvote.answer
@@ -109,6 +109,9 @@
         {{> comment}}
       {{/comments}}
       {{/if}}
+  {{else}}
+  .answers-heading
+    %h3 {{answerTotal sorted_answers}}
   {{/if}}
   {{#sorted_answers}}
   .small-1.columns
