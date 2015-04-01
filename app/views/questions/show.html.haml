@@ -7,7 +7,7 @@
       .small-1.columns
         .post-vote-container.question
       .small-11.columns
-        .post-container.question{ value: @question.id, :name => @question.user.first_name }
+        .post-container.question{ value: @question.id, :name => @question.user.first_name, :data=>{:id => @question.user.id}}
         #add-answer-container
           %button#add-answer-btn Help #{@question.user.first_name} Out
           #answer-editor-container
@@ -116,7 +116,7 @@
       {{> answer-voting}}
       .accepted-selector
   .small-11.columns
-    .post-container.answer{ id: 'answer-{{ id }}'}
+    .post-container.answer{ id: 'answer-{{ id }}', :data=>{:id =>'{{id}}'}}
       %p {{{ content }}}
       .post-signature-user.answer
         {{> user }}

@@ -27,8 +27,9 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.create(question_params)
+    @question.update_attributes(user_id: current_user.id)
     if @question.save
-       redirect_to questions_path, notice: "The question has been successfully created."
+       redirect_to @question
      else
        render action: "new"
      end

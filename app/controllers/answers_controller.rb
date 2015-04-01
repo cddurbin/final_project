@@ -25,6 +25,12 @@ class AnswersController < ApplicationController
     render json: @answer, status: :created
   end
 
+  def update
+    @answer = Answer.find(params[:id])
+    @answer.update params.require(:answer).permit(:accepted)
+    head :no_content, status: :ok
+  end
+
   def get_comments
     @answer = Answer.find(params[:answer_id])
     respond_to do |format|

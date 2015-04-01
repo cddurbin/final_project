@@ -7,7 +7,7 @@ function updateHelpfulTotal (button, value) {
 function postAnswerVote (answerId, votable_type, value, button) {
   console.log(answerId);
   var currentUserId = $('body').attr('name');
-  request("POST", '/answers/' + answerId + '/votes', {vote:{user_id: currentUserId, votable_id: answerId, votable_type: votable_type, score: value }}).done(function(response){
+  request("POST", '/answers/' + answerId + '/votes', {vote:{user_id: currentUserId, votable_id: answerId, votable_type: votable_type, score: value }}).done(function(){
     updateHelpfulTotal(button, value);
     
   });

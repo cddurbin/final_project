@@ -12,7 +12,11 @@ function getAnswers () {
       console.log('true');
       acceptedAnswerVotes (response.accepted_answer);
     } else {
-      acceptAnswerButton();
+      var currentUserId = $('body').attr('name');
+      var questionUserId = $('.post-container.question').data('id');
+      if(currentUserId === questionUserId){
+        acceptAnswerButton();
+      }
     };
   });
 };
@@ -56,13 +60,26 @@ function toggleAnswerComments () {
 };
 
 function acceptAnswerButton () {
-  $('.accepted-selector').append('<h3><a href="#">Accept</a></h3>');
+  $('.accepted-selector').append('<h3><a href="#", id:"accept-answer">Accept</a></h3>');
 }
+
+function acceptAnswer (answerId) {
+  console.log(answerId);
+  var currentUserId = $('body').attr('name');
+  request("PUT", '/answers/' + answerId, {answer:{accepted: true }}).done(function(){
+    console.log('done');
+    
+  });
+};
 
 
 $(document).ready(function(){
   $('#add-answer-btn').on('click', createAnswerEditor);
   $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
+  $('.answers-container').on('click', $('#accept-answer'), function(){
+    var answerId = $('.post-container.answer').data('id');
+    acceptAnswer (answerId);
+  });
 });
 
 //---------------------------------------------------------------------
