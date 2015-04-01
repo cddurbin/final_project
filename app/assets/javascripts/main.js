@@ -21,13 +21,8 @@ $(document).ready(function() {
 
   $('.post-vote-container.question').on('click', '#want-answer', function(){
     console.log('this is an upvote');
-    questionVote('Question', 1);
+    postQuestionVote('Question', 1);
   });
-
-
-
-
-
 
   $('.post-vote-container.question').on('click', '#question-downvote', function(){
     console.log('this is a downvote');
