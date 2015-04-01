@@ -8,10 +8,12 @@ function getAnswers () {
     var template = Handlebars.compile(source);
     $(".row.answers-container").html(template(response));
 
-    if(response.accepted_answer > 0) {
+    if(response.accepted_answer.length > 0) {
       console.log('true');
       acceptedAnswerVotes (response.accepted_answer);
-    }  
+    } else {
+      acceptAnswerButton();
+    };
   });
 };
 
@@ -52,6 +54,10 @@ function toggleAnswerComments () {
     $(this).next().toggle();
   });
 };
+
+function acceptAnswerButton () {
+  $('.accepted-selector').append('<h3><a href="#">Accept</a></h3>');
+}
 
 
 $(document).ready(function(){
