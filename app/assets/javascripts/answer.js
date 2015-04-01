@@ -7,6 +7,11 @@ function getAnswers () {
     var source = $("#answers-tpl").html();
     var template = Handlebars.compile(source);
     $(".row.answers-container").html(template(response));
+
+    if(response.accepted_answer) {
+      console.log('true');
+      acceptedAnswerVotes (response.accepted_answer);
+    }  
   });
 };
 

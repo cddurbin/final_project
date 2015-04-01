@@ -86,14 +86,12 @@
     %h3 {{acceptedAnswerTotal sorted_answers}}
   .small-1.columns
     .post-vote-container.answer
-      .upvote.answer
-        %h4
-          %a{id: 'answer-upvote', href: '#', value: '{{id}}'} +
-      .vote-total.answer
-        %h3 
-      .downvote.answer
-        %h4
-          %a{id: 'answer-downvote', href: '#', value: '{{id}}'}
+      .stat-box.helpful
+        .helpful-total{id: 'accepted-total'}
+          %h3 
+        }
+        %button{id: 'helpful', value: "{{id}}"} Helpful
+        %button{id: 'unhelpful'} Unhelpful
       .accepted-selector
         %p Accepted
   .small-11.columns
@@ -149,9 +147,6 @@
     .helpful-total
       %h3 {{voteTotal votes}}
     %button{id: 'helpful', value: "{{id}}"} Helpful
-  .stat-box.unhelpful
-    .unhelpful-total{id: "{{id}}"}
-      %h3 {{voteTotal votes}}
     %button{id: 'unhelpful'} Unhelpful
 
       
