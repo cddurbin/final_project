@@ -136,23 +136,20 @@
     .want-answer-total{id: "{{id}}"}
       %h3 {{voteTotal votes}}
     %button{id: 'want-answer'} Want Answer
-  -# .downvote.question
-  -#   %h4
-  -#     %a{id: 'question-downvote', href: '#'} -
   .watch-selector
 
 
 
 
 %script{ id: 'answer-voting-partial', type: 'text/x-handlebars-template'}
-  .upvote.answer
-    %h4
-      %a{id: 'answer-upvote', href: '#', value: '{{id}}', 'data-id' => "{{voteTotal votes}}" } +
-  .vote-total.answer{id: "{{id}}"}
-    %h3 {{voteTotal votes}}
-  .downvote.answer
-    %h4
-      %a{id: 'answer-downvote', href: '#', value: '{{id}}'} -
+  .stat-box.helpful
+    .helpful-total
+      %h3 {{voteTotal votes}}
+    %button{id: 'helpful', value: "{{id}}"} Helpful
+  .stat-box.unhelpful
+    .unhelpful-total{id: "{{id}}"}
+      %h3 {{voteTotal votes}}
+    %button{id: 'unhelpful'} Unhelpful
 
       
 

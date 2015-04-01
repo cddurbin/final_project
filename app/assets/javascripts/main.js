@@ -5,45 +5,26 @@ function request(method, url, data) {
             dataType: "json",
             data: data
           })
-}
+};
+
+function loadQuestionShowPage() {
+    Handlebars.registerPartial("user", $("#user-partial").html());
+    Handlebars.registerPartial("comment", $("#comment-partial").html());
+    Handlebars.registerPartial("answer-voting", $("#answer-voting-partial").html());
+  
+    getQuestion();
+    getAnswers();
+    toggleQuestionComments ();
+    toggleAnswerComments ();
+};
 
 $(document).ready(function() {
+
   hljs.initHighlightingOnLoad();
   // $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+  
   if($('body').is('.questions.show')){
     loadQuestionShowPage ();
   }
-
-  // getAllQuestions();
-  $('#add-answer-btn').on('click', createAnswerEditor);
-  $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
-  $('.post-container.question').on('click', '#more-content', toggleQuestionContent);
-
-  $('.post-vote-container.question').on('click', '#want-answer', function(){
-    console.log('this is an upvote');
-    postQuestionVote('Question', 1);
-  });
-
-  $('.post-vote-container.question').on('click', '#question-downvote', function(){
-    console.log('this is a downvote');
-    questionVote('Question', -1);
-  });
-
-  $('.row.answers-container').on('click', '#answer-upvote', function(){
-    console.log('this is an answer upvote');
-    var answerId = $(this).attr('value');
-    console.log($(this).attr('value'));
-    console.log($(this).attr('data-id'));
-    console.log($('.vote-total.answer#' + answerId));
-
-    postAnswerVote(answerId, 'Answer', 1);
-  });
-
-  $('.row.answers-container').on('click', '#answer-downvote', function(){
-    console.log('this is an answer downvote');
-    var answerId = $(this).attr('value');
-    answerVote(answerId, 'Answer', -1);
-  });
-
 
 });
