@@ -18,14 +18,22 @@ $(document).ready(function() {
   $('#add-answer-btn').on('click', createAnswerEditor);
   $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
   $('.post-container.question').on('click', '#more-content', toggleQuestionContent);
-  $('.post-vote-container.question').on('click', '#question-upvote', function(){
+
+  $('.post-vote-container.question').on('click', '#want-answer', function(){
     console.log('this is an upvote');
     questionVote('Question', 1);
   });
+
+
+
+
+
+
   $('.post-vote-container.question').on('click', '#question-downvote', function(){
     console.log('this is a downvote');
     questionVote('Question', -1);
   });
+
   $('.row.answers-container').on('click', '#answer-upvote', function(){
     console.log('this is an answer upvote');
     var answerId = $(this).attr('value');
@@ -35,11 +43,12 @@ $(document).ready(function() {
 
     postAnswerVote(answerId, 'Answer', 1);
   });
+
   $('.row.answers-container').on('click', '#answer-downvote', function(){
     console.log('this is an answer downvote');
     var answerId = $(this).attr('value');
     answerVote(answerId, 'Answer', -1);
   });
-  
+
 
 });

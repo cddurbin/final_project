@@ -132,14 +132,13 @@
   {{/sorted_answers}}
 
 %script{ id: 'question-voting-tpl', type: 'text/x-handlebars-template'}
-  .upvote.question
-    %h4
-      %a{id: 'question-upvote', href: '#'} +
-  .vote-total.question{id: "{{id}}"}
-    %h3 {{voteTotal votes}}
-  .downvote.question
-    %h4
-      %a{id: 'question-downvote', href: '#'} -
+  .stat-box.want-answer
+    .want-answer-total{id: "{{id}}"}
+      %h3 {{voteTotal votes}}
+    %button{id: 'want-answer'} Want Answer
+  -# .downvote.question
+  -#   %h4
+  -#     %a{id: 'question-downvote', href: '#'} -
   .watch-selector
 
 
