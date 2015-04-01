@@ -24,8 +24,9 @@
                   %h1= link_to("#{question.title}", question_path(question))
                 .row
                   .small-6.columns
+                  - question.tag_list.each do |tag|
                     .post-details.index
-                      %h4 Tags Tags Tags
+                      %h4 tag
                   .small-6.columns
                     .post-signature-user.index
                       %h3 By #{question.user.first_name} #{question.user.last_name} #{question.created_at}

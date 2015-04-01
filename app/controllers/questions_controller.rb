@@ -1,7 +1,10 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
+
+
   def index
+    gon.current_user = current_user
     @questions = Question.all.order('created_at DESC')
     
     respond_to do |format|
@@ -11,6 +14,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    gon.current_user = current_user
     @question = Question.find(params[:id])
     
     respond_to do |format|
@@ -22,10 +26,12 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    gon.current_user = current_user
     @question = Question.new
   end
 
   def create
+    gon.current_user = current_user
     @question = Question.create(question_params)
     @question.update_attributes(user_id: current_user.id)
     if @question.save

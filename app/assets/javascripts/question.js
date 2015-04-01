@@ -6,7 +6,7 @@ function getQuestion(){
     var template = Handlebars.compile(source);
     $(".post-container.question").html(template(response));
 
-    var currentUserId = $('body').data('id');
+    var currentUserId = gon.current_user.id
     var questionUserId = $('.post-container.question').data('id');
     var voting = $('#question-voting-tpl').html();
     var votingTemplate = Handlebars.compile(voting);

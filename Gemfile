@@ -13,6 +13,7 @@ gem 'cancancan', '~> 1.10'
 gem 'jquery-ui-rails'
 gem 'fog'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'gon'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record

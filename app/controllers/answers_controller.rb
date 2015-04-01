@@ -1,7 +1,10 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   
+  
+
   def index
+    gon.current_user = current_user
     @question = Question.find(params[:question_id])
     answers = @question.answers
     @accepted_answer = answers.where(accepted: true)
@@ -21,17 +24,20 @@ class AnswersController < ApplicationController
   end
 
   def create
+    gon.current_user = current_user
     @answer = Answer.create(params.require(:answer).permit(:content, :question_id, :user_id))
     render json: @answer, status: :created
   end
 
   def update
+    gon.current_user = current_user
     @answer = Answer.find(params[:id])
     @answer.update params.require(:answer).permit(:accepted)
     head :no_content, status: :ok
   end
 
   def get_comments
+    gon.current_user = current_user
     @answer = Answer.find(params[:answer_id])
     respond_to do |format|
       format.html

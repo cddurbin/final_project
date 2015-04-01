@@ -12,7 +12,7 @@ function getAnswers () {
       console.log('true');
       acceptedAnswerVotes (response.accepted_answer);
     } else {
-      var currentUserId = $('body').data('id');
+      var currentUserId = gon.current_user.id
       var questionUserId = $('.post-container.question').data('id');
       if(currentUserId === questionUserId){
         acceptAnswerButton();
@@ -41,7 +41,7 @@ function submitAnswer (){
   var data = CKEDITOR.instances['add-answer-editor'].getData();
   console.log(data);
   var questionId = $('.post-container.question').attr('value');
-  var currentUserId = $('body').data('id');
+  var currentUserId = gon.current_user.id
   request("POST", '/questions/' + questionId + '/answers', {answer:{content: data, question_id: questionId, user_id: currentUserId }}).done(function(){
     console.log('submit done');
     var user_name = $('.post-container.question').attr('name');
@@ -65,7 +65,7 @@ function acceptAnswerButton () {
 
 function acceptAnswer (answerId) {
   console.log(answerId);
-  var currentUserId = $('body').data('id');
+  var currentUserId = gon.current_user.id
   request("PUT", '/answers/' + answerId, {answer:{accepted: true }}).done(function(){
     console.log('done');
     
