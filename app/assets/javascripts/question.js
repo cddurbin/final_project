@@ -6,14 +6,16 @@ function getQuestion(){
     var template = Handlebars.compile(source);
     $(".post-container.question").html(template(response));
 
-    var currentUserId = $('body').attr('name');
+    var currentUserId = $('body').data('id');
     var questionUserId = $('.post-container.question').data('id');
     var voting = $('#question-voting-tpl').html();
-
-    if(currentUserId != questionUserId) {
-      console.log('false');
-      var votingTemplate = Handlebars.compile(voting);
-      $(".post-vote-container.question").html(votingTemplate(response));
+    var votingTemplate = Handlebars.compile(voting);
+    $(".post-vote-container.question").html(votingTemplate(response));
+  
+    if(currentUserId === questionUserId) {
+      console.log('true');
+      $( '#want-answer').replaceWith( '<h3>Want Answer</h3>' );
+      
     };
   });
 };
