@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
     gon.current_user = current_user
 
     @q = Question.ransack(params[:q])
-    
+
     if params[:tag]
       @questions = Question.tagged_with(params[:tag])
     elsif params[:q]

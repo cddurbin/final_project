@@ -12,6 +12,7 @@
     .small-12.columns
       .questions-container
         .row
+        - unless @questions.empty?
           - @questions.each do |question|
             .small-2.columns
               %ul.post-stats-container.index
@@ -41,6 +42,8 @@
                   .small-6.columns
                     .post-signature-user.index
                       %h3 By #{question.user.first_name} #{question.user.last_name} #{question.created_at}
+        -else
+          %h3 No results
                   
             
 

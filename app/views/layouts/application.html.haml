@@ -9,7 +9,7 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
     = javascript_include_tag "application"
-    %script{:src => "ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"}
+    -# %script{:src => "ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"}
     = csrf_meta_tags
     
   %body{ class: "#{controller_name} #{action_name}" }
@@ -22,8 +22,6 @@
       %section.top-bar-section
         / Right Nav Section
         %ul.right
-          %li= link_to 'Logout', destroy_user_session_path, :method => :delete
-        
           - if user_signed_in?
             %li.has-dropdown
               %a{:href => "#"}

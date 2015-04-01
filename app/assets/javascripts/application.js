@@ -15,7 +15,6 @@
 //= require ckeditor/init
 //= require jquery-ui
 //= require foundation
-//= require ckeditor/plugins/codesnippet/lib/highlight/highlight.pack
 //= require_tree .
 
 var ready;

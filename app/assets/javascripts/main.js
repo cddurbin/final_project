@@ -20,7 +20,7 @@ function loadQuestionShowPage() {
 
 $(document).ready(function() {
 
-  hljs.initHighlightingOnLoad();
+  // hljs.initHighlightingOnLoad();
   // $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
   
   if($('body').is('.questions.show')){
