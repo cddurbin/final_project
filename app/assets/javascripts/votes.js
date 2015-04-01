@@ -5,9 +5,11 @@ function updateHelpfulTotal (button, value) {
 };
 
 function postAnswerVote (answerId, votable_type, value, button) {
+  console.log(answerId);
   var currentUserId = $('body').attr('name');
-  request("POST", '/answers/' + answerId + '/votes', {vote:{user_id: currentUserId, votable_id: answerId, votable_type: votable_type, score: value }}).done(function(){
+  request("POST", '/answers/' + answerId + '/votes', {vote:{user_id: currentUserId, votable_id: answerId, votable_type: votable_type, score: value }}).done(function(response){
     updateHelpfulTotal(button, value);
+    
   });
 };
 
@@ -58,6 +60,7 @@ $(document).ready(function(){
   $('.row.answers-container').on('click', '#unhelpful', function(){
     console.log('this is an answer downvote');
     var answerId = $(this).attr('value');
+    console
     postAnswerVote(answerId, 'Answer', -1, ($(this)));
   });
 });

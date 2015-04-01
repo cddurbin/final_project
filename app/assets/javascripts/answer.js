@@ -8,7 +8,7 @@ function getAnswers () {
     var template = Handlebars.compile(source);
     $(".row.answers-container").html(template(response));
 
-    if(response.accepted_answer) {
+    if(response.accepted_answer > 0) {
       console.log('true');
       acceptedAnswerVotes (response.accepted_answer);
     }  

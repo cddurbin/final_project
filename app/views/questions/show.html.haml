@@ -89,7 +89,6 @@
       .stat-box.helpful
         .helpful-total{id: 'accepted-total'}
           %h3 
-        }
         %button{id: 'helpful', value: "{{id}}"} Helpful
         %button{id: 'unhelpful'} Unhelpful
       .accepted-selector
@@ -147,7 +146,7 @@
     .helpful-total
       %h3 {{voteTotal votes}}
     %button{id: 'helpful', value: "{{id}}"} Helpful
-    %button{id: 'unhelpful'} Unhelpful
+    %button{id: 'unhelpful', value: "{{id}}"} Unhelpful
 
       
 
