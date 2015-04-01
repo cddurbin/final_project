@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   get '/search', to: "search#index"
+  get 'tags/:tag', to: "questions#index", as: :tag
 
   get '/answers/:answer_id/comments', to: 'answers#get_comments'
 

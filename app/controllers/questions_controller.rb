@@ -5,7 +5,11 @@ class QuestionsController < ApplicationController
 
   def index
     gon.current_user = current_user
-    @questions = Question.all.order('created_at DESC')
+    if params[:tag]
+      @questions = Question.tagged_with(params[:tag])
+    else
+      @questions = Question.all.order('created_at DESC')
+    end
     
     respond_to do |format|
       format.html 

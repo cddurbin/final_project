@@ -145,12 +145,13 @@
     %button{id: 'helpful', value: "{{id}}"} Helpful
     %button{id: 'unhelpful', value: "{{id}}"} Unhelpful
 
--# %script{ id: 'feed-tpl', type: 'text/x-handlebars-template'}
--#   .feed-box.tags
--#     %ul.tag-list
--#       {{#tags}}
--#       %li= link_to("{{tag.name}}", tag_path)
--#       {{/tags}}
+%script{ id: 'feed-tpl', type: 'text/x-handlebars-template'}
+  .feed-box.tags
+    %ul.tag-list
+      {{#tags}}
+      %li
+        %a{ href: 'http://localhost:3000/tags/{{name}}'} {{name}}
+      {{/tags}}
     
       
 
