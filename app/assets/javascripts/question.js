@@ -6,10 +6,15 @@ function getQuestion(){
     var template = Handlebars.compile(source);
     $(".post-container.question").html(template(response));
 
+    var currentUserId = $('body').attr('name');
+    var questionUserId = $('.post-container.question').data('id');
     var voting = $('#question-voting-tpl').html();
-    
-    var votingTemplate = Handlebars.compile(voting);
-    $(".post-vote-container.question").html(votingTemplate(response));
+
+    if(currentUserId != questionUserId) {
+      console.log('false');
+      var votingTemplate = Handlebars.compile(voting);
+      $(".post-vote-container.question").html(votingTemplate(response));
+    };
   });
 };
 
