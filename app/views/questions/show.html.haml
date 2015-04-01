@@ -2,6 +2,7 @@
 
 .row
   .small-2.columns
+    .feed-container
   .small-10.columns
     .row
       .small-1.columns
@@ -144,5 +145,12 @@
     %button{id: 'helpful', value: "{{id}}"} Helpful
     %button{id: 'unhelpful', value: "{{id}}"} Unhelpful
 
+-# %script{ id: 'feed-tpl', type: 'text/x-handlebars-template'}
+-#   .feed-box.tags
+-#     %ul.tag-list
+-#       {{#tags}}
+-#       %li= link_to("{{tag.name}}", tag_path)
+-#       {{/tags}}
+    
       
 
