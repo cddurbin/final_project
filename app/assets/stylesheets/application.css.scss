@@ -20,9 +20,8 @@ $color-red: #fa4542;
 $color-deep-red: #be0201;
 $color-green: #24b296;
 $color-green-shadow: #00725b ;
-
 $color-input-grey: #f6f6f6;
-$color-background-grey: #ececec;
+$color-logo-grey: #666;
 $font-paragraph: "News706BT-RomanC",Georgia;
 $font-button: "Varela Round", sans-serif;
 $font-title: 'Montserrat', sans-serif;
@@ -58,7 +57,7 @@ body {
     display: inline-block;
     float: left;
     margin: 1rem 0;
-    background-color: #666;
+    background-color: $color-logo-grey;
     border-radius: 2px;
 
     h1 {
@@ -115,6 +114,20 @@ body {
 
 .post-container.index {
   font-family: $font-title;
+}
+
+.post-title {
+
+  h1 {
+    font-size: 1.5rem;
+    color: $color-logo-grey;
+  }
+  a:hover {
+    color: black;
+  }
+  a{
+    color: $color-logo-grey;
+  }
 }
 
 
