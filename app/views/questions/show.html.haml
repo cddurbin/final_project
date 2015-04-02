@@ -12,7 +12,7 @@
     #add-answer-container
       %button#add-answer-btn Help #{@question.user.first_name} Out
       #answer-editor-container
-.row.answers-container
+.answers-container
       
       
       
@@ -81,41 +81,42 @@
 
 %script{ id: 'answers-tpl', type: 'text/x-handlebars-template'}
   {{#if accepted_answer}}
-  .answers-heading
-    %h3 {{acceptedAnswerTotal sorted_answers}}
-  .all-answers
-    .small-2.columns.accepted
-      .post-vote-container.answer
-        .stat.helpful
-          .total{id: 'accepted-total'}
-          .total-label{id: 'helpful', value: "{{id}}"}
-            %a Helpful
-          .total-label{id: 'unhelpful'} 
-            %a Unhelpful
-        .accepted-selector Accepted
-    .small-10.columns
-      .post-container.answer{ id: 'answer-{{ id }}'}
-        %p {{{ content }}}
-        .post-signature-user.answer
-          {{> user }}
-        {{#if comments}}
-      %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
-      .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
-        {{#comments}}
-        .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
-          {{> comment}}
-        {{/comments}}
-        {{/if}}
-    {{else}}
+  .row
     .answers-heading
-      %h3 {{answerTotal sorted_answers}}
-    {{/if}}
-    {{#sorted_answers}}
+      %h3 {{acceptedAnswerTotal sorted_answers}}
     .all-answers
+      .small-2.columns.accepted
+        .post-vote-container.answer
+          .stat.helpful
+            .total{id: 'accepted-total'}
+            .total-label{id: 'helpful', value: "{{id}}"}
+              %a Helpful
+            .total-label{id: 'unhelpful'} 
+              %a Unhelpful
+          .accepted-selector Accepted
+      .small-10.columns
+        .post-container.answer{ id: 'answer-{{ id }}'}
+          %p {{{ content }}}
+          .post-signature-user.answer
+            {{> user }}
+          {{#if comments}}
+        %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
+        .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
+          {{#comments}}
+          .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
+            {{> comment}}
+          {{/comments}}
+          {{/if}}
+      {{else}}
+      .answers-heading
+        %h3 {{answerTotal sorted_answers}}
+      {{/if}}
+      {{#sorted_answers}}
+    .row
       .small-2.columns
         .post-vote-container.answer
           {{> answer-voting}}
-        .button.accept-selector
+          .button.accept-selector
       .small-10.columns
         .post-container.answer{ id: 'answer-{{ id }}', :data=>{:id =>'{{id}}'}}
           %p {{{ content }}}
@@ -133,8 +134,8 @@
 
 %script{ id: 'question-voting-tpl', type: 'text/x-handlebars-template'}
   .stat.want-answer
-    .total{id: "{{id}}"} {{voteTotal votes}}
-    .total-label{id: 'want-answer'} 
+    .total{id: "want-answer"} {{voteTotal votes}}
+    .total-label{id: 'want-answer-label'} 
       %a Want Answers
 
 %script{ id: 'answer-voting-partial', type: 'text/x-handlebars-template'}

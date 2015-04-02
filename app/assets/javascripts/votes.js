@@ -5,7 +5,7 @@ function updateHelpfulTotal (button, value) {
 
 function postAnswerVote (answerId, votable_type, value, button) {
   console.log(answerId);
-  var currentUserId = $('body').attr('name');
+  var currentUserId = gon.current_user.id;
   request("POST", '/answers/' + answerId + '/votes', {vote:{user_id: currentUserId, votable_id: answerId, votable_type: votable_type, score: value }}).done(function(){
     updateHelpfulTotal(button, value);
     
@@ -40,7 +40,7 @@ Handlebars.registerHelper('voteTotal', function(votes) {
 
 $(document).ready(function(){
 
-  $('.post-vote-container.question').on('click', '#want-answer', function(){
+  $('.post-vote-container.question').on('click', $('#want-answer'), function(){
     console.log('this is an upvote');
     postQuestionVote('Question', 1);
   });

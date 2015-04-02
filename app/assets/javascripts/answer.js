@@ -6,7 +6,7 @@ function getAnswers () {
 
     var source = $("#answers-tpl").html();
     var template = Handlebars.compile(source);
-    $(".row.answers-container").html(template(response));
+    $(".answers-container").html(template(response));
 
     if(response.accepted_answer.length > 0) {
       console.log('true');

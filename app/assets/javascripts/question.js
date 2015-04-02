@@ -22,7 +22,7 @@ function getQuestion(){
     var questionUserId = $('.post-container.question').data('id')
     if(currentUserId === questionUserId) {
       console.log('true');
-      $( '#want-answer').replaceWith( "<div class='total-label'>Want Answers</div>" );
+      $( '#want-answer-label').replaceWith( "<div class='total-label'>Want Answers</div>" );
       
     };
   });
@@ -51,14 +51,14 @@ function toggleQuestionContent() {
 };
 
 function updateWantAnswerTotal () {
-  var voteTotal = parseInt($('.total').text());
+  var voteTotal = parseInt(($('#want-answer')).text());
   console.log(voteTotal);
-  return $('.total').text(voteTotal + 1);
+  return $('#want-answer').text(voteTotal + 1);
 };
 
 function postQuestionVote (votable_type, value) {
   var questionId = $('.post-container.question').attr('value');
-  var currentUserId = $('body').attr('name');
+  var currentUserId = gon.current_user.id;
   request("POST", '/questions/' + questionId + '/votes', {vote:{user_id: currentUserId, votable_id: questionId, votable_type: votable_type, score: value }}).done(function(){
     console.log('want answer clicked')
     updateWantAnswerTotal();
