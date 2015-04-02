@@ -240,31 +240,7 @@ li.tag:hover {
   background-color: $color-stat-label;
 }
 
-.want-answer-total {
-  font-family: $font-button;
-  color: $color-logo-grey;
-  margin-bottom: 8px;
 
-  h3 {
-    padding-bottom: 6px;
-    width: 120px;
-    height: 45px;
-    font-size: 2rem;
-    text-align: center;
-    background-color: $color-input-grey;
-    font-style: bold;
-
-  }
-  .want-answer-word {
-    padding-top: 4px;
-    font-size: 0.75rem;
-    width: 120px;
-    height: 25px;
-    text-align: center;
-    background-color: $color-stat-label;
-  }
-  
-}
 
 .stat.answers {
   padding-top: 4px;
@@ -286,31 +262,7 @@ li.tag:hover {
 ul.tag-list {
   margin-bottom: 0;
   text-align: left;
-
-  li {
-    display: inline-block;
-    list-style: none;
-    font-size: 0.8rem;
-    margin: 0 0.5rem 0 0;
-    background-color: $color-yellow-alt;
-    padding: 0.2rem 0.5rem; 
-    box-shadow: 0 3px 0 0 $color-yellow-dark;
-    font-family: $font-button;
-    transition-property: all;
-    transition-duration: 0.15s;
-    transition-timing-function: ease-in-out;
-    transition-delay: initial;
-    // -webkit-font-smoothing: antialiased;
-      a {
-        color: #333333;
-      }
-  }
 }
-
-li.tag:hover {
-  background-color: yellow;
-}
-
 
 div {
   border: 1px solid red;

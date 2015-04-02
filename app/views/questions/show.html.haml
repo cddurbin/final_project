@@ -59,7 +59,7 @@
     .small-6.columns#post-details.question
       %ul.tag-list
         {{#tags}}
-        %li
+        %li.tag
           %a{ href: 'http://localhost:3000/tags/{{name}}'} {{name}}
         {{/tags}}
     .small-6.columns
@@ -136,11 +136,9 @@
   {{/sorted_answers}}
 
 %script{ id: 'question-voting-tpl', type: 'text/x-handlebars-template'}
-  .stat-box.want-answer
-    .want-answer-total{id: "{{id}}"}
-      %h3 {{voteTotal votes}}
-    .want-answer-word{id: 'want-answer'} Want Answers
-  .watch-selector
+  .stat.want-answer
+    .total{id: "{{id}}"} {{voteTotal votes}}
+    .total-label{id: 'want-answer'} Want Answers
 
 %script{ id: 'answer-voting-partial', type: 'text/x-handlebars-template'}
   .stat-box.helpful
