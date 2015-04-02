@@ -42,7 +42,7 @@
         #sub-top-bar
           .heading
             .app-title
-              %h1 OPEN FORUM
+              %h1= link_to 'OPEN FORUM', questions_path
             .search-container
               #search-field
                 = form_tag('/search', method: :get) do
