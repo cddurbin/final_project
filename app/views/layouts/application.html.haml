@@ -37,7 +37,16 @@
               %li= link_to 'Login', new_user_session_path
               %li.active= link_to 'Register', new_user_registration_path
              
-    .main-container      
+    .main-container
+      #wrapper
+        #sub-top-bar
+          .heading
+            .app-title
+              %h1 OPEN FORUM
+            .search-container
+              #search-field
+                = form_tag('/search', method: :get) do
+                  = text_field_tag :q, nil, :placeholder => 'Search'    
       -# %p.notice= notice
       -# %p.alert= alert
       

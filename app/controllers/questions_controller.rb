@@ -26,6 +26,7 @@ class QuestionsController < ApplicationController
   def show
     gon.current_user = current_user
     @question = Question.find(params[:id])
+    @q = Question.ransack(params[:q])
     
     respond_to do |format|
       format.html
