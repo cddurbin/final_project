@@ -7,20 +7,16 @@
         .question-wrapper
           .row
             .small-2.columns
-              %ul.post-stats-container.index
-                %li.stat-box.want-answer
+              .post-stats-container.index
+                .stat.want-answer
                   - if (question.votes.length == 0)
                     .total 0
-                    .vote-total-label Want Answer
+                    .total-label WANT ANSWER
                   - else
                     .total= question.votes.map {|vote| vote.score}.inject(:+)
-                    .vote-total-label Want Answer
-                %li.stat-box-answers
-                  .total= question.answers.length
-                  .answer-total-label Answers
-                %li.stat-box-views
-                  .total= question.viewed
-                  .viewed-total-label Views 
+                    .total-label WANT ANSWER
+                .stat.answers= "#{question.answers.length} | ANSWERS"
+                .stat.views=  "#{question.viewed} | VIEWS"
             .small-10.columns
               .post-container.index
                 .post-title.index
@@ -28,9 +24,9 @@
                 .row
                   .small-6.columns
                     .post-details.index
-                    - question.tag_list.each do |tag|
                       %ul.post-tags
-                        %li= tag
+                      - question.tag_list.each do |tag|
+                        %li.tag= tag
                   .small-6.columns
                     .post-signature-user.index
                       %h3 By #{question.user.first_name} #{question.user.last_name} #{question.created_at}
