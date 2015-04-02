@@ -30,17 +30,7 @@ $font-title-backup: 'Source Sans Pro', sans-serif;
 $font-title-alt: 'Archivo Narrow', sans-serif;
 $font-alt: 'Open Sans Condensed', sans-serif;
 
-// .button.submit:hover {
-//   background-color: white;
-// }
 
-// .button.submit {
-//   box-shadow: 0 3px 0 0 #a2a2a2;
-//   color: #383838;
-//   background-color: #f6f6f6;
-//   font-family: $font-button;
-//   // -webkit-font-smoothing: antialiased;
-// }
 
 html,
 body {
@@ -56,7 +46,14 @@ body {
 #sub-top-bar {
   height: 80px;
   background-color: $color-input-grey;
-  
+}
+
+.heading {
+  width: 1000px;
+  text-align: right;
+  margin: 0 auto;
+  max-height: 100%;
+
   .app-title {
     display: inline-block;
     float: left;
@@ -93,11 +90,24 @@ body {
 
   }
 
-  .heading {
-    width: 1000px;
-    text-align: right;
-    margin: 0 auto;
-    max-height: 100%
+  .button.ask-question:hover {
+    background-color: red;
+  }
+
+  .button.ask-question {
+    margin: 0.75rem 0 0 0;
+    box-shadow: 0 3px 0 0 $color-deep-red;
+    color: white;
+    background-color: $color-red;
+    font-family: $font-button;
+    transition-property: all;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in-out;
+    transition-delay: initial;
+    // -webkit-font-smoothing: antialiased;
+      a {
+        color: white;
+      }
   }
 
 
