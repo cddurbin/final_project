@@ -47,7 +47,7 @@
               #search-field
                 = form_tag('/search', method: :get) do
                   = text_field_tag :q, nil, :placeholder => 'Search'  
-            .button.ask-question= link_to 'Ask Question', new_question_path 
+            .button.ask-question= link_to 'Add Question', new_question_path 
       -# %p.notice= notice
       -# %p.alert= alert
       

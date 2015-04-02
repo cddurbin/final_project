@@ -11,15 +11,15 @@ function getQuestion(){
     var votingTemplate = Handlebars.compile(voting);
     $(".post-vote-container.question").html(votingTemplate(response));
 
-    var feed = $('#feed-tpl').html();
-    var feedTemplate = Handlebars.compile(feed);
-    $(".feed-container").html(feedTemplate(response));
+    // var feed = $('#feed-tpl').html();
+    // var feedTemplate = Handlebars.compile(feed);
+    // $(".feed-container").html(feedTemplate(response));
 
     
-
-    var currentUserId = gon.current_user.id
-    var questionUserId = $('.post-container.question').data('id');
-  
+    if(gon.current_user.id !== null){
+      var currentUserId = gon.current_user.id
+    }
+    var questionUserId = $('.post-container.question').data('id')
     if(currentUserId === questionUserId) {
       console.log('true');
       $( '#want-answer').replaceWith( '<h3>Want Answer</h3>' );

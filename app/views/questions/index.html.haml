@@ -5,16 +5,16 @@
     - unless @questions.empty?
       - @questions.each do |question|
         .question-wrapper
-          .row
+          .row.questions
             .small-2.columns
               .post-stats-container.index
                 .stat.want-answer
                   - if (question.votes.length == 0)
                     .total 0
-                    .total-label WANT ANSWER
+                    .total-label WANT ANSWERS
                   - else
                     .total= question.votes.map {|vote| vote.score}.inject(:+)
-                    .total-label WANT ANSWER
+                    .total-label WANT ANSWERS
                 .stat.answers= "#{question.answers.length} | ANSWERS"
                 .stat.views=  "#{question.viewed} | VIEWS"
             .small-10.columns
@@ -26,7 +26,7 @@
                     .post-details.index
                       %ul.post-tags
                       - question.tag_list.each do |tag|
-                        %li.tag= tag
+                        %li.tag= link_to "#{tag}", tag_path(tag)
                   .small-6.columns
                     .post-signature-user.index
                       %h3 By #{question.user.first_name} #{question.user.last_name} #{question.created_at}

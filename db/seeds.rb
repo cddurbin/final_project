@@ -55,7 +55,7 @@ c4 = Comment.create(user_id: u2.id, commentable_id: a5.id, commentable_type: 'An
 
 v1 = Vote.create(user_id: u1.id, votable_id: q1.id, votable_type: 'Question', score: 1)
 
-v2 = Vote.create(user_id: u1.id, votable_id: q2.id, votable_type: 'Question', score: -1)
+v2 = Vote.create(user_id: u1.id, votable_id: q2.id, votable_type: 'Question', score: 1)
 
 v3 = Vote.create(user_id: u1.id, votable_id: q3.id, votable_type: 'Question', score: 1)
 
@@ -63,11 +63,11 @@ v4 = Vote.create(user_id: u2.id, votable_id: q1.id, votable_type: 'Question', sc
 
 v5 = Vote.create(user_id: u2.id, votable_id: q2.id, votable_type: 'Question', score: 1)
 
-v6 = Vote.create(user_id: u2.id, votable_id: q3.id, votable_type: 'Question', score: -1)
+v6 = Vote.create(user_id: u2.id, votable_id: q3.id, votable_type: 'Question', score: 1)
 
 v7 = Vote.create(user_id: u3.id, votable_id: a1.id, votable_type: 'Answer', score: 1)
 
-v8 = Vote.create(user_id: u1.id, votable_id: a2.id, votable_type: 'Answer', score: -1)
+v8 = Vote.create(user_id: u1.id, votable_id: a2.id, votable_type: 'Answer', score: 1)
 
 v9 = Vote.create(user_id: u1.id, votable_id: a3.id, votable_type: 'Answer', score: 1)
 
@@ -75,7 +75,13 @@ v10 = Vote.create(user_id: u3.id, votable_id: a1.id, votable_type: 'Answer', sco
 
 v11 = Vote.create(user_id: u2.id, votable_id: a2.id, votable_type: 'Answer', score: 1)
 
-v12 = Vote.create(user_id: u3.id, votable_id: a3.id, votable_type: 'Answer', score: -1)
+v12 = Vote.create(user_id: u3.id, votable_id: a3.id, votable_type: 'Answer', score: 1)
+
+v13 = Vote.create(user_id: u2.id, votable_id: q5.id, votable_type: 'Question', score: 1)
+
+v14 = Vote.create(user_id: u2.id, votable_id: q5.id, votable_type: 'Question', score: 1)
+
+v15 = Vote.create(user_id: u2.id, votable_id: q4.id, votable_type: 'Question', score: 1)
 
 w1 = Watch.create(user_id: u1.id, question_id: q1.id)
 
