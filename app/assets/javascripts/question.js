@@ -42,12 +42,12 @@ function toggleQuestionContent() {
   
   if(label === "More") {
     label = "Less";
-    content.toggle();
+    $(this).text(label);
   } else {
     label = "More";
-    content.toggle();
   };
-  $(this).text(label);
+  
+  content.toggle();
 };
 
 function updateWantAnswerTotal () {

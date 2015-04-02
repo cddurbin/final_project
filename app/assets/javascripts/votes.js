@@ -1,7 +1,6 @@
 function updateHelpfulTotal (button, value) {
-  var voteTotal = button.siblings('.helpful-total').children();
-  var voteTotalNum = parseInt(voteTotal.text());
-  return voteTotal.text(voteTotalNum + value);
+  var voteTotal = parseInt(button.siblings('.total').text());
+  return button.siblings('.total').text(voteTotal + value);
 };
 
 function postAnswerVote (answerId, votable_type, value, button) {
@@ -18,7 +17,7 @@ function acceptedAnswerVotes (acceptedAnswer) {
   var votes = acceptedAnswer[0].votes
   var total = getVoteTotal (votes);
   console.log(total);
-  return $('#accepted-total').children().text(total);
+  return $('#accepted-total').text(total);
 };
 
 function getVoteTotal (votes) {

@@ -130,7 +130,7 @@ body {
 
   h1 {
     font-size: 1.5rem;
-    color: $color-logo-grey;
+    color: black;
   }
   a:hover {
     color: black;
@@ -219,10 +219,20 @@ li.tag:hover {
     height: 25px;
     text-align: center;
     background-color: $color-stat-label;
+
+      a {
+        color: $color-logo-grey;
+      }
+
   }
   
 }
 
+.total-label:hover {
+  background-color: white;
+  border: 1px solid $color-logo-grey;
+}
+
 .stat.answers {
   padding-top: 4px;
   font-size: 0.75rem;
@@ -241,7 +251,6 @@ li.tag:hover {
 }
 
 
-
 .stat.answers {
   padding-top: 4px;
   font-size: 0.75rem;
@@ -258,15 +267,104 @@ li.tag:hover {
   text-align: center;
   background-color: $color-stat-label;
 }
+
+
 
 ul.tag-list {
   margin-bottom: 0;
   text-align: left;
 }
 
+.post-content h3 {
+  font-family: $font-title;
+  font-size: 1rem;
+  color: $color-logo-grey; 
+}
+
+ul.user-details li {
+  list-style: none;
+
+    .user-name {
+      font-size: 1rem;
+    }
+}
+
+.button.accepted-selector {
+  text-align: center;
+  box-shadow: 0 3px 0 0 $color-deep-red;
+  color: white;
+  background-color: $color-red;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem; 
+  font-family: $font-button;
+  border-radius: 3px;
+}
+
+#answer-submit {
+  text-align: center;
+  box-shadow: 0 3px 0 0 $color-deep-red;
+  color: white;
+  background-color: $color-red;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem; 
+  font-family: $font-button;
+  border-radius: 3px;
+}
+
+
+#question-comments-btn, #answer-comments-btn {
+  text-align: center;
+  box-shadow: 0 3px 0 0 $color-logo-grey;
+  color: #333333;
+  background-color: $color-input-grey;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem; 
+  font-family: $font-button;
+  border-radius: 3px;
+
+    :hover {
+      background-color: white;
+    }
+}
+
+#add-answer-btn {
+  text-align: center;
+  box-shadow: 0 3px 0 0 $color-green-shadow;
+  color: white;
+  background-color: $color-green;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem; 
+  font-family: $font-button;
+  border-radius: 3px;
+}
+#add-answer-btn:hover {
+  background-color: green;
+}
+
+
+
+.accept-selector {
+  text-align: center;
+  box-shadow: 0 3px 0 0 $color-green-shadow;
+  color: white;
+  background-color: $color-green;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem; 
+  font-family: $font-button;
+  border-radius: 3px;
+}
+
+.answers-heading {
+  margin-left: 20px;
+  border-bottom: 2px solid $color-input-grey;
+}
+
+
+
 div {
   border: 1px solid red;
 }
+
 
 
 

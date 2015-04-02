@@ -27,14 +27,10 @@
       .post-details.question
     .small-6.columns
       .post-signature-user.question
-        .user-image
-        .ul.user-details
-          %li.user-name
-            %h2 {{user.first_name}}
-          %li.user-course
-            %h3 {{user.ga_course}}
-          %li.user-location
-            %h3 {{user.location}}
+        %ul.user-details
+          %li.user-name {{user.first_name}}
+          %li.user-course {{user.ga_course}} 
+          %li.user-location {{user.location}} 
         .submit-date
           %h3 Submitted on {{created_at}}
 
@@ -52,7 +48,8 @@
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
   .post-title.question-show
     %h1 {{{ title }}}
-  %button#more-content{ value: @question.id} More
+  #more-content{ value: @question.id} 
+    %a More
   .post-content.question
     %h3 {{{ content }}}
   .row
@@ -65,13 +62,10 @@
     .small-6.columns
       .post-signature-user.question
         .user-image
-        .ul.user-details
-          %li.user-name
-            %h2 {{user.first_name}}
-          %li.user-course
-            %h3 {{user.ga_course}}
-          %li.user-location
-            %h3 {{user.location}}
+        %ul.user-details
+          %li.user-name {{user.first_name}}
+          %li.user-course {{user.ga_course}} 
+          %li.user-location {{user.location}} 
         .action-time
           %h3 {{updated_at}}
   {{#if comments}}
@@ -91,13 +85,13 @@
     %h3 {{acceptedAnswerTotal sorted_answers}}
   .small-2.columns
     .post-vote-container.answer
-      .stat-box.helpful
-        .helpful-total{id: 'accepted-total'}
-          %h3 
-        %button{id: 'helpful', value: "{{id}}"} Helpful
-        %button{id: 'unhelpful'} Unhelpful
-      .accepted-selector
-        %p Accepted
+      .stat.helpful
+        .total{id: 'accepted-total'}
+        .total-label{id: 'helpful', value: "{{id}}"}
+          %a Helpful
+        .total-label{id: 'unhelpful'} 
+          %a Unhelpful
+      .accepted-selector Accepted
   .small-10.columns
     .post-container.answer{ id: 'answer-{{ id }}'}
       %p {{{ content }}}
@@ -119,7 +113,7 @@
   .small-2.columns
     .post-vote-container.answer
       {{> answer-voting}}
-      .accepted-selector
+    .button.accept-selector
   .small-10.columns
     .post-container.answer{ id: 'answer-{{ id }}', :data=>{:id =>'{{id}}'}}
       %p {{{ content }}}
@@ -138,14 +132,16 @@
 %script{ id: 'question-voting-tpl', type: 'text/x-handlebars-template'}
   .stat.want-answer
     .total{id: "{{id}}"} {{voteTotal votes}}
-    .total-label{id: 'want-answer'} Want Answers
+    .total-label{id: 'want-answer'} 
+      %a Want Answers
 
 %script{ id: 'answer-voting-partial', type: 'text/x-handlebars-template'}
-  .stat-box.helpful
-    .helpful-total
-      %h3 {{voteTotal votes}}
-    %button{id: 'helpful', value: "{{id}}"} Helpful
-    %button{id: 'unhelpful', value: "{{id}}"} Unhelpful
+  .stat.helpful
+    .total {{voteTotal votes}}
+    .total-label{id: 'helpful', value: "{{id}}"}
+      %a Helpful
+    .total-label{id: 'unhelpful', value: "{{id}}"}
+      %a Unhelpful
 
 -# %script{ id: 'tags-tpl', type: 'text/x-handlebars-template'}
 -#   %ul.tag-list
