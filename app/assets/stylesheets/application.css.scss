@@ -281,8 +281,18 @@ ul.tag-list {
   color: $color-logo-grey; 
 }
 
+ul.user-details {
+  background-color: $color-input-grey;
+}
+
+.post-comment-container {
+  border-bottom: 3px solid $color-input-grey;
+}
+
 ul.user-details li {
+  font-family: $font-title;
   list-style: none;
+  color: $color-logo-grey;
 
     .user-name {
       font-size: 1rem;
@@ -341,6 +351,48 @@ ul.user-details li {
   background-color: green;
 }
 
+.chosen-question {
+  margin-top: 20px;
+  border: 2px solid $color-input-grey;
+}
+
+.form-container {
+  margin-top: 20px;
+  width: 650px;
+  margin: 0 auto;
+
+  button {
+    text-align: center;
+    box-shadow: 0 3px 0 0 $color-green-shadow;
+    color: white;
+    background-color: $color-green;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem; 
+    font-family: $font-button;
+    border-radius: 3px;
+  }
+  button:hover {
+    background-color: green;
+  }
+}
+
+.form.title {
+  margin-botton: 10px;
+}
+
+#new-question-form {
+  margin-top: 10px;
+}
+
+.form.tags {
+  margin: 10px 0 10px 0;
+}
+
+
+
+
+
+
 
 
 .accept-selector {
@@ -356,17 +408,13 @@ ul.user-details li {
 
 .answers-heading {
   margin-left: 20px;
+  background-color: $color-stat-label;
   border-bottom: 2px solid $color-input-grey;
 }
 
-
-
-div {
-  border: 1px solid red;
+.all-answers {
+  margin-top: 20px;
 }
-
-
-
 
 .name .ga-logo {
   width:200px;
