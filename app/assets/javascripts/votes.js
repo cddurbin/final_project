@@ -50,13 +50,13 @@ $(document).ready(function(){
   //   questionVote('Question', -1);
   // });
 
-  $('.row.answers-container').on('click', '#helpful', function(){
+  $('.answers-container').on('click', '#helpful', function(){
     console.log('this is an answer upvote');
     var answerId = $(this).attr('value');
     postAnswerVote(answerId, 'Answer', 1, ($(this)));
   });
 
-  $('.row.answers-container').on('click', '#unhelpful', function(){
+  $('.answers-container').on('click', '#unhelpful', function(){
     console.log('this is an answer downvote');
     var answerId = $(this).attr('value');
     console

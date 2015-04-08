@@ -87,7 +87,7 @@ Handlebars.registerHelper('acceptedAnswerTotal', function(sorted_answers) {
 });
 
 $(document).ready(function(){
-  $('.post-container.question').on('click', '#more-content', toggleQuestionContent);
+  $('.post-container.question').on('click', '.post-title.question-show', toggleQuestionContent);
 });
 
 

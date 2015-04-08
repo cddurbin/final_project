@@ -290,7 +290,12 @@ ul.user-details {
 }
 
 .post-comment-container {
+
   border-bottom: 3px solid $color-input-grey;
+}
+
+.post-title.question-show a:hover {
+  color: black;
 }
 
 ul.user-details li {
@@ -303,7 +308,7 @@ ul.user-details li {
     }
 }
 
-.button.accepted-selector {
+.accepted-selector {
   text-align: center;
   box-shadow: 0 3px 0 0 $color-deep-red;
   color: white;
@@ -357,7 +362,10 @@ ul.user-details li {
 
 .chosen-question {
   margin-top: 20px;
-  border: 2px solid $color-input-grey;
+}
+
+#post-details.question {
+  border-bottom: 2px solid $color-input-grey;
 }
 
 .form-container {
@@ -419,7 +427,7 @@ ul.user-details li {
 
 
 
-.accept-selector {
+.button.accept-selector {
   text-align: center;
   box-shadow: 0 3px 0 0 $color-green-shadow;
   color: white;
@@ -439,6 +447,26 @@ ul.user-details li {
 .all-answers {
   margin-top: 20px;
   min-height: 8rem;
+}
+
+.user-snippet {
+  background-color: $color-input-grey;
+  padding: 5px;
+    li {
+      font-size: 0.5rem;
+    }
+    ul {
+      margin-left: 10px;
+    }
+}
+
+.user-image {
+  width: 50px;
+  width: 50px;
+}
+
+.post-signature-user.question {
+  padding: 0;
 }
 
 .name .ga-logo {

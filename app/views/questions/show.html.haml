@@ -22,17 +22,23 @@
 //Partials
 
 %script{ id: 'user-partial', type: 'text/x-handlebars-template'}
-  .row
+  .row#post-details.question
     .small-6.columns
-      .post-details.question
+      %ul.tag-list
+        {{#tags}}
+        %li.tag
+          %a{ href: 'http://localhost:3000/tags/{{name}}'} {{name}}
+        {{/tags}}
     .small-6.columns
-      .post-signature-user.question
-        %ul.user-details
-          %li.user-name {{user.first_name}}
-          %li.user-course {{user.ga_course}} 
-          %li.user-location {{user.location}} 
-        .submit-date
-          %h3 Submitted on {{created_at}}
+      .row.user-snippet
+        .small-2.columns
+          .user-image= image_tag 'user_default_pic.gif' 
+        .small-10.columns.post-signature-user.question
+          %ul.user-details
+            %li.user-name {{user.first_name}}
+            %li.user-course {{user.ga_course}} 
+            %li.user-location {{user.location}}
+            %li.action-time {{updated_at}}
 
 %script{ id: 'comment-partial', type: 'text/x-handlebars-template'}
   .row
@@ -47,27 +53,29 @@
 
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
   .post-title.question-show
-    %h1 {{{ title }}}
-  #more-content{ value: @question.id} 
-    %a More
+    %a 
+      %h1 {{{ title }}}
   .post-content.question
     %h3 {{{ content }}}
-  .row
-    .small-6.columns#post-details.question
+  .row#post-details.question
+    .small-6.columns
       %ul.tag-list
         {{#tags}}
         %li.tag
           %a{ href: 'http://localhost:3000/tags/{{name}}'} {{name}}
         {{/tags}}
     .small-6.columns
-      .post-signature-user.question
-        .user-image
-        %ul.user-details
-          %li.user-name {{user.first_name}}
-          %li.user-course {{user.ga_course}} 
-          %li.user-location {{user.location}} 
-        .action-time
-          %h3 {{updated_at}}
+      .row.user-snippet
+        .small-2.columns
+          .user-image= image_tag 'user_default_pic.gif' 
+        .small-10.columns.post-signature-user.question
+          %ul.user-details
+            %li.user-name {{user.first_name}}
+            %li.user-course {{user.ga_course}} 
+            %li.user-location {{user.location}}
+            %li.action-time {{updated_at}}
+          
+        
   {{#if comments}}
   %button{ id: 'question-comments-btn', :data=>{:id =>'{{id}}'} } Comments
   .post-comments-container.question
@@ -112,25 +120,26 @@
         %h3 {{answerTotal sorted_answers}}
       {{/if}}
       {{#sorted_answers}}
-    .row
-      .small-2.columns
-        .post-vote-container.answer
-          {{> answer-voting}}
-          .button.accept-selector
-      .small-10.columns
-        .post-container.answer{ id: 'answer-{{ id }}', :data=>{:id =>'{{id}}'}}
-          %p {{{ content }}}
-          .post-signature-user.answer
-            {{> user }}
-          {{#if comments}}
-        %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
-        .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
-          {{#comments}}
-          .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
-            {{> comment}}
-          {{/comments}}
-          {{/if}} 
-      {{/sorted_answers}}
+    .all-answers
+      .row
+        .small-2.columns
+          .post-vote-container.answer
+            {{> answer-voting}}
+            .button.accept-selector
+        .small-10.columns
+          .post-container.answer{ id: 'answer-{{ id }}', :data=>{:id =>'{{id}}'}}
+            %p {{{ content }}}
+            .post-signature-user.answer
+              {{> user }}
+            {{#if comments}}
+          %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
+          .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
+            {{#comments}}
+            .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
+              {{> comment}}
+            {{/comments}}
+            {{/if}} 
+        {{/sorted_answers}}
 
 %script{ id: 'question-voting-tpl', type: 'text/x-handlebars-template'}
   .stat.want-answer
