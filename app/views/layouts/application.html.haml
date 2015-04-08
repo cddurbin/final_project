@@ -12,7 +12,6 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
     = javascript_include_tag "application"
-    -# %script{:src => "ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"}
     = csrf_meta_tags
     
   %body{ class: "#{controller_name} #{action_name}" }
@@ -47,8 +46,12 @@
               #search-field
                 = form_tag('/search', method: :get) do
                   = text_field_tag :q, nil, :placeholder => 'Search'  
-            .button.ask-question= link_to 'Add Question', new_question_path 
+            %a.radius.button.add-question{"data-reveal-id" => "addQuestionModal", :href => "#"} Add Question 
       -# %p.notice= notice
       -# %p.alert= alert
       
       = yield
+
+      #addQuestionModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "add-question", "data-reveal" => "", :role => "dialog"}
+        = render 'new'
+        %a.close-reveal-modal{"aria-label" => "Close"}
