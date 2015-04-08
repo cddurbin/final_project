@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+  
   def index
     if params[:q]
       @search = Question.search(name_cont: params[:q])
