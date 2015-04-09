@@ -45,18 +45,34 @@ body {
   width:100%;
 }
 
+.ga-logo {
+  width:14em;
+}
+
 .questions-container {
   margin-top: 2rem;
 }
 
-.button {
-  border-radius: 3px;
-}
+// .button {
+//   border-radius: 3px;
+//   margin: 0.75rem 0 0 0;
+//   font-family: $font-button;
 
-#sub-top-bar {
-  height: 80px;
-  background-color: $color-input-grey;
-}
+//   .add-question {
+//     box-shadow: 0 3px 0 0 $color-deep-red;
+//     color: white;
+//     background-color: $color-red;
+    
+//     transition-property: all;
+//     transition-duration: 0.15s;
+//     transition-timing-function: ease-in-out;
+//     transition-delay: initial;
+//       // -webkit-font-smoothing: antialiased;
+//       a {
+//         color: white;
+//       }
+//   }
+// }
 
 .heading {
   width: 1000px;
@@ -106,22 +122,6 @@ body {
 
   .button.add-question:hover {
     background-color: red;
-  }
-
-  .button.add-question {
-    margin: 0.75rem 0 0 0;
-    box-shadow: 0 3px 0 0 $color-deep-red;
-    color: white;
-    background-color: $color-red;
-    font-family: $font-button;
-    transition-property: all;
-    transition-duration: 0.15s;
-    transition-timing-function: ease-in-out;
-    transition-delay: initial;
-    // -webkit-font-smoothing: antialiased;
-      a {
-        color: white;
-      }
   }
 
 }
@@ -469,6 +469,3 @@ ul.user-details li {
   padding: 0;
 }
 
-.name .ga-logo {
-  width:200px;
-}
