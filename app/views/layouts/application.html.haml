@@ -51,7 +51,7 @@
       -# %p.alert= alert
       
       = yield
-      %form.new-question 
+      %form.new-question{ :action => "/questions", :method => "POST"} 
         .row
           .small-12.columns
             %label Add Question
@@ -59,7 +59,19 @@
         .row
           .small-12.columns
             %label Details
-            %textarea
+            #wsyiwyg-control
+              %input{ :type => "button", :value => "B"}
+              %input{ :type => "button", :value => "U"}
+              %input{ :type => "button", :value => "I"}
+              %input{ :type => "button", :value => "Text Size"}
+              %input{ :type => "button", :value => "Text Color"}
+              %input{ :type => "button", :value => "Link"}
+              %input{ :type => "button", :value => "Unlink"}
+              %input{ :type => "button", :value => "HR"}
+              %input{ :type => "button", :value => "UL"}
+              %input{ :type => "button", :value => "OL"}
+              %input{ :type => "button", :value => "<>"}
+            %textarea{ :style => "display: none;" }
             %iframe#richTextField{ :name => "richTextField"}
         .row
           .small-12.columns
@@ -67,7 +79,7 @@
             %input{ :type => "text", :placeholder => "Comma Separated" }
         .row
           .small-12.columns
-            %a.button.submit-question{ href: '#'} Add Question
+            %input.button.submit-question{ :value => "Add Question", :type => "button"}
 
 
       #addQuestionModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "add-question", "data-reveal" => "", :role => "dialog"}
