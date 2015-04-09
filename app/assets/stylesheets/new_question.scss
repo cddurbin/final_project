@@ -1,7 +1,34 @@
-.editor {
+@import 'variables';
+
+.new-question-form {
   width: 650px;
+  margin: 20px auto;
+
+  .editor {
+    width: 650px;
+  }
+
+  .submit-question {
+    text-align: center;
+    box-shadow: 0 3px 0 0 $color-green-shadow;
+    color: white;
+    background-color: $color-green;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem; 
+  }
+
+  .submit-question:hover {
+    background-color: green;
+  }
+  
+  .form.title {
+    margin-botton: 10px;
+  }
+
+  .form.tags {
+    margin: 10px 0 10px 0;
+  }
+
 }
 
-code {
-  background-color: lightgrey;
-}
+
