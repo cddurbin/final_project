@@ -51,7 +51,26 @@
       -# %p.alert= alert
       
       = yield
+      %form.new-question 
+        .row
+          .small-12.columns
+            %label Add Question
+            %input{ :type => "text" }
+        .row
+          .small-12.columns
+            %label Details
+            %textarea
+            %iframe#richTextField{ :name => "richTextField"}
+        .row
+          .small-12.columns
+            %label Add Tags
+            %input{ :type => "text", :placeholder => "Comma Separated" }
+        .row
+          .small-12.columns
+            %a.button.submit-question{ href: '#'} Add Question
+
 
       #addQuestionModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "add-question", "data-reveal" => "", :role => "dialog"}
         = render 'new'
+
         %a.close-reveal-modal{"aria-label" => "Close"}

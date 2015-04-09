@@ -44,11 +44,9 @@ body {
 }
 
 .add-question {
-  @extend .button;
   box-shadow: 0 3px 0 0 $color-deep-red;
   color: white;
   background-color: $color-red;
-  
   transition-property: all;
   transition-duration: 0.15s;
   transition-timing-function: ease-in-out;

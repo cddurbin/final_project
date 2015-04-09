@@ -32,7 +32,7 @@ function removeAnswerEditor () {
   CKEDITOR.instances['add-answer-editor'].destroy();
   $('#answer-editor-container').empty();
   var user_name = $('.post-container.question').attr('name');
-  $(this).text('Help ' + user_name + ' out.');
+  $(this).text('Help ' + user_name + ' out');
   $('#add-answer-btn').off('click').on('click', createAnswerEditor);
   
 };
