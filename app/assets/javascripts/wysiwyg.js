@@ -1,19 +1,24 @@
 function iFrameOn () {
-  // $('#richTextField').contents().get(0).designMode = 'On';
-  document.getElementById('#richTextField').contentDocument.designMode = 'On';
-}
+  $('#richTextField')[0].contentDocument.designMode = 'On';
+};
+
+// function editorControls (button, arg) {
+//   console.log(button);
+//   $('#richTextField')[0].document.execCommand(button, false, arg);
+// };
 
 function editorBold () {
-  $('#richTextField').document.execCommand('bold', false, null);
-}
+  console.log('bold');
+  $('#richTextField')[0].contentDocument.execCommand('bold', false, null);
+};
 
 function editorUnderline () {
   $('#richTextField').document.execCommand('underline', false, null);
-}
+};
 
 function editorItalic () {
   $('#richTextField').document.execCommand('italic', false, null);
-}
+};
 
 function editorTextSize () {
   var size = prompt('Enter a size 1-7', '');
@@ -58,5 +63,6 @@ function sumbitQuestion () {
 
 $(document).ready(function() {
   iFrameOn();
-  sumbitQuestion();
+  $('#bold').on('click', editorBold);
+  // sumbitQuestion();
 });

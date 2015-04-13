@@ -42,7 +42,7 @@ class QuestionsController < ApplicationController
 
   def create
     gon.current_user = current_user
-    @question = Question.create(question_params)
+    @question = Question.create(params.require(:question).permit(:title, :content, :user_id, :viewed, :tag_list))
     @question.update_attributes(user_id: current_user.id)
     if @question.save
        redirect_to @question
@@ -51,8 +51,4 @@ class QuestionsController < ApplicationController
      end
   end
 
-  private
-  def question_params
-    params.require(:question).permit(:title, :content, :user_id, :viewed, :tag_list)
-  end
 end
