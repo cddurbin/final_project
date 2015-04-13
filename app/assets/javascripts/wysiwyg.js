@@ -63,10 +63,13 @@ function editorCode () {
 
 function sumbitQuestion () {
   var textArea = $('#hidden-text-area').val()
-  var title = $('#title').val()
-  var currentUserId = gon.current_user.id
-  textArea = window.frames['richTextField'].document.body.innerHTML
-  request("POST", '/questions', {question:{content: textArea, title: title, user_id: currentUserId }}).done(function(){
+  console.log(textArea);
+  var title = $('#title').val();
+  var currentUserId = gon.current_user.id;
+  var tagList = $('#tag-list').val();
+  console.log(tagList);
+  textArea = window.frames['richTextField'].document.body.innerHTML;
+  request("POST", '/questions', {question:{content: textArea, title: title, user_id: currentUserId, tag_list: tagList }}).done(function(){
     console.log('submit done');
   });
 };
