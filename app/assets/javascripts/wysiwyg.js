@@ -2,10 +2,16 @@ function iFrameOn () {
   $('#richTextField')[0].contentDocument.designMode = 'On';
 };
 
-// function editorControls (button, arg) {
-//   console.log(button);
-//   $('#richTextField')[0].document.execCommand(button, false, arg);
-// };
+function activateBasicControl () {
+  var control = $(this).attr('id');
+  $('#richTextField')[0].contentDocument.execCommand(control, false, null);
+};
+
+function activateAdvancedControl (control, arg) {
+  
+  // $('#richTextField')[0].contentWindow.getSelection().anchorNode
+  $('#richTextField')[0].contentDocument.execCommand(control, false, arg);
+}
 
 function editorBold () {
   console.log('bold');
@@ -57,12 +63,22 @@ function editorCode () {
 
 function sumbitQuestion () {
   var textArea = $('#hidden-text-area').val()
+  var title = $('#title').val()
+  var currentUserId = gon.current_user.id
   textArea = window.frames['richTextField'].document.body.innerHTML
-  $('#new-question').submit();
-}
+  request("POST", '/questions', {question:{content: textArea, title: title, user_id: currentUserId }}).done(function(){
+    console.log('submit done');
+  });
+};
 
 $(document).ready(function() {
   iFrameOn();
-  $('#bold').on('click', editorBold);
-  // sumbitQuestion();
+  $('.basic').on('click', activateBasicControl );
+  $('#code').on('click', function() {
+    activateAdvancedControl ('insertHTML', "<pre><code class='editor-code'>"+ document.getSelection() + "</code></pre>");
+  });
+  // $('#link').on('click', function () {
+  //   activateAdvancedControl('CreateLink', false, (document.getSelection())) 
+  // });
+  $('.submit-question').on('click', sumbitQuestion);
 });

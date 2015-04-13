@@ -51,26 +51,26 @@
       -# %p.alert= alert
       
       = yield
-      %form#new-question{ :action => "/questions", :method => "POST"} 
+      %form#new-question
         .row
           .small-12.columns
             %label Add Question
-            %input{ :type => "text" }
+            %input#title{ :type => "text" }
         .row
           .small-12.columns
             %label Details
             #wsyiwyg-control
-              %input.control-button#bold{ :type => "button", :value => "B"}
-              %input{ :type => "button", :value => "U"}
-              %input{ :type => "button", :value => "I"}
-              %input{ :type => "button", :value => "Text Size"}
-              %input{ :type => "button", :value => "Text Color"}
-              %input{ :type => "button", :value => "Link"}
-              %input{ :type => "button", :value => "Unlink"}
-              %input{ :type => "button", :value => "HR"}
-              %input{ :type => "button", :value => "UL"}
-              %input{ :type => "button", :value => "OL"}
-              %input{ :type => "button", :value => "<>"}
+              %input.basic#bold{ :type => "button", :value => "B"}
+              %input.basic#underline{ :type => "button", :value => "U"}
+              %input.basic#italic{ :type => "button", :value => "I"}
+              %input.advanced#text-size{ :type => "button", :value => "Text Size"}
+              %input.andvanced#text-color{ :type => "button", :value => "Text Color"}
+              %input.advanced#link{ :type => "button", :value => "Link"}
+              %input.advanced#unlink{ :type => "button", :value => "Unlink"}
+              %input.basic-button#horizontal-rule{ :type => "button", :value => "HR"}
+              %input.advanced#unordered-list{ :type => "button", :value => "UL"}
+              %input.advanced#ordered-list{ :type => "button", :value => "OL"}
+              %input.advanced#code{ :type => "button", :value => "<>"}
             %textarea#hidden-text-area{ :style => "display: none;" }
             %iframe#richTextField{ :name => "richTextField"}
         .row

@@ -42,13 +42,10 @@ class QuestionsController < ApplicationController
 
   def create
     gon.current_user = current_user
+    binding.pry
     @question = Question.create(params.require(:question).permit(:title, :content, :user_id, :viewed, :tag_list))
-    @question.update_attributes(user_id: current_user.id)
-    if @question.save
-       redirect_to @question
-     else
-       render action: "new"
-     end
+    render json: @question, status: :created
+    
   end
 
 end
