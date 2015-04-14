@@ -2,7 +2,7 @@
 
 ## Description
 
-Free to build upon our own concept, this is a Stack Overflow for GA students, allowing them to access their own community for coding help and advice. It's my third project developed during the Web Development Immersive course at General Assembly - London.
+This is a Stack Overflow for GA students, allowing them to access their own community for coding help and advice. It's my third project developed during the Web Development Immersive course at General Assembly - London.
 
 #### Tech
 
