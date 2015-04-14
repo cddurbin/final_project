@@ -43,7 +43,7 @@ body {
   font-family: $font-button;
 }
 
-.add-question {
+.add-question, .submit-question {
   box-shadow: 0 3px 0 0 $color-deep-red;
   color: white;
   background-color: $color-red;
@@ -57,7 +57,7 @@ body {
     }
 }
 
-.add-question:hover {
+.add-question:hover, .submit-question:hover {
   background-color: red;
 }
 

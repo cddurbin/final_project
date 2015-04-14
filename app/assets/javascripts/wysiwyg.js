@@ -70,13 +70,17 @@ function sumbitQuestion () {
   console.log(tagList);
   textArea = window.frames['richTextField'].document.body.innerHTML;
   request("POST", '/questions', {question:{content: textArea, title: title, user_id: currentUserId, tag_list: tagList }}).done(function(){
-    console.log('submit done');
+    console.log('submit');
   });
 };
 
 $(document).ready(function() {
-  iFrameOn();
-  $('.basic').on('click', activateBasicControl );
+  $('#wrapper').on('click', '#title', function(){
+    console.log('click');
+    iFrameOn();
+  });
+  // iFrameOn();
+  // $('.basic').on('click', activateBasicControl );
   $('#code').on('click', function() {
     activateAdvancedControl ('insertHTML', "<pre><code class='editor-code'>"+ document.getSelection() + "</code></pre>");
   });

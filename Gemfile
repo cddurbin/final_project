@@ -3,7 +3,6 @@ ruby '2.1.4'
 
 gem "haml-rails", "~> 0.9"
 gem 'devise'
-gem 'ckeditor'
 gem 'foundation-rails'
 gem 'html2haml'
 gem 'ransack'
