@@ -7,14 +7,14 @@
     .small-12.columns
       %label Details
       #wsyiwyg-control
-        %input.basic#bold{ :type => "button", :value => "B"}
-        %input.basic#underline{ :type => "button", :value => "U"}
-        %input.basic#italic{ :type => "button", :value => "I"}
+        %input.basic#bold{ :type => "button", :value => "B", :name => "bold"}
+        %input.basic#underline{ :type => "button", :value => "U", :name => "underline"}
+        %input.basic#italic{ :type => "button", :value => "I", :name => "italic"}
         %input.advanced#text-size{ :type => "button", :value => "Text Size"}
         %input.andvanced#text-color{ :type => "button", :value => "Text Color"}
         %input.advanced#link{ :type => "button", :value => "Link"}
-        %input.advanced#unlink{ :type => "button", :value => "Unlink"}
-        %input.basic-button#horizontal-rule{ :type => "button", :value => "HR"}
+        %input.advanced#unlink{ :type => "button", :value => "Unlink", :name => "Unlink"}
+        %input.basic#horizontal-rule{ :type => "button", :value => "HR", :name => "insertHorizontalRule"}
         %input.advanced#unordered-list{ :type => "button", :value => "UL"}
         %input.advanced#ordered-list{ :type => "button", :value => "OL"}
         %input.advanced#code{ :type => "button", :value => "<>"}
@@ -28,17 +28,3 @@
     .small-12.columns
       %input.button.submit-question{ :value => "Add Question", :type => "button"}
    
-
-    -# = form_for @question do |f|
-    -#   -# = f.hidden_field :user_id, current_user.id
-    -#   .form.title
-    -#     = f.label :title
-    -#     = f.text_field :title
-    -#   .form.content
-    -#     = f.cktext_area :content, rows: 10
-    -#   .form.tags
-    -#     = f.label :tag_list, 'Add Tags'
-    -#     = f.text_field :tag_list, :placeholder => "comma separated"
-    -#   .form.btn
-    -#     = f.submit 'Submit Question', class: 'button submit-question'
-

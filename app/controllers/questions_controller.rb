@@ -42,7 +42,6 @@ class QuestionsController < ApplicationController
 
   def create
     gon.current_user = current_user
-    binding.pry
     @question = Question.create(params.require(:question).permit(:title, :content, :user_id, :viewed, :tag_list))
     render json: @question, status: :created
     
