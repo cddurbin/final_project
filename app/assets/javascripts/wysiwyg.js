@@ -1,5 +1,7 @@
 function iFrameOn () {
-  $('#richTextField')[0].contentDocument.designMode = 'On';
+  setTimeout(function() {
+    $('#richTextField')[0].contentDocument.designMode = 'on';
+  }, 100);
 };
 
 function activateBasicControl () {
@@ -75,10 +77,10 @@ function sumbitQuestion () {
 };
 
 $(document).ready(function() {
-  $('#wrapper').on('click', '#title', function(){
-    console.log('click');
-    iFrameOn();
-  });
+  // $('#wrapper').on('click', '#title', function(){
+  //   console.log('click');
+  //   iFrameOn();
+  // });
   // iFrameOn();
   // $('.basic').on('click', activateBasicControl );
   $('#code').on('click', function() {

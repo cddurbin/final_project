@@ -27,7 +27,7 @@ $(document).ready(function() {
     $('.basic').on('click', activateBasicControl );
   });
   if($('body').is('.questions.show')){
-    loadQuestionShowPage ();
+    loadQuestionShowPage();
   }
 
 });
