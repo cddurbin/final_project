@@ -1,21 +1,35 @@
 @import 'variables';
 
+form {
+  max-width: 100%;
+  margin: 20px 0;
+}
+
 #new-question {
-  width: 650px;
-  margin: 20px auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
 
-  .editor {
-    width: 650px;
+.form.title {
+  margin-botton: 10px;
+}
+
+.form.tags {
+  margin: 10px 0 10px 0;
+}
+
+#wsyiwyg-control {
+  margin: 0;
+
+  li {
+    display: inline-block;
+    line-style: none;
+    cursor: pointer;
+
+      i {
+        font-size: 1.5rem;
+      }
   }
-
-  .form.title {
-    margin-botton: 10px;
-  }
-
-  .form.tags {
-    margin: 10px 0 10px 0;
-  }
-
 }
 
 

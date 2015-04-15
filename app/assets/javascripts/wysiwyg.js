@@ -71,7 +71,7 @@ $(document).ready(function() {
   });
   
   //Editor control click events
-  $('.basic').on('click', activateBasicControl );
+  $('.basic-control').on('click', activateBasicControl );
   $('.submit-question').on('click', sumbitQuestion);
   $('#code').on('click', function() {
     activateAdvancedControl ('insertHTML', "<pre><code class='editor-code'>"+ $('#richTextField')[0].contentWindow.getSelection().anchorNode + "</code></pre>");

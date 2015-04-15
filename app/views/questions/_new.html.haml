@@ -1,30 +1,42 @@
-%form#new-question
-  .row
-    .small-12.columns
-      %label Add Question
-      %input#title{ :type => "text" }
-  .row
-    .small-12.columns
-      %label Details
-      #wsyiwyg-control
-        %input.basic#bold{ :type => "button", :value => "B", :name => "bold"}
-        %input.basic#underline{ :type => "button", :value => "U", :name => "underline"}
-        %input.basic#italic{ :type => "button", :value => "I", :name => "italic"}
-        %input.advanced#text-size{ :type => "button", :value => "Text Size"}
-        %input.andvanced#text-color{ :type => "button", :value => "Text Color"}
-        %input.advanced#link{ :type => "button", :value => "Link"}
-        %input.advanced#unlink{ :type => "button", :value => "Unlink", :name => "Unlink"}
-        %input.basic#horizontal-rule{ :type => "button", :value => "HR", :name => "insertHorizontalRule"}
-        %input.advanced#unordered-list{ :type => "button", :value => "UL"}
-        %input.advanced#ordered-list{ :type => "button", :value => "OL"}
-        %input.advanced#code{ :type => "button", :value => "<>"}
-      %textarea#hidden-text-area{ :style => "display: none;" }
-      %iframe#richTextField{ :name => "richTextField"}
-  .row
-    .small-12.columns
-      %label Add Tags
-      %input#tag-list{ :type => "text", :placeholder => "Comma Separated" }
-  .row
-    .small-12.columns
-      %input.button.submit-question{ :value => "Add Question", :type => "button"}
-   
+%form
+  #new-question
+    .row
+      .small-12.columns
+        %label Add Question
+        %input#title{ :type => "text" }
+    .row
+      .small-12.columns
+        %label Details
+        %ul#wsyiwyg-control
+          %li.basic-control#bold-button{ :name => "bold" }
+            %i.fi-bold
+          %li.basic-control#underline-button{ :name => "underline" }
+            %i.fi-underline
+          %li.basic-control#italic-button{ :name => "italic" }
+            %i.fi-italic
+          %li.advanced-control#text-size-button{ :name => "text-size" }
+            %i.fi-text-size
+          %li.advanced-control#text-color-button{ :name => "text-color" }
+            %i.fi-text-color
+          %li.advanced-control#link-button{ :name => "link" }
+            %i.fi-link
+          %li.basic-control#unlink-button{ :name => "unlink" }
+            %i.fi-unlink
+          %li.basic-control#horizontal-rule-button{ :name => "insertHorizontalRule" }
+            %i HR
+          %li.advanced-control#unordered-list-button{ :name => "unordered-list" }
+            %i.fi-list-bulleted
+          %li.advanced-control#ordered-list-button{ :name => "ordered-list" }
+            %i.fi-list-numbered
+          %li.advanced-control#code-button{ :name => "code" }
+            %i < >
+        %textarea#hidden-text-area{ :style => "display: none;" }
+        %iframe#richTextField{ :name => "richTextField"}
+    .row
+      .small-12.columns
+        %label Add Tags
+        %input#tag-list{ :type => "text", :placeholder => "Comma Separated" }
+    .row
+      .small-12.columns
+        %input.button.submit-question{ :value => "Add Question", :type => "button"}
+     
