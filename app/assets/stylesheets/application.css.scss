@@ -19,9 +19,6 @@
 @import "variables";
 @import "foundation-icons";
 
-
-
-
 html,
 body {
   margin: 0;
@@ -43,27 +40,6 @@ body {
   margin: 0.75rem 0 0 0;
   font-family: $font-button;
 }
-
-.add-question, .submit-question {
-  box-shadow: 0 3px 0 0 $color-deep-red;
-  color: white;
-  background-color: $color-red;
-  transition-property: all;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-in-out;
-  transition-delay: initial;
-    // -webkit-font-smoothing: antialiased;
-    a {
-      color: white;
-    }
-}
-
-.add-question:hover, .submit-question:hover {
-  background-color: red;
-}
-
-
-
 
 .heading {
   width: 1000px;
@@ -121,10 +97,12 @@ body {
     font-size: 1.5rem;
     color: black;
   }
+
   a:hover {
     color: black;
   }
-  a{
+
+  a {
     color: $color-logo-grey;
   }
 }
@@ -162,7 +140,7 @@ li.tag {
 }
 
 li.tag:hover {
-  background-color: yellow;
+  background-color: $color-yellow-alt;
 }
 
 .question-wrapper {
@@ -374,13 +352,6 @@ ul.user-details li {
     background-color: green;
   }
 }
-
-
-
-
-
-
-
 
 .button.accept-selector {
   text-align: center;

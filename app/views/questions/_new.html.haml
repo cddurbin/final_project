@@ -1,12 +1,10 @@
 %form
   #new-question
     .row
-      .small-12.columns
-        %label Add Question
-        %input#title{ :type => "text" }
+      .small-12.columns.form-element-container
+        %input#title{ :type => "text", :placeholder => "What is your question?", :autofocus => true }
     .row
-      .small-12.columns
-        %label Details
+      .small-12.columns.form-element-container
         %ul#wsyiwyg-control
           %li.basic-control#bold-button{ :name => "bold" }
             %i.fi-bold
@@ -14,29 +12,26 @@
             %i.fi-underline
           %li.basic-control#italic-button{ :name => "italic" }
             %i.fi-italic
-          %li.advanced-control#text-size-button{ :name => "text-size" }
-            %i.fi-text-size
           %li.advanced-control#text-color-button{ :name => "text-color" }
             %i.fi-text-color
           %li.advanced-control#link-button{ :name => "link" }
             %i.fi-link
           %li.basic-control#unlink-button{ :name => "unlink" }
             %i.fi-unlink
-          %li.basic-control#horizontal-rule-button{ :name => "insertHorizontalRule" }
+          %li.basic-control#horizontal-rule-button{ :name => "insertHorizontalRule" } 
             %i HR
           %li.advanced-control#unordered-list-button{ :name => "unordered-list" }
-            %i.fi-list-bulleted
+            %i.fi-list-bullet
           %li.advanced-control#ordered-list-button{ :name => "ordered-list" }
-            %i.fi-list-numbered
+            %i.fi-list-number
           %li.advanced-control#code-button{ :name => "code" }
-            %i < >
+            %i <>
         %textarea#hidden-text-area{ :style => "display: none;" }
         %iframe#richTextField{ :name => "richTextField"}
     .row
-      .small-12.columns
-        %label Add Tags
-        %input#tag-list{ :type => "text", :placeholder => "Comma Separated" }
+      .small-12.columns.form-element-container
+        %input#tag-list{ :type => "text", :placeholder => "Add Tags (comma separated)" }
     .row
-      .small-12.columns
+      .small-12.columns#submit-container
         %input.button.submit-question{ :value => "Add Question", :type => "button"}
      
