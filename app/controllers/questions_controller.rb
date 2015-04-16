@@ -1,8 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
-
-
   def index
     gon.current_user = current_user
     @question = Question.new
@@ -42,9 +40,15 @@ class QuestionsController < ApplicationController
 
   def create
     gon.current_user = current_user
-    @question = Question.create(params.require(:question).permit(:title, :content, :user_id, :viewed, :tag_list))
+    @question = Question.create(question_params)
+
     render json: @question, status: :created
-    
+
+  end
+
+  private
+  def question_params
+    params.require(:question).permit(:title, :content, :user_id, :viewed, :tag_list)
   end
 
 end

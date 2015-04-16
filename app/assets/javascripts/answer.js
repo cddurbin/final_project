@@ -33,7 +33,7 @@ function toggleAnswerEditor () {
   } else {
     $('#add-answer-btn').val(defaultButtonName);
   };
-
+  
 };
 
 function submitAnswer (){

@@ -66,16 +66,21 @@ function postQuestionVote (votable_type, value) {
 };
 
 function sumbitQuestion () {
-  var textArea = $('#hidden-text-area').val()
-  console.log(textArea);
+  var data = $('#hidden-text-area').val()
+  console.log(data);
   var title = $('#title').val();
   var currentUserId = gon.current_user.id;
   var tagList = $('#tag-list').val();
   console.log(tagList);
 
-  textArea = window.frames['richTextField'].document.body.innerHTML;
-  request("POST", '/questions', {question:{content: textArea, title: title, user_id: currentUserId, tag_list: tagList }}).done(function(){
+  data = window.frames['richTextField'].document.body.innerHTML;
+  request("POST", '/questions', {question:{content: data, title: title, user_id: currentUserId, tag_list: tagList }}).done(function(){
     console.log('submit');
+    $('#addQuestionModal').foundation('reveal', 'close');
+
+    var currentUrl = window.location.origin
+
+    window.location.replace(currentUrl + '/questions')
   });
 };
 
@@ -101,10 +106,10 @@ Handlebars.registerHelper('acceptedAnswerTotal', function(sorted_answers) {
 });
 
 $(document).ready(function(){
-  
+
   $('.post-container.question').on('click', '.post-title.question-show', toggleQuestionContent);
 
-  $('.submit-question').on('click', sumbitQuestion);
+  $('#submit-question').on('click', sumbitQuestion);
 });
 
 
