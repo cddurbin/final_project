@@ -1,8 +1,6 @@
 //designMode 'on'
 function iFrameOn () {
-  setTimeout(function() {
-    $('#richTextField')[0].contentDocument.designMode = 'on';
-  }, 100);
+  $('#richTextField')[0].contentDocument.designMode = 'on';
 };
 
 //activate the basic editor controls whose value is null
@@ -64,7 +62,8 @@ function sumbitQuestion () {
 $(document).ready(function() {
   
   //initialize editor for editing
-  $('.add-question').on('click', function (){
+  $(document).on('opened', '[data-reveal]', function () {
+    $('#title').first().focus();
     iFrameOn();
   });
   
@@ -76,7 +75,7 @@ $(document).ready(function() {
   $('#code').on('click', function() {
     activateAdvancedControl ('insertHTML', "<pre><code class='editor-code'>"+ $('#richTextField')[0].contentWindow.getSelection().anchorNode + "</code></pre>");
   });
-  
+
   $('#link').on('click', function () {
     activateAdvancedControl('CreateLink', false, (document.getSelection())) 
   });

@@ -25,25 +25,14 @@ function toggleAnswerEditor () {
   var defaultButtonName = $('#add-answer-btn').attr('name');
   var buttonText = $('#add-answer-btn').text();
   
- console.log(buttonText);
   $('#answer-editor-container').toggle();
+
   if( buttonText === defaultButtonName) {
     $('#add-answer-btn').text('Nevermind');  
-    console.log(buttonText);
   } else {
     $('#add-answer-btn').text(defaultButtonName);
   };
 
-  
-};
-
-function removeAnswerEditor () {
-  CKEDITOR.instances['add-answer-editor'].destroy();
-  $('#answer-editor-container').empty();
-  var user_name = $('.post-container.question').attr('name');
-  $(this).text('Help ' + user_name + ' out');
-  $('#add-answer-btn').off('click').on('click', createAnswerEditor);
-  
 };
 
 function submitAnswer (){
