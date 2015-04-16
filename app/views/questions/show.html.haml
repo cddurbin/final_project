@@ -6,7 +6,7 @@
   .small-10.columns
     .post-container.question{ value: @question.id, :name => @question.user.first_name, :data=>{:id => @question.user.id}}
     #add-answer-container
-      %button#add-answer-btn{ :name => "Help #{@question.user.first_name} Out" } Help #{@question.user.first_name} Out
+      %input.button.tiny#add-answer-btn{ :type => "button", :name => "Help #{@question.user.first_name} Out", value: "Help #{@question.user.first_name} Out" }
       #answer-editor-container
         = render 'answers/new'
 .answers-container

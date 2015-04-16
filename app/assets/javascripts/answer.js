@@ -23,30 +23,28 @@ function getAnswers () {
 
 function toggleAnswerEditor () {
   var defaultButtonName = $('#add-answer-btn').attr('name');
-  var buttonText = $('#add-answer-btn').text();
+  var buttonText = $('#add-answer-btn').val();
+  console.log('click');
   
-  $('#answer-editor-container').toggle();
+  $('#answer-editor-container').toggle('blind', 500);
 
   if( buttonText === defaultButtonName) {
-    $('#add-answer-btn').text('Nevermind');  
+    $('#add-answer-btn').val('Nevermind');  
   } else {
-    $('#add-answer-btn').text(defaultButtonName);
+    $('#add-answer-btn').val(defaultButtonName);
   };
 
 };
 
 function submitAnswer (){
-  var data = CKEDITOR.instances['add-answer-editor'].getData();
-  console.log(data);
+  // var data = $('#hidden-text-area').val()
+  var currentUserId = gon.current_user.id;
   var questionId = $('.post-container.question').attr('value');
-  var currentUserId = gon.current_user.id
+  var data = window.frames['richTextField'].document.body.innerHTML;
+  console.log(data);
+  
   request("POST", '/questions/' + questionId + '/answers', {answer:{content: data, question_id: questionId, user_id: currentUserId }}).done(function(){
     console.log('submit done');
-    var user_name = $('.post-container.question').attr('name');
-    $('#add-answer-btn').text('Help ' + user_name + ' out.');
-    getAnswers();
-    removeAnswerEditor();
-    
   });
 }
 

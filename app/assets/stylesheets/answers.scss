@@ -1,3 +1,23 @@
-// Place all the styles related to the Answers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'variables';
+
+#submit-answer, #add-answer-btn {
+  box-shadow: 0 3px 0 0 $color-blue-dark;
+  color: white;
+  background-color: $color-blue;
+  transition-property: all;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-in-out;
+  transition-delay: initial;
+    // -webkit-font-smoothing: antialiased;
+    a {
+      color: white;
+    }
+}
+
+#submit-answer:hover, #add-answer-btn:hover {
+  background-color: $color-blue-hover;
+}
+
+#add-answer-iframe {
+  height: 10rem;
+}

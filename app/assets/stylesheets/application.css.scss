@@ -309,20 +309,6 @@ ul.user-details li {
     }
 }
 
-#add-answer-btn {
-  text-align: center;
-  box-shadow: 0 3px 0 0 $color-green-shadow;
-  color: white;
-  background-color: $color-green;
-  font-size: 0.8rem;
-  padding: 0.2rem 0.5rem; 
-  font-family: $font-button;
-  border-radius: 3px;
-}
-#add-answer-btn:hover {
-  background-color: green;
-}
-
 .chosen-question {
   margin-top: 20px;
 }

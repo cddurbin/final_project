@@ -21,8 +21,9 @@
         %i.fi-list-number
       %li.advanced-control#code-button{ :name => "code" }
         %i <>
-    %textarea#hidden-text-area{ :style => "display: none;" }
-    %iframe#richTextField{ :name => "richTextField"}
+    %textarea.hidden-text-area{ :style => "display: none;" }
+    .iframe-container#add-answer-iframe
+      %iframe.richTextField{ :name => "richTextField"}
 .row
-  .small-12.columns#submit-container
-    %input.button.submit-question{ :value => "Add Question", :type => "button"}
+  .small-12.columns.submit-container
+    %input.button#submit-answer{ :value => "Submit Answer", :type => "button"}

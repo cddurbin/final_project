@@ -27,12 +27,13 @@
           %li.advanced-control#code-button{ :name => "code" }
             %i <>
         %textarea#hidden-text-area{ :style => "display: none;" }
-        %iframe#richTextField{ :name => "richTextField"}
+        .iframe-container
+          %iframe.richTextField{ :name => "richTextField"}
     .row
       .small-12.columns.form-element-container
         %input#tag-list{ :type => "text", :placeholder => "Add Tags (comma separated)" }
     .row
       .small-12.columns#submit-container
-        %input.button.submit-question{ :value => "Add Question", :type => "button"}
+        %input.button#submit-question{ :value => "Add Question", :type => "button"}
 
      
