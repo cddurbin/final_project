@@ -25,15 +25,16 @@ function toggleAnswerEditor () {
   var defaultButtonName = $('#add-answer-btn').attr('name');
   var buttonText = $('#add-answer-btn').val();
   console.log('click');
-  
+
   $('#answer-editor-container').toggle('blind', 500);
+  iFrameOn('#add-answer-iframe');
 
   if( buttonText === defaultButtonName) {
     $('#add-answer-btn').val('Nevermind');  
   } else {
     $('#add-answer-btn').val(defaultButtonName);
   };
-  
+
 };
 
 function submitAnswer (){

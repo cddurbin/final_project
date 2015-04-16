@@ -1,6 +1,8 @@
 //designMode 'on'
-function iFrameOn () {
-  $('.richTextField')[0].contentDocument.designMode = 'on';
+function iFrameOn (iframe) {
+  setTimeout(function() {
+  $(iframe)[0].contentDocument.designMode = 'on';
+  }, 1000);
 };
 
 //activate the basic editor controls whose value is null
@@ -15,8 +17,6 @@ function activateAdvancedControl (control, arg) {
   // $('.richTextField')[0].contentWindow.getSelection().anchorNode
   $('.richTextField')[0].contentDocument.execCommand(control, false, arg);
 }
-
-
 
 function editorTextSize () {
   var size = prompt('Enter a size 1-7', '');
@@ -47,12 +47,6 @@ function editorCode () {
 
 
 $(document).ready(function() {
-  
-  //initialize editor for editing
-  $(document).on('opened', '[data-reveal]', function () {
-    $('#title').first().focus();
-    iFrameOn();
-  });
   
   //Editor control click events
   $('.basic-control').on('click', activateBasicControl );

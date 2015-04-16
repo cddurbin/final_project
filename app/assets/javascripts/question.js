@@ -40,14 +40,7 @@ function toggleQuestionContent() {
   var content = $('.post-content.question');
   var label = $(this).text();
   
-  if(label === "More") {
-    label = "Less";
-    $(this).text(label);
-  } else {
-    label = "More";
-  };
-  
-  content.toggle();
+  content.toggle('blind', 500);
 };
 
 function updateWantAnswerTotal () {
@@ -106,6 +99,14 @@ Handlebars.registerHelper('acceptedAnswerTotal', function(sorted_answers) {
 });
 
 $(document).ready(function(){
+
+  $('.add-question').on('click', function () {
+    iFrameOn('#add-question-iframe');
+  });
+  //autofocus the title field in new question modal
+  $(document).on('opened', '[data-reveal]', function () {
+    $('#title').first().focus();
+  });
 
   $('.post-container.question').on('click', '.post-title.question-show', toggleQuestionContent);
 
