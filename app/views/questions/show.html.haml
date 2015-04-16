@@ -1,17 +1,14 @@
 //HTML
 
--# .row
--#   .small-1.columns
--#     .feed-container
--#   .small-11.columns
 .row.chosen-question
   .small-2.columns
     .post-vote-container.question
   .small-10.columns
     .post-container.question{ value: @question.id, :name => @question.user.first_name, :data=>{:id => @question.user.id}}
     #add-answer-container
-      %button#add-answer-btn Help #{@question.user.first_name} Out
+      %button#add-answer-btn{ :name => "Help #{@question.user.first_name} Out" } Help #{@question.user.first_name} Out
       #answer-editor-container
+        = render 'answers/new'
 .answers-container
       
       
@@ -62,7 +59,7 @@
       %ul.tag-list
         {{#tags}}
         %li.tag
-          %a{ href: 'http://localhost:3000/tags/{{name}}'} {{name}}
+          %a{ href: '/tags/{{name}}'} {{name}}
         {{/tags}}
     .small-6.columns
       .row.user-snippet

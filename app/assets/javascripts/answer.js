@@ -21,11 +21,20 @@ function getAnswers () {
   });
 };
 
-function createAnswerEditor () {
-  $('#answer-editor-container').append("<textarea id='add-answer-editor'></textarea><button id='answer-submit'>Add Answer</button>")
-  $('#add-answer-btn').off('click').on('click', removeAnswerEditor);
-  CKEDITOR.replace('add-answer-editor');
-  $(this).text('Nevermind');
+function toggleAnswerEditor () {
+  var defaultButtonName = $('#add-answer-btn').attr('name');
+  var buttonText = $('#add-answer-btn').text();
+  
+ console.log(buttonText);
+  $('#answer-editor-container').toggle();
+  if( buttonText === defaultButtonName) {
+    $('#add-answer-btn').text('Nevermind');  
+    console.log(buttonText);
+  } else {
+    $('#add-answer-btn').text(defaultButtonName);
+  };
+
+  
 };
 
 function removeAnswerEditor () {
@@ -74,8 +83,10 @@ function acceptAnswer (answerId) {
 
 
 $(document).ready(function(){
-  $('#add-answer-btn').on('click', createAnswerEditor);
+  $('#add-answer-btn').on('click', toggleAnswerEditor);
+
   $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
+
   $('.answers-container').on('click', $('#accept-answer'), function(){
     var answerId = $('.post-container.answer').data('id');
     acceptAnswer (answerId);

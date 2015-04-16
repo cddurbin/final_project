@@ -63,8 +63,6 @@ function sumbitQuestion () {
 
 $(document).ready(function() {
   
-  
-
   //initialize editor for editing
   $('.add-question').on('click', function (){
     iFrameOn();
@@ -72,12 +70,13 @@ $(document).ready(function() {
   
   //Editor control click events
   $('.basic-control').on('click', activateBasicControl );
+
   $('.submit-question').on('click', sumbitQuestion);
+
   $('#code').on('click', function() {
     activateAdvancedControl ('insertHTML', "<pre><code class='editor-code'>"+ $('#richTextField')[0].contentWindow.getSelection().anchorNode + "</code></pre>");
   });
-
-
+  
   $('#link').on('click', function () {
     activateAdvancedControl('CreateLink', false, (document.getSelection())) 
   });
