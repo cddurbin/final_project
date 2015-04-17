@@ -16,26 +16,8 @@
  *= require jquery-ui
 
  */
-$color-red: #fa4542;
-$color-deep-red: #be0201;
-$color-green: #24b296;
-$color-green-shadow: #00725b ;
-$color-input-grey: #f6f6f6;
-$color-stat-label: #e6e6e6;
-$color-logo-grey: #666;
-$color-yellow: #ffd608;
-$color-yellow-alt: #ffe355;
-$color-yellow-dark: #ffab55;
-
-
-$font-paragraph: "News706BT-RomanC",Georgia;
-$font-button: "Varela Round", sans-serif;
-$font-title: 'Montserrat', sans-serif;
-$font-title-backup: 'Source Sans Pro', sans-serif;
-$font-title-alt: 'Archivo Narrow', sans-serif;
-$font-alt: 'Open Sans Condensed', sans-serif;
-
-
+@import "variables";
+@import "foundation-icons";
 
 html,
 body {
@@ -45,17 +27,18 @@ body {
   width:100%;
 }
 
+.ga-logo {
+  width:14em;
+}
+
 .questions-container {
   margin-top: 2rem;
 }
 
 .button {
   border-radius: 3px;
-}
-
-#sub-top-bar {
-  height: 80px;
-  background-color: $color-input-grey;
+  margin: 0.75rem 0 0 0;
+  font-family: $font-button;
 }
 
 .heading {
@@ -101,29 +84,7 @@ body {
     width: 220px;
     padding-top: 1.25rem;
     font-size: 1rem;
-
   }
-
-  .button.add-question:hover {
-    background-color: red;
-  }
-
-  .button.add-question {
-    margin: 0.75rem 0 0 0;
-    box-shadow: 0 3px 0 0 $color-deep-red;
-    color: white;
-    background-color: $color-red;
-    font-family: $font-button;
-    transition-property: all;
-    transition-duration: 0.15s;
-    transition-timing-function: ease-in-out;
-    transition-delay: initial;
-    // -webkit-font-smoothing: antialiased;
-      a {
-        color: white;
-      }
-  }
-
 }
 
 .post-container.index {
@@ -136,10 +97,12 @@ body {
     font-size: 1.5rem;
     color: black;
   }
+
   a:hover {
     color: black;
   }
-  a{
+
+  a {
     color: $color-logo-grey;
   }
 }
@@ -177,7 +140,7 @@ li.tag {
 }
 
 li.tag:hover {
-  background-color: yellow;
+  background-color: $color-yellow-alt;
 }
 
 .question-wrapper {
@@ -346,20 +309,6 @@ ul.user-details li {
     }
 }
 
-#add-answer-btn {
-  text-align: center;
-  box-shadow: 0 3px 0 0 $color-green-shadow;
-  color: white;
-  background-color: $color-green;
-  font-size: 0.8rem;
-  padding: 0.2rem 0.5rem; 
-  font-family: $font-button;
-  border-radius: 3px;
-}
-#add-answer-btn:hover {
-  background-color: green;
-}
-
 .chosen-question {
   margin-top: 20px;
 }
@@ -368,37 +317,7 @@ ul.user-details li {
   border-bottom: 2px solid $color-input-grey;
 }
 
-.form-container {
-  margin-top: 20px;
-  width: 650px;
-  margin: 0 auto;
 
-  button {
-    text-align: center;
-    box-shadow: 0 3px 0 0 $color-green-shadow;
-    color: white;
-    background-color: $color-green;
-    font-size: 0.8rem;
-    padding: 0.2rem 0.5rem; 
-    font-family: $font-button;
-    border-radius: 3px;
-  }
-  button:hover {
-    background-color: green;
-  }
-}
-
-.form.title {
-  margin-botton: 10px;
-}
-
-#new-question-form {
-  margin-top: 10px;
-}
-
-.form.tags {
-  margin: 10px 0 10px 0;
-}
 
 .login {
   margin-top: 20px;
@@ -419,13 +338,6 @@ ul.user-details li {
     background-color: green;
   }
 }
-
-
-
-
-
-
-
 
 .button.accept-selector {
   text-align: center;
@@ -469,6 +381,3 @@ ul.user-details li {
   padding: 0;
 }
 
-.name .ga-logo {
-  width:200px;
-}

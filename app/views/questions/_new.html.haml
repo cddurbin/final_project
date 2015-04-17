@@ -1,16 +1,39 @@
--# .form-container
--#   #new-question-form
--#     = form_for @question do |f|
--#       -# = f.hidden_field :user_id, current_user.id
--#       .form.title
--#         = f.label :title
--#         = f.text_field :title
--#       .form.content
--#         = f.cktext_area :content, rows: 10
--#       .form.tags
--#         = f.label :tag_list, 'Add Tags'
--#         = f.text_field :tag_list, :placeholder => "comma separated"
--#       .form.btn
--#         = f.button 'Submit Question'
+%form
+  #new-question
+    .row
+      .small-12.columns.form-element-container
+        %input#title{ :autofocus => "", :type => "text", :placeholder => "What is your question?" }
+    .row
+      .small-12.columns.form-element-container
+        %ul#wsyiwyg-control
+          %li.basic-control#bold-button{ :name => "bold" }
+            %i.fi-bold
+          %li.basic-control#underline-button{ :name => "underline" }
+            %i.fi-underline
+          %li.basic-control#italic-button{ :name => "italic" }
+            %i.fi-italic
+          %li.advanced-control#text-color-button{ :name => "text-color" }
+            %i.fi-text-color
+          %li.advanced-control#link-button{ :name => "link" }
+            %i.fi-link
+          %li.basic-control#unlink-button{ :name => "unlink" }
+            %i.fi-unlink
+          %li.basic-control#horizontal-rule-button{ :name => "insertHorizontalRule" } 
+            %i HR
+          %li.advanced-control#unordered-list-button{ :name => "unordered-list" }
+            %i.fi-list-bullet
+          %li.advanced-control#ordered-list-button{ :name => "ordered-list" }
+            %i.fi-list-number
+          %li.advanced-control#code-button{ :name => "code" }
+            %i <>
+        %textarea#hidden-text-area{ :style => "display: none;" }
+        .iframe-container
+          %iframe.richTextField#add-question-iframe{ :name => "richTextField"}
+    .row
+      .small-12.columns.form-element-container
+        %input#tag-list{ :type => "text", :placeholder => "Add Tags (comma separated)" }
+    .row
+      .small-12.columns#submit-container
+        %input.button#submit-question{ :value => "Add Question", :type => "button"}
 
-%p this is a modal
+     

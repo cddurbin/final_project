@@ -1,13 +1,10 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
-
-
   def index
     gon.current_user = current_user
-
+    @question = Question.new
     @q = Question.ransack(params[:q])
-
     if params[:tag]
       @questions = Question.tagged_with(params[:tag])
     elsif params[:q]
@@ -44,16 +41,14 @@ class QuestionsController < ApplicationController
   def create
     gon.current_user = current_user
     @question = Question.create(question_params)
-    @question.update_attributes(user_id: current_user.id)
-    if @question.save
-       redirect_to @question
-     else
-       render action: "new"
-     end
+
+    render json: @question, status: :created
+
   end
 
   private
   def question_params
     params.require(:question).permit(:title, :content, :user_id, :viewed, :tag_list)
   end
+
 end

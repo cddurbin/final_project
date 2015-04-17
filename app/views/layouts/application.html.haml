@@ -46,12 +46,14 @@
               #search-field
                 = form_tag('/search', method: :get) do
                   = text_field_tag :q, nil, :placeholder => 'Search'  
-            %a.radius.button.add-question{"data-reveal-id" => "addQuestionModal", :href => "#"} Add Question 
+            %a.button.add-question{"data-reveal-id" => "addQuestionModal", :href => "#"} Add Question 
       -# %p.notice= notice
       -# %p.alert= alert
       
       = yield
-
+    
       #addQuestionModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "add-question", "data-reveal" => "", :role => "dialog"}
+
         = render 'new'
-        %a.close-reveal-modal{"aria-label" => "Close"}
+
+        %a.close-reveal-modal{"aria-label" => "Close"} x

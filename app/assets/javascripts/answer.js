@@ -21,34 +21,32 @@ function getAnswers () {
   });
 };
 
-function createAnswerEditor () {
-  $('#answer-editor-container').append("<textarea id='add-answer-editor'></textarea><button id='answer-submit'>Add Answer</button>")
-  $('#add-answer-btn').off('click').on('click', removeAnswerEditor);
-  CKEDITOR.replace('add-answer-editor');
-  $(this).text('Nevermind');
-};
-
-function removeAnswerEditor () {
-  CKEDITOR.instances['add-answer-editor'].destroy();
-  $('#answer-editor-container').empty();
-  var user_name = $('.post-container.question').attr('name');
-  $(this).text('Help ' + user_name + ' out.');
-  $('#add-answer-btn').off('click').on('click', createAnswerEditor);
+function toggleAnswerEditor () {
+  var defaultButtonName = $('#add-answer-btn').attr('name');
+  var buttonText = $('#add-answer-btn').val();
   
+  $('#answer-editor-container').toggle('blind', 500);
+  iFrameOn('#add-answer-iframe');
+
+  if( buttonText === defaultButtonName) {
+    $('#add-answer-btn').val('Nevermind');  
+  } else {
+    $('#add-answer-btn').val(defaultButtonName);
+  };
+
 };
 
 function submitAnswer (){
-  var data = CKEDITOR.instances['add-answer-editor'].getData();
-  console.log(data);
+
+  var currentUserId = gon.current_user.id;
   var questionId = $('.post-container.question').attr('value');
-  var currentUserId = gon.current_user.id
+  var data = $('#add-answer-iframe')[0].contentDocument.body.innerHTML;
+  console.log(data);
+  
   request("POST", '/questions/' + questionId + '/answers', {answer:{content: data, question_id: questionId, user_id: currentUserId }}).done(function(){
     console.log('submit done');
-    var user_name = $('.post-container.question').attr('name');
-    $('#add-answer-btn').text('Help ' + user_name + ' out.');
-    getAnswers();
-    removeAnswerEditor();
-    
+    console.log(data);
+    $('#answer-editor-container').toggle('blind', 500);
   });
 }
 
@@ -74,8 +72,10 @@ function acceptAnswer (answerId) {
 
 
 $(document).ready(function(){
-  $('#add-answer-btn').on('click', createAnswerEditor);
+  $('#add-answer-btn').on('click', toggleAnswerEditor);
+
   $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
+
   $('.answers-container').on('click', $('#accept-answer'), function(){
     var answerId = $('.post-container.answer').data('id');
     acceptAnswer (answerId);

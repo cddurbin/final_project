@@ -22,9 +22,11 @@ $(document).ready(function() {
 
   // hljs.initHighlightingOnLoad();
   // $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
-  
+
+ 
+
   if($('body').is('.questions.show')){
-    loadQuestionShowPage ();
-  }
+    loadQuestionShowPage();
+  };
 
 });

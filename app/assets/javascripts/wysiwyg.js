@@ -1,6 +1,20 @@
-function iFrameOn () {
-  // $('#richTextField').contents().get(0).designMode = 'On';
-  document.getElementById('#richTextField').contentDocument.designMode = 'On';
+//designMode 'on'
+function iFrameOn (iframe) {
+  setTimeout(function() {
+  $(iframe)[0].contentDocument.designMode = 'on';
+  }, 1000);
+};
+
+//activate the basic editor controls whose value is null
+function activateBasicControl () {
+  var control = $(this).attr('name');
+  $('.richTextField')[0].contentDocument.execCommand(control, false, null);
+};
+
+//activate advanced editor controls which need a value argument
+function activateAdvancedControl (control, arg) {
+  $('.richTextField')[0].contentDocument.execCommand(control, false, arg);
+
 }
 
 function editorBold () {
@@ -13,50 +27,47 @@ function editorUnderline () {
 
 function editorItalic () {
   $('#richTextField').document.execCommand('italic', false, null);
-}
 
 function editorTextSize () {
   var size = prompt('Enter a size 1-7', '');
-  $('#richTextField').document.execCommand('fontSize', false, size);
+  $('.richTextField').document.execCommand('fontSize', false, size);
 }
 
 function editorTextColor () {
   var color = prompt('Provide a color', '');
-  $('#richTextField').document.execCommand('foreColor', false, color);
+  $('.richTextField').document.execCommand('foreColor', false, color);
 }
 
 function editorLink () {
   var linkUrl = prompt('Enter a link', 'http://')
-  $('#richTextField').document.execCommand('CreateLink', false, linkUrl);
-}
-
-function editorUnlink () {
-  $('#richTextField').document.execCommand('Unlink', false, null);
-}
-
-function editorHorizontalRule () {
-  $('#richTextField').document.execCommand('insertHorizontalRule', false, null);
+  $('.richTextField').document.execCommand('CreateLink', false, linkUrl);
 }
 
 function editorUnorderedList () {
-  $('#richTextField').document.execCommand('InsertUnorderedList', false, 'newUL');
+  $('.richTextField').document.execCommand('InsertUnorderedList', false, 'newUL');
 }
 
 function editorOrderedList () {
-  $('#richTextField').document.execCommand('InsertOrderedList', false, 'newOL');
+  $('.richTextField').document.execCommand('InsertOrderedList', false, 'newOL');
 }
 
 function editorCode () {
-  $('#richTextField').document.execCommand("insertHTML", false, "<pre><code class='editor-code'>"+ document.getSelection()+"</code></pre>");
+  $('.richTextField').document.execCommand("insertHTML", false, "<pre><code class='editor-code'>"+ document.getSelection()+"</code></pre>");
 }
 
-function sumbitQuestion () {
-  var textArea = $('#hidden-text-area').val()
-  textArea = window.frames['richTextField'].document.body.innerHTML
-  $('#new-question').submit();
-}
 
 $(document).ready(function() {
-  iFrameOn();
-  sumbitQuestion();
+  
+  //Editor control click events
+  $('.basic-control').on('click', activateBasicControl );
+
+  $('#code').on('click', function() {
+    activateAdvancedControl ('insertHTML', "<pre><code class='editor-code'>"+ $('.richTextField')[0].contentWindow.getSelection().anchorNode + "</code></pre>");
+  });
+
+  $('#link').on('click', function () {
+    activateAdvancedControl('CreateLink', false, (document.getSelection())) 
+  });
+  
+
 });
