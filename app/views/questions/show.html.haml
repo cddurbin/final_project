@@ -1,24 +1,29 @@
 //HTML
-
-.row.chosen-question
-  .small-2.columns
-    .post-vote-container.question
+.row.show-container
   .small-10.columns
-    .post-container.question{ value: @question.id, :name => @question.user.first_name, :data=>{:id => @question.user.id}}
-    #add-answer-container
-      - if current_user
-        .row.add-answer-user
-          .small-1.columns.user-profile-image
-          .small-11.columns.user-details-snippet
-            %ul
-              %li= link_to(current_user.first_name, current_user)
-              %li= current_user.location
-        = render 'questions/add_answer_input'
-      - else
-        = render 'questions/add_answer_input'
-      #answer-editor-container
-        = render 'answers/new'
-.answers-container
+    .row.chosen-question
+      .small-2.columns
+        .post-vote-container.question
+      .small-10.columns
+        .post-container.question{ value: @question.id, :name => @question.user.first_name, :data=>{:id => @question.user.id}}
+        #add-answer-container
+          - if current_user
+            .row.add-answer-user
+              .small-1.columns.user-profile-image
+              .small-11.columns.user-details-snippet
+                %ul
+                  %li= link_to(current_user.first_name, current_user)
+                  %li= current_user.location
+            = render 'questions/add_answer_input'
+          - else
+            = render 'questions/add_answer_input'
+          #answer-editor-container
+            = render 'answers/new'
+    .answers-container
+  .small-2.columns
+    .related-topics
+      %ul
+        %li Related Topics
       
       
       
@@ -108,7 +113,7 @@
             .total-label{id: 'unhelpful'} 
               %a Unhelpful
           .accepted-selector Accepted
-      .small-10.columns
+      .small-8.columns
         .post-container.answer{ id: 'answer-{{ id }}'}
           %p {{{ content }}}
           .post-signature-user.answer
@@ -121,6 +126,7 @@
             {{> comment}}
           {{/comments}}
           {{/if}}
+      .small-2.columns
       {{else}}
       .answers-heading
         %h3 {{answerTotal sorted_answers}}
@@ -132,7 +138,7 @@
           .post-vote-container.answer
             {{> answer-voting}}
             .button.accept-selector
-        .small-10.columns
+        .small-8.columns
           .post-container.answer{ id: 'answer-{{ id }}', :data=>{:id =>'{{id}}'}}
             %p {{{ content }}}
             .post-signature-user.answer
