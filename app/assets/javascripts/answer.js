@@ -24,8 +24,7 @@ function getAnswers () {
 function toggleAnswerEditor () {
   var defaultButtonName = $('#add-answer-btn').attr('name');
   var buttonText = $('#add-answer-btn').val();
-  console.log('click');
-
+  
   $('#answer-editor-container').toggle('blind', 500);
   iFrameOn('#add-answer-iframe');
 
@@ -38,14 +37,16 @@ function toggleAnswerEditor () {
 };
 
 function submitAnswer (){
-  // var data = $('#hidden-text-area').val()
+
   var currentUserId = gon.current_user.id;
   var questionId = $('.post-container.question').attr('value');
-  var data = window.frames['richTextField'].document.body.innerHTML;
+  var data = $('#add-answer-iframe')[0].contentDocument.body.innerHTML;
   console.log(data);
   
   request("POST", '/questions/' + questionId + '/answers', {answer:{content: data, question_id: questionId, user_id: currentUserId }}).done(function(){
     console.log('submit done');
+    console.log(data);
+    $('#answer-editor-container').toggle('blind', 500);
   });
 }
 

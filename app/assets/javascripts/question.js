@@ -64,7 +64,6 @@ function sumbitQuestion () {
   var title = $('#title').val();
   var currentUserId = gon.current_user.id;
   var tagList = $('#tag-list').val();
-  console.log(tagList);
 
   data = window.frames['richTextField'].document.body.innerHTML;
   request("POST", '/questions', {question:{content: data, title: title, user_id: currentUserId, tag_list: tagList }}).done(function(){

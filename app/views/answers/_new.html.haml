@@ -1,5 +1,13 @@
 .row
   .small-12.columns.form-element-container
+    .row.add-answer-user
+      .small-1.columns.user-profile-image
+      .small-11.columns.user-details-snippet
+        %ul
+          %li= link_to(current_user.first_name, current_user)
+          %li= current_user.location
+      
+
     %ul#wsyiwyg-control
       %li.basic-control#bold-button{ :name => "bold" }
         %i.fi-bold
@@ -24,6 +32,4 @@
     %textarea.hidden-text-area{ :style => "display: none;" }
     .iframe-container#add-answer-iframe-container
       %iframe.richTextField#add-answer-iframe{ :name => "richTextField"}
-.row
-  .small-12.columns.submit-container
-    %input.button#submit-answer{ :value => "Submit Answer", :type => "button"}
+    %input.button.small#submit-answer{ :value => "Submit Answer", :type => "button"}
