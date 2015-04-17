@@ -6,7 +6,16 @@
   .small-10.columns
     .post-container.question{ value: @question.id, :name => @question.user.first_name, :data=>{:id => @question.user.id}}
     #add-answer-container
-      %input.button.tiny#add-answer-btn{ :type => "button", :name => "Help #{@question.user.first_name} Out", value: "Help #{@question.user.first_name} Out" }
+      - if current_user
+        .row.add-answer-user
+          .small-1.columns.user-profile-image
+          .small-11.columns.user-details-snippet
+            %ul
+              %li= link_to(current_user.first_name, current_user)
+              %li= current_user.location
+        = render 'questions/add_answer_input'
+      - else
+        = render 'questions/add_answer_input'
       #answer-editor-container
         = render 'answers/new'
 .answers-container

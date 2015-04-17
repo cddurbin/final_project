@@ -72,7 +72,7 @@ function acceptAnswer (answerId) {
 
 
 $(document).ready(function(){
-  $('#add-answer-btn').on('click', toggleAnswerEditor);
+  $('#add-answer-input').on('click', toggleAnswerEditor);
 
   $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
 

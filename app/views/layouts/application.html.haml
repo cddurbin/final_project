@@ -37,7 +37,7 @@
               %li
                 %a{"data-reveal-id" => "deviseLoginsModal", :href => "#"} Login
                 
-              %li.active= link_to 'Register', new_user_registration_path
+              %li= link_to 'Register', new_user_registration_path
              
     .main-container
       #wrapper
@@ -45,10 +45,9 @@
           %ul.heading
             %li.app-title
               %h1= link_to 'OPEN FORUM', questions_path
-            %li.search-container
-              #search-field
-                = form_tag('/search', method: :get) do
-                  = text_field_tag :q, nil, :placeholder => 'Search'  
+            %li#search-field
+              = form_tag('/search', method: :get) do
+                = text_field_tag :q, nil, :placeholder => 'Search'  
             %li
               %a.button.small.add-question{"data-reveal-id" => "addQuestionModal", :href => "#"} Add Question 
       -# %p.notice= notice
