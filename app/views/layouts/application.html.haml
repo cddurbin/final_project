@@ -34,20 +34,23 @@
                 %li.active= link_to 'MY ACCOUNT', user_path(current_user)
           - else
             %ul
-              %li{"data-reveal-id" => "deviseLoginsModal", :href => "#"} Login
+              %li
+                %a{"data-reveal-id" => "deviseLoginsModal", :href => "#"} Login
+                
               %li.active= link_to 'Register', new_user_registration_path
              
     .main-container
       #wrapper
         #sub-top-bar
-          .heading
-            .app-title
+          %ul.heading
+            %li.app-title
               %h1= link_to 'OPEN FORUM', questions_path
-            .search-container
+            %li.search-container
               #search-field
                 = form_tag('/search', method: :get) do
                   = text_field_tag :q, nil, :placeholder => 'Search'  
-            %a.button.add-question{"data-reveal-id" => "addQuestionModal", :href => "#"} Add Question 
+            %li
+              %a.button.small.add-question{"data-reveal-id" => "addQuestionModal", :href => "#"} Add Question 
       -# %p.notice= notice
       -# %p.alert= alert
       

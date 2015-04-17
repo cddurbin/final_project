@@ -1,6 +1,6 @@
 @import 'variables';
 
-#submit-answer, #add-answer-btn {
+#submit-answer, #add-answer-btn, #login-btn {
   box-shadow: 0 3px 0 0 $color-blue-dark;
   color: white;
   background-color: $color-blue;
@@ -14,7 +14,7 @@
     }
 }
 
-#submit-answer:hover, #add-answer-btn:hover {
+#submit-answer:hover, #add-answer-btn:hover, #login-btn:hover {
   background-color: $color-blue-hover;
 }
 

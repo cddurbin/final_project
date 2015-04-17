@@ -1,0 +1,56 @@
+@import "variables";
+
+#sub-top-bar {
+  background-color: $color-input-grey;
+  height: 5rem;
+}
+
+.heading {
+  width: 1000px;
+  text-align: right;
+  margin: 0 auto;
+  max-height: 100%;
+
+  li {
+    display: inline-block;
+    line-style: none;
+  }
+
+  .app-title {
+    margin: 0.75rem 0;
+    background-color: $color-logo-grey;
+    border-radius: 2px;
+
+      a {
+        color: white;
+      }
+
+    h1 {
+      font-size: 0.9rem;
+      font-style: bold;
+      font-family: $font-title-backup;
+      font-weight: 400;
+      margin: 0;
+      color: white;
+      padding: 0.75rem;
+    }
+  }
+
+//   .search-container {
+//     float: left;
+//     text-align: left;
+//     width: 400px;
+//     height: 100%;
+//     display: inline;
+//     // margin: 0 0 3rem 0;
+//   }
+
+//   #search-field {
+//     display: inline-block;
+//     margin: 0 0 0 1rem;
+//     width: 220px;
+//     padding-top: 1.25rem;
+//     font-size: 1rem;
+//   }
+// }
+}

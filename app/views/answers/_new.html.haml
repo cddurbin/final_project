@@ -4,6 +4,7 @@
       .small-1.columns.user-profile-image
       .small-11.columns.user-details-snippet
         %ul
+        - if current_user
           %li= link_to(current_user.first_name, current_user)
           %li= current_user.location
       

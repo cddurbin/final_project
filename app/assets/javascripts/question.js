@@ -108,13 +108,14 @@ $(document).ready(function(){
   //autofocus the title field in new question modal
   $(document).on('opened', '[data-reveal]', function () {
     $('#title').first().focus();
+    $('#email-input').first().focus();
   });
 
   //reveal and hide the content of the question
   $('.post-container.question').on('click', '.post-title.question-show', toggleQuestionContent);
 
   $('#submit-question').on('click', sumbitQuestion);
-
+  
 });
 
 
