@@ -1,4 +1,4 @@
-//designMode 'on'
+//designMode on
 function iFrameOn (iframe) {
   setTimeout(function() {
   $(iframe)[0].contentDocument.designMode = 'on';
