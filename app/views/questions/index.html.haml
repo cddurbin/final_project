@@ -2,38 +2,38 @@
 .row
   .small-12.columns
     .questions-container
-    - unless @questions.empty?
-      - @questions.each do |question|
-        .question-wrapper
-          .row.questions
-            .small-2.columns
-              .post-stats-container.index
-                .stat.want-answer
-                  - if (question.votes.length == 0)
-                    .total 0
-                    .total-label WANT ANSWERS
-                  - else
-                    .total= question.votes.map {|vote| vote.score}.inject(:+)
-                    .total-label WANT ANSWERS
-                .stat.answers= "#{question.answers.length} ANSWERS"
-                .stat.views=  "#{question.viewed} VIEWS"
-            .small-10.columns
-              .post-container.index
-                .post-title.index
-                  %h1= link_to("#{question.title}", question_path(question))
-                .row
-                  .small-6.columns
-                    .post-details.index
-                      %ul.post-tags
-                      - question.tag_list.each do |tag|
-                        %li.tag= link_to "#{tag}", tag_path(tag)
-                  .small-6.columns
-                    .post-signature-user.index
-                      %h3 By #{question.user.first_name} #{question.user.last_name} #{question.created_at}
-    -else
-      %h3 No results
-                  
-            
+      - unless @questions.empty?
+        - @questions.each do |question|
+          .question-wrapper
+            .row.questions
+              .small-2.columns
+                .post-stats-container.index
+                  .stat.want-answer
+                    - if (question.votes.length == 0)
+                      .total 0
+                      .total-label WANT ANSWERS
+                    - else
+                      .total= question.votes.map {|vote| vote.score}.inject(:+)
+                      .total-label WANT ANSWERS
+                  .stat.answers= "#{question.answers.length} ANSWERS"
+                  .stat.views=  "#{question.viewed} VIEWS"
+              .small-10.columns
+                .post-container.index
+                  .post-title.index
+                    %h1= link_to("#{question.title}", question_path(question))
+                  .row
+                    .small-6.columns
+                      .post-details.index
+                        %ul.post-tags
+                        - question.tag_list.each do |tag|
+                          %li.tag= link_to "#{tag}", tag_path(tag)
+                    .small-6.columns
+                      .post-signature-user.index
+                        %h3 By #{question.user.first_name} #{question.user.last_name} #{question.created_at}
+      -else
+        %h3 No results
+                    
+              
 
 -# %script{ id: 'questions-tpl', type: 'text/x-handlebars-template'}
 -#   %h3 Questions

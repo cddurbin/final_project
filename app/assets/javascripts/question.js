@@ -95,21 +95,26 @@ Handlebars.registerHelper('acceptedAnswerTotal', function(sorted_answers) {
   } else {
     return num + ' Answer'
   }
+  
 });
 
 $(document).ready(function(){
 
+  //make iframe editable
   $('.add-question').on('click', function () {
     iFrameOn('#add-question-iframe');
   });
+
   //autofocus the title field in new question modal
   $(document).on('opened', '[data-reveal]', function () {
     $('#title').first().focus();
   });
 
+  //reveal and hide the content of the question
   $('.post-container.question').on('click', '.post-title.question-show', toggleQuestionContent);
 
   $('#submit-question').on('click', sumbitQuestion);
+
 });
 
 

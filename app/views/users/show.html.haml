@@ -1,2 +1,19 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+.row.user-profile-container
+  .small-2.columns.user-profile-left
+    .user-photo
+    %ul.user-skills
+      %li Javascript
+      %li Rails
+      %li Ruby
+  .small-10.columns.user-profile-right
+    .user-details
+      %h2= "#{@user.first_name} #{@user.last_name}"
+      %h3= @user.role
+      %h4= @user.ga_course
+      %h4= @user.location
+      %h4= @user.graduate
+      %h4= @user.graduated_date
+
+
+
+

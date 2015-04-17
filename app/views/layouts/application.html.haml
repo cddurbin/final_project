@@ -33,7 +33,7 @@
                 %li.active= link_to 'MY ACCOUNT', user_path(current_user)
           - else
             %ul
-              %li= link_to 'Login', new_user_session_path
+              %li{"data-reveal-id" => "deviseLoginsModal", :href => "#"} Login
               %li.active= link_to 'Register', new_user_registration_path
              
     .main-container
@@ -54,6 +54,12 @@
     
       #addQuestionModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "add-question", "data-reveal" => "", :role => "dialog"}
 
-        = render 'new'
+        = render 'questions/new'
+
+        %a.close-reveal-modal{"aria-label" => "Close"} x
+
+      #deviseLoginsModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "devise-logins", "data-reveal" => "", :role => "dialog"}
+
+        
 
         %a.close-reveal-modal{"aria-label" => "Close"} x
