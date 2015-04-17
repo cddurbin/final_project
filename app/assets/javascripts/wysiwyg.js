@@ -3,13 +3,13 @@ function iFrameOn (iframe) {
   setTimeout(function() {
   $(iframe)[0].contentDocument.designMode = 'on';
   }, 1000);
-};
+}
 
 //activate the basic editor controls whose value is null
 function activateBasicControl () {
   var control = $(this).attr('name');
   $('.richTextField')[0].contentDocument.execCommand(control, false, null);
-};
+}
 
 //activate advanced editor controls which need a value argument
 function activateAdvancedControl (control, arg) {
@@ -27,6 +27,7 @@ function editorUnderline () {
 
 function editorItalic () {
   $('#richTextField').document.execCommand('italic', false, null);
+}
 
 function editorTextSize () {
   var size = prompt('Enter a size 1-7', '');
@@ -39,7 +40,7 @@ function editorTextColor () {
 }
 
 function editorLink () {
-  var linkUrl = prompt('Enter a link', 'http://')
+  var linkUrl = prompt('Enter a link', 'http://');
   $('.richTextField').document.execCommand('CreateLink', false, linkUrl);
 }
 
@@ -66,7 +67,7 @@ $(document).ready(function() {
   });
 
   $('#link').on('click', function () {
-    activateAdvancedControl('CreateLink', false, (document.getSelection())) 
+    activateAdvancedControl('CreateLink', false, (document.getSelection()));
   });
   
 
