@@ -12,11 +12,14 @@ function getAnswers () {
       console.log('true');
       acceptedAnswerVotes (response.accepted_answer);
     } else {
-      var currentUserId = gon.current_user.id
-      var questionUserId = $('.post-container.question').data('id');
-      if(currentUserId === questionUserId){
-        acceptAnswerButton();
-      }
+      if(gon.current_user !== null) {
+        var currentUserId = gon.current_user.id
+        var questionUserId = $('.post-container.question').data('id');
+        if(currentUserId === questionUserId){
+          acceptAnswerButton();
+        }
+      };
+      
     };
   });
 };
@@ -72,8 +75,13 @@ function acceptAnswer (answerId) {
 
 
 $(document).ready(function(){
-  $('#add-answer-input').on('click', toggleAnswerEditor);
-
+  $('#add-answer-input').on('click', function () {
+    if(gon.current_user !== null){
+      toggleAnswerEditor();
+    } else {
+      
+    }
+  });
   $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
 
   $('.answers-container').on('click', $('#accept-answer'), function(){

@@ -1,25 +1,31 @@
 function getQuestion(){
+
+  //grab question id
   var questionId = $('.post-container.question').attr('value');
+
+  //ajax request for the question
   request("GET", '/questions/' + questionId, null).done(function(response) {
-    console.log(response);
+
+    //compile handlebars question template
     var source = $("#question-tpl").html();
     var template = Handlebars.compile(source);
     $(".post-container.question").html(template(response));
 
-    
+    //compile handlebars question voting template
     var voting = $('#question-voting-tpl').html();
     var votingTemplate = Handlebars.compile(voting);
     $(".post-vote-container.question").html(votingTemplate(response));
 
-    // var feed = $('#feed-tpl').html();
-    // var feedTemplate = Handlebars.compile(feed);
-    // $(".feed-container").html(feedTemplate(response));
+    //grab current user if logged in
+    if(gon.current_user !== null){
+      var currentUserId = gon.current_user.id;
+    };
+   
 
-    
-    if(gon.current_user.id !== null){
-      var currentUserId = gon.current_user.id
-    }
+    //grab question owner id
     var questionUserId = $('.post-container.question').data('id')
+
+    //if current user and question owner are the same replace
     if(currentUserId === questionUserId) {
       console.log('true');
       $( '#want-answer-label').replaceWith( "<div class='total-label'>Want Answers</div>" );
@@ -115,7 +121,7 @@ $(document).ready(function(){
   $('.post-container.question').on('click', '.post-title.question-show', toggleQuestionContent);
 
   $('#submit-question').on('click', sumbitQuestion);
-  
+
 });
 
 

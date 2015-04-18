@@ -14,9 +14,11 @@
                 %ul
                   %li= link_to(current_user.first_name, current_user)
                   %li= current_user.location
-            = render 'questions/add_answer_input'
+            .add-answer-input-container
+              %input#add-answer-input{ :type => "text", :placeholder => "Help #{@question.user.first_name} Out" }
           - else
-            = render 'questions/add_answer_input'
+            .add-answer-input-container
+              %input#add-answer-input{ :type => "text", :placeholder => "Help #{@question.user.first_name} Out", "data-reveal-id" => "deviseLoginsModal" }
           #answer-editor-container
             = render 'answers/new'
     .answers-container

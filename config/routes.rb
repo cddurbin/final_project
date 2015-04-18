@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/answers/:answer_id/comments', to: 'answers#get_comments'
 
-  devise_for :users
+  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
   resources :users, only: [:show]
 
   # The priority is based upon order of creation: first created -> highest priority.
