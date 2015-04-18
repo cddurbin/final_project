@@ -33,7 +33,8 @@ function focusAnswerEditoriFrame () {
   iframe.focus();
 };
 
-function toggleAnswerEditor () {
+function openAnswerEditor () {
+
   toggleAddAnswerInput ();
 
   $('#answer-editor-container').toggle('blind', 500);
@@ -52,7 +53,10 @@ function submitAnswer (){
   
   request("POST", '/questions/' + questionId + '/answers', {answer:{content: data, question_id: questionId, user_id: currentUserId }}).done(function(){
     console.log('submit done');
+
     $('#answer-editor-container').toggle('blind', 500);
+    $('#add-answer-container').toggle('blind', 500);
+
     getAnswers ();
     
   });
@@ -84,7 +88,7 @@ $(document).ready(function(){
   //on add answer, if logged in show editor else store the click and login
   $('#add-answer-input').on('click', function () {
     if(gon.current_user !== null){
-      toggleAnswerEditor();
+      openAnswerEditor();
     } else {
       var addAnswerInputMemory = "click1";
       localStorage.setItem("addAnswerInputMemory", addAnswerInputMemory);
@@ -104,14 +108,11 @@ $(document).ready(function(){
   if(addAnswerInputMemory === "click1" && addAnswerLoginUrl === window.location.href) {
     var addAnswerLoginUrl = '';
     localStorage.setItem("addAnswerLoginUrl", addAnswerLoginUrl);
-    toggleAnswerEditor();
+    openAnswerEditor();
   };
 
   //submit answer when button clicked
-  $('#submit-answer').on('click', function () {
-    console.log('answer editor');
-    submitAnswer();
-  });
+  $('#submit-answer').on('click', submitAnswer);
 
   //when accepted answer button is hit, mark answer as accepted
   $('.answers-container').on('click', $('#accept-answer'), function(){
