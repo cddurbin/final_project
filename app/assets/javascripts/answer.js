@@ -24,18 +24,19 @@ function getAnswers () {
   });
 };
 
-function toggleAddAnswerInput () {
+function toggleAnswerInput () {
   $('#add-answer-input').toggle();
 };
 
 function focusAnswerEditoriFrame () {
-  var iframe = $('#add-answer-iframe')[0].contentWindow;
-  iframe.focus();
+  document.getElementById('add-answer-iframe').contentWindow.focus()
+  // var iframe = $('#add-answer-iframe')[0].contentWindow;
+  // iframe.focus();
 };
 
 function openAnswerEditor () {
 
-  toggleAddAnswerInput ();
+  toggleAnswerInput ();
 
   $('#answer-editor-container').toggle('blind', 500);
   iFrameOn('#add-answer-iframe');
@@ -43,6 +44,10 @@ function openAnswerEditor () {
   setTimeout(focusAnswerEditoriFrame, 500);
 };
 
+function closeAnswerEditor () {
+  toggleAnswerInput ()
+  $('#answer-editor-container').toggle('blind', 500);
+};
 
 function submitAnswer (){
 
@@ -54,7 +59,6 @@ function submitAnswer (){
   request("POST", '/questions/' + questionId + '/answers', {answer:{content: data, question_id: questionId, user_id: currentUserId }}).done(function(){
     console.log('submit done');
 
-    $('#answer-editor-container').toggle('blind', 500);
     $('#add-answer-container').toggle('blind', 500);
 
     getAnswers ();
@@ -84,6 +88,9 @@ function acceptAnswer (answerId) {
 
 
 $(document).ready(function(){
+
+  //close answer editor
+  $('#nevermind').on('click', closeAnswerEditor);
 
   //on add answer, if logged in show editor else store the click and login
   $('#add-answer-input').on('click', function () {
