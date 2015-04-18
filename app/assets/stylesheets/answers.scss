@@ -1,5 +1,13 @@
 @import 'variables';
 
+.add-answer-editor {
+  padding: 1rem
+}
+
+.buttons-container {
+  text-align: right;
+}
+
 #submit-answer, #add-answer-btn, #login-btn {
   box-shadow: 0 3px 0 0 $color-blue-dark;
   color: white;
@@ -18,8 +26,32 @@
   background-color: $color-blue-hover;
 }
 
+#submit-answer {
+  margin: 0 0 0 1rem;
+}
+
+#nevermind {
+  box-shadow: 0 3px 0 0 $color-stat-label;
+  color: white;
+  background-color: white;
+  transition-property: all;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-in-out;
+  transition-delay: initial;
+  color: $color-logo-grey; 
+    // -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+#nevermind:hover {
+  background-color: $color-logo-grey;
+  box-shadow: 0 3px 0 0 white;
+  color: white;
+}
+
 #add-answer-iframe-container {
   height: 10rem;
+  margin-top: 1rem;
 }
 
 .user-details-snippet li {

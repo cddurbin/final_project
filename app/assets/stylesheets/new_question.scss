@@ -78,7 +78,8 @@ form {
   }
 
   li:hover {
-    color: $color-red;
+    background-color: $color-red;
+    color: white;
   }
 }
 
