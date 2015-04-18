@@ -24,14 +24,24 @@ function getAnswers () {
   });
 };
 
+function toggleAddAnswerInput () {
+  $('#add-answer-input').toggle();
+};
+
+function focusAnswerEditoriFrame () {
+  var iframe = $('#add-answer-iframe')[0].contentWindow;
+  iframe.focus();
+};
+
 function toggleAnswerEditor () {
   // var defaultButtonName = $('#add-answer-btn').attr('name');
   // var buttonText = $('#add-answer-btn').val();
-  
+  toggleAddAnswerInput ();
+
   $('#answer-editor-container').toggle('blind', 500);
   iFrameOn('#add-answer-iframe');
 
-  $('#add-answer-iframe').first().focus();
+  setTimeout(focusAnswerEditoriFrame, 100);
 
   // if( buttonText === defaultButtonName) {
   //   $('#add-answer-btn').val('Nevermind');  
