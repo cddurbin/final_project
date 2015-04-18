@@ -68,7 +68,10 @@ function sumbitQuestion () {
   var data = $('#hidden-text-area').val()
   console.log(data);
   var title = $('#title').val();
-  var currentUserId = gon.current_user.id;
+  if(gon.current_user) {
+    var currentUserId = gon.current_user.id;
+  };
+  
   var tagList = $('#tag-list').val();
 
   data = window.frames['richTextField'].document.body.innerHTML;
@@ -77,8 +80,7 @@ function sumbitQuestion () {
     $('#addQuestionModal').foundation('reveal', 'close');
 
     var currentUrl = window.location.origin
-
-    window.location.replace(currentUrl + '/questions')
+    window.location.replace(currentUrl + '/questions');
   });
 };
 

@@ -25,17 +25,19 @@ function getAnswers () {
 };
 
 function toggleAnswerEditor () {
-  var defaultButtonName = $('#add-answer-btn').attr('name');
-  var buttonText = $('#add-answer-btn').val();
+  // var defaultButtonName = $('#add-answer-btn').attr('name');
+  // var buttonText = $('#add-answer-btn').val();
   
   $('#answer-editor-container').toggle('blind', 500);
   iFrameOn('#add-answer-iframe');
 
-  if( buttonText === defaultButtonName) {
-    $('#add-answer-btn').val('Nevermind');  
-  } else {
-    $('#add-answer-btn').val(defaultButtonName);
-  };
+  $('#add-answer-iframe').first().focus();
+
+  // if( buttonText === defaultButtonName) {
+  //   $('#add-answer-btn').val('Nevermind');  
+  // } else {
+  //   $('#add-answer-btn').val(defaultButtonName);
+  // };
 
 };
 
@@ -50,6 +52,7 @@ function submitAnswer (){
     console.log('submit done');
     console.log(data);
     $('#answer-editor-container').toggle('blind', 500);
+    
   });
 }
 
@@ -75,15 +78,37 @@ function acceptAnswer (answerId) {
 
 
 $(document).ready(function(){
+
+  //on add answer, if logged in show editor else store the click and login
   $('#add-answer-input').on('click', function () {
     if(gon.current_user !== null){
       toggleAnswerEditor();
     } else {
-      
-    }
+      var addAnswerInputMemory = "click1";
+      localStorage.setItem("addAnswerInputMemory", addAnswerInputMemory);
+    };
+
+    //when login btn clicked store current url
+    $('#login-btn').on('click', function (){
+      var addAnswerLoginUrl = window.location.href;
+      localStorage.setItem("addAnswerLoginUrl", addAnswerLoginUrl);
+    });
   });
+
+  var addAnswerInputMemory = localStorage.getItem("addAnswerInputMemory");
+  var addAnswerLoginUrl = localStorage.getItem("addAnswerLoginUrl");
+
+  //if add answer was clicked and login url equal current url reset login url and toggle editor
+  if(addAnswerInputMemory === "click1" && addAnswerLoginUrl === window.location.href) {
+    var addAnswerLoginUrl = '';
+    localStorage.setItem("addAnswerLoginUrl", addAnswerLoginUrl);
+    toggleAnswerEditor();
+  };
+
+  //submit answer when button clicked
   $('#answer-editor-container').on('click', $('#answer-submit'), submitAnswer);
 
+  //when accepted answer button is hit, mark answer as accepted
   $('.answers-container').on('click', $('#accept-answer'), function(){
     var answerId = $('.post-container.answer').data('id');
     acceptAnswer (answerId);
