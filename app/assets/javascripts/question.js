@@ -16,6 +16,11 @@ function getQuestion(){
     var votingTemplate = Handlebars.compile(voting);
     $(".post-vote-container.question").html(votingTemplate(response));
 
+    //compile handlebars question tags
+    var voting = $('#tags-tpl').html();
+    var votingTemplate = Handlebars.compile(voting);
+    $(".post-tags-container").html(votingTemplate(response));
+
     //grab current user if logged in
     if(gon.current_user !== null){
       var currentUserId = gon.current_user.id;

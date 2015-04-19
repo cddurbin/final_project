@@ -4,6 +4,7 @@
     .row.chosen-question
       .small-2.columns
         .post-vote-container.question
+        .post-tags-container
       .small-10.columns.question-middle-container
         .post-container.question{ value: @question.id, :name => @question.user.first_name, :data=>{:id => @question.user.id}}
         #add-answer-container
@@ -58,24 +59,7 @@
             %span -
             %span.user-course {{user.ga_course}}
             %span -
-            %span.timestamp {{updated_at}} 
-  -# .row#post-details.question
-  -#   .small-6.columns
-  -#     %ul.tag-list
-  -#       {{#tags}}
-  -#       %li.tag
-  -#         %a{ href: 'http://localhost:3000/tags/{{name}}'} {{name}}
-  -#       {{/tags}}
-  -#   .small-6.columns
-  -#     .row.user-snippet
-  -#       .small-2.columns
-  -#         .user-image= image_tag 'user_default_pic.gif' 
-  -#       .small-10.columns.post-signature-user.question
-  -#         %ul.user-details
-  -#           %li.user-name {{user.first_name}}
-  -#           %li.user-course {{user.ga_course}} 
-  -#           %li.user-location {{user.location}}
-  -#           %li.action-time {{updated_at}}
+            %span.timestamp {{formatDate created_at}} 
 
 %script{ id: 'comment-partial', type: 'text/x-handlebars-template'}
   .row
@@ -88,19 +72,19 @@
 
 // Templates -----------------------------------------------------------------
 
+%script{ id: 'tags-tpl', type: 'text/x-handlebars-template'}
+  %ul.tag-list
+    {{#tags}}
+    %li.tag
+      %a{ href: '/tags/{{name}}'} {{name}}
+    {{/tags}} 
+
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
   .post-title.question-show
     %a 
       %h1 {{{ title }}}
   .post-content.question
     %h3 {{{ content }}}
-  .row#post-details.question
-    .small-12.columns
-      %ul.tag-list
-        {{#tags}}
-        %li.tag
-          %a{ href: '/tags/{{name}}'} {{name}}
-        {{/tags}}
   .row.user-container
     .small-1.columns#question-user-left
       %span.user-profile-image
@@ -116,19 +100,7 @@
             %span -
             %span.user-course {{user.ga_course}}
             %span -
-            %span.timestamp {{formatDate created_at}} 
-    -# .small-6.columns
-    -#   .row.user-snippet
-    -#     .small-2.columns
-    -#       .user-image= image_tag 'user_default_pic.gif' 
-    -#     .small-10.columns.post-signature-user.question
-    -#       %ul.user-details
-    -#         %li.user-name {{user.first_name}}
-    -#         %li.user-course {{user.ga_course}} 
-    -#         %li.user-location {{user.location}}
-    -#         %li.action-time {{updated_at}}
-          
-        
+            %span.timestamp {{formatDate created_at}}   
   {{#if comments}}
   %button{ id: 'question-comments-btn', :data=>{:id =>'{{id}}'} } Comments
   .post-comments-container.question
@@ -208,12 +180,7 @@
     .total-label{id: 'unhelpful', value: "{{id}}"}
       %a Unhelpful
 
--# %script{ id: 'tags-tpl', type: 'text/x-handlebars-template'}
--#   %ul.tag-list
--#     {{#tags}}
--#     %li
--#       %a{ href: 'http://localhost:3000/tags/{{name}}'} {{name}}
--#     {{/tags}}
+
     
       
 

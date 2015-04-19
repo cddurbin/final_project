@@ -57,7 +57,11 @@ form {
   margin: 0.5rem 0;
 }
 
-#wsyiwyg-control {
+#add-question-control {
+  padding-top: 1rem;
+}
+
+#wysiwyg-control {
   margin: 0;
   height: 3rem;
 
@@ -67,7 +71,7 @@ form {
     float: left;
     display: inline-block;
     cursor: pointer;
-    padding: 0 1rem;
+    padding: 0 0.75rem;
     border: 1px solid $color-input-grey;
     background-color: white;
     color: $color-logo-grey;
