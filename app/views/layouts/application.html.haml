@@ -43,7 +43,7 @@
         #sub-top-bar
           %ul.heading
             %li.app-title
-              %h1= link_to 'OPEN FORUM', questions_path
+              %a{ :href => "#{questions_path}" } OPEN FORUM
             %li#search-field
               = form_tag('/search', method: :get) do
                 = text_field_tag :q, nil, :placeholder => 'Search'  

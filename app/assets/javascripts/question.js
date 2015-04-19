@@ -39,23 +39,6 @@ function getQuestion(){
   });
 };
 
-Handlebars.registerHelper("splitQuestionContent", function(questionContent){
-  
-  var showChar = 100;
-  var ellipsestext = "...";
-  console.log(questionContent)
-
-  if(questionContent.length > showChar) {
-    var firstSection = questionContent.substr(0, showChar);
-    var secondSection = questionContent.substr(showChar-1, questionContent.length - showChar);
-
-    var html = firstSection + '<span class="moreellipses">' + ellipsestext + ' </span><span class="morecontent"><span>' + secondSection + '</span>';
-    
-    return html;
-  };
-
-});  
-
 function toggleQuestionComments () {
   $(".post-container.question").on('click', '#question-comments-btn', function() {
     console.log('toggle question comments');
@@ -73,8 +56,9 @@ function toggleQuestionContent() {
   } else {
       $(this).addClass("less");
   };
+  $('.moreellipses').toggle();
+  $('.morecontent').toggle('blind', 350);
 
-  $('.morecontent').toggle('blind', 500);
 
 };
 
@@ -113,6 +97,9 @@ function sumbitQuestion () {
   });
 };
 
+
+//Handlebars helpser ----------------------------------------------------------------
+
 Handlebars.registerHelper('answerTotal', function(sorted_answers) {
   var num = Object.keys(sorted_answers).length;
   var answer = 'Answer'
@@ -135,6 +122,25 @@ Handlebars.registerHelper('acceptedAnswerTotal', function(sorted_answers) {
   
 });
 
+Handlebars.registerHelper("splitQuestionContent", function(questionContent){
+  
+  var showChar = 100;
+  var ellipsestext = "...";
+  console.log(questionContent)
+
+  if(questionContent.length > showChar) {
+    var firstSection = questionContent.substr(0, showChar);
+    var secondSection = questionContent.substr(showChar-1, questionContent.length - showChar);
+
+    var html = firstSection + '<span class="moreellipses">' + ellipsestext + ' </span><span class="morecontent"><span>' + secondSection + '</span>';
+    
+    return html;
+  };
+
+}); 
+
+//functions on load -------------------------------------------------------------- 
+
 $(document).ready(function(){
 
   //make iframe editable
@@ -149,7 +155,7 @@ $(document).ready(function(){
   });
 
   //reveal and hide the content of the question
-  $('.post-container.question').on('click', '.post-title.question-show', toggleQuestionContent);
+  $('.post-container.question').on('click', '.more-content-button', toggleQuestionContent);
 
   $('#submit-question').on('click', sumbitQuestion);
 

@@ -16,24 +16,19 @@
     line-style: none;
   }
 
-  .app-title {
+  .app-title a {
+
+    color: white;
     margin: 1rem 3rem 0 0;
     background-color: $color-logo-grey;
     border-radius: 3px;
-
-      a {
-        color: white;
-      }
-
-    h1 {
-      font-size: 0.9rem;
-      font-style: bold;
-      font-family: $font-title-backup;
-      font-weight: 400;
-      margin: 0;
-      color: white;
-      padding: 0.75rem;
-    }
+    font-size: 0.9rem;
+    font-style: bold;
+    font-family: $font-title-backup;
+    font-weight: 400;
+    color: white;
+    padding: 0.75rem;
+    
   }
 
 

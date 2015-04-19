@@ -1,5 +1,26 @@
 @import 'variables';
 
+.answer-row {
+  border-bottom: 1px solid $color-stat-label;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.answers-heading {
+  border-bottom: 2px solid $color-logo-grey;
+  margin-top: 2rem;
+
+  h3 {
+    font-family: $font-title-backup;
+    font-weight: bold;
+  }
+}
+
+.all-answers {
+  margin-top: 20px;
+  min-height: 8rem;
+}
+
 .buttons-container {
   text-align: right;
   padding-top: 1rem;

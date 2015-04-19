@@ -27,6 +27,12 @@ body {
   width:100%;
   word-wrap: break-word;
   font-size: 1rem;
+  font-family: $font-title-backup;
+}
+
+p {
+  font-family: $font-paragraph;
+  color: $color-logo-grey;
 }
 
 .ga-logo {
@@ -51,22 +57,6 @@ body {
   font-family: $font-title;
 }
 
-.post-title {
-
-  h1 {
-    font-size: 1.5rem;
-    color: black;
-  }
-
-  a:hover {
-    color: black;
-  }
-
-  a {
-    color: $color-logo-grey;
-  }
-}
-
 .question-wrapper {
   border-bottom: 2px solid $color-input-grey;
   margin-top: 0.5rem;
@@ -74,19 +64,6 @@ body {
   padding-top: 0.5rem;
   min-height: 9rem;
 }
-
-.post-signature-user h3 {
-  font-size: 0.8rem;
-  color: $color-logo-grey;
-  background-color: $color-input-grey;
-  border-radius: 2px; 
-  font-family: $font-title;
-  padding: 0.2rem 0.5rem;
-  margin: 0;
-  text-align: center;
-}
-
-
 
 .stat {
   font-family: $font-button;
@@ -165,13 +142,10 @@ ul.tag-list {
 }
 
 .post-content {
-  margin-bottom: 1rem;
-  border-bottom: 1px solid $color-stat-label;
   
   p {
-    font-family: $font-paragraph;
     font-size: 1rem;
-    color: $color-logo-grey;
+    margin-bottom: 0;
   }
   
 }
@@ -220,20 +194,6 @@ ul.tag-list {
   padding: 0.2rem 0.5rem; 
   font-family: $font-button;
   border-radius: 3px;
-}
-
-.answers-heading {
-  // background-color: $color-stat-label;
-  border-bottom: 2px solid $color-input-grey;
-
-  h3 {
-    margin-left: 2rem;
-  }
-}
-
-.all-answers {
-  margin-top: 20px;
-  min-height: 8rem;
 }
 
 .user-snippet {

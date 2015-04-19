@@ -78,11 +78,11 @@
     %li.tag
       %a{ href: '/tags/{{name}}'} {{name}}
     {{/tags}} 
+    
 
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
   .post-title.question-show
-    %a 
-      %h1 {{{ title }}}
+    %h1 {{{ title }}}
   .row.user-container
     .small-1.columns#question-user-left
       %span.user-profile-image
@@ -102,6 +102,9 @@
   .post-content-container          
     .post-content.question.more
       %p {{{splitQuestionContent content}}}
+  .more-content-button
+    %a{ :href => "#" }
+      %i.fi-thumbnails
   {{#if comments}}
   %button{ id: 'question-comments-btn', :data=>{:id =>'{{id}}'} } Comments
   .post-comments-container.question
@@ -119,35 +122,36 @@
     .answers-heading
       %h3 {{acceptedAnswerTotal sorted_answers}}
     .all-answers
-      .small-2.columns.accepted
-        .post-vote-container.answer
-          .stat.helpful
-            .total{id: 'accepted-total'}
-            .total-label{id: 'helpful', value: "{{id}}"}
-              %a Helpful
-            .total-label{id: 'unhelpful'} 
-              %a Unhelpful
-          .accepted-selector Accepted
-      .small-10.columns.answers-middle-container
-        .post-container.answer{ id: 'answer-{{ id }}'}
-          %p {{{ content }}}
-          .post-signature-user.answer
-            {{> user }}
-          {{#if comments}}
-        %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
-        .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
-          {{#comments}}
-          .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
-            {{> comment}}
-          {{/comments}}
-          {{/if}}
-      {{else}}
-      .answers-heading
-        %h3 {{answerTotal sorted_answers}}
-      {{/if}}
-      {{#sorted_answers}}
+      .row.answer-row
+        .small-2.columns.accepted
+          .post-vote-container.answer
+            .stat.helpful
+              .total{id: 'accepted-total'}
+              .total-label{id: 'helpful', value: "{{id}}"}
+                %a Helpful
+              .total-label{id: 'unhelpful'} 
+                %a Unhelpful
+            .accepted-selector Accepted
+        .small-10.columns.answers-middle-container
+          .post-container.answer{ id: 'answer-{{ id }}'}
+            %p {{{ content }}}
+            .post-signature-user.answer
+              {{> user }}
+            {{#if comments}}
+          %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
+          .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
+            {{#comments}}
+            .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
+              {{> comment}}
+            {{/comments}}
+            {{/if}}
+        {{else}}
+        .answers-heading
+          %h3 {{answerTotal sorted_answers}}
+        {{/if}}
+        {{#sorted_answers}}
     .all-answers
-      .row
+      .row.answer-row
         .small-2.columns
           .post-vote-container.answer
             {{> answer-voting}}

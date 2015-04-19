@@ -1,0 +1,14 @@
+@import "variables";
+
+.post-signature-user {
+  padding-right: 1rem;
+  border-right: 2px solid $color-logo-grey;
+
+  p {
+    font-size: 0.8rem;
+    color: $color-logo-grey;
+    font-family: $font-title;
+    margin: 0;
+    text-align: right;
+  }
+}
