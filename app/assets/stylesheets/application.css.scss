@@ -43,6 +43,10 @@ body {
   font-family: $font-button;
 }
 
+.question-middle-container, .answers-middle-container {
+  padding: 0 2rem;
+}
+
 
 .post-container.index {
   font-family: $font-title;
@@ -72,20 +76,28 @@ ul.post-tags {
 .post-title.question-show {
 
   h1 {
-    font-size: 1.5rem;
-    color: $color-logo-grey;
+    font-size: 1.75rem;
+    margin: 0;
+    color: black;
+    font-weight: bold;
+    font-family: $font-title-backup;
   }
+}
+
+.tag {
+  font-size: 0.8rem;
+  margin: 0 0.5rem 0 0;
+  padding: 0.2rem 0.5rem; 
+  border-radius: 3px;
+  font-family: $font-button;
 }
 
 li.tag {
   display: inline-block;
   list-style: none;
-  font-size: 0.8rem;
-  margin: 0 0.5rem 0 0;
-  background-color: $color-yellow-alt;
-  padding: 0.2rem 0.5rem; 
+  background-color: $color-yellow;
   box-shadow: 0 3px 0 0 $color-yellow-dark;
-  font-family: $font-button;
+
   transition-property: all;
   transition-duration: 0.15s;
   transition-timing-function: ease-in-out;
