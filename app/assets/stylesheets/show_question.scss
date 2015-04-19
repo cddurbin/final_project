@@ -49,12 +49,13 @@ li.tag:hover {
   background-color: $color-yellow-alt;
 }
 
-.post-title.question-show a:hover {
-  color: black;
+.morecontent {
+    display: none;
 }
 
-.post-content.question {
-  display: none;
+
+.post-title.question-show a:hover {
+  color: black;
 }
 
 #answer-editor-container {

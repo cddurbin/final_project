@@ -159,42 +159,27 @@ body {
   background-color: $color-stat-label;
 }
 
-
-
 ul.tag-list {
   margin-bottom: 0;
   text-align: left;
 }
 
-.post-content h3 {
-  font-family: $font-paragraph;
-  font-size: 1rem;
-  color: $color-logo-grey; 
+.post-content {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid $color-stat-label;
+  
+  p {
+    font-family: $font-paragraph;
+    font-size: 1rem;
+    color: $color-logo-grey;
+  }
+  
 }
 
 .user-container {
   padding-bottom: 0.5rem;
   margin-bottom: 0.75rem;
 }
-
-// ul.user-details {
-//   background-color: $color-input-grey;
-// }
-
-// .post-comment-container {
-
-//   border-bottom: 3px solid $color-input-grey;
-// }
-
-// ul.user-details li {
-//   font-family: $font-title;
-//   list-style: none;
-//   color: $color-logo-grey;
-
-//     .user-name {
-//       font-size: 1rem;
-//     }
-// }
 
 .accepted-selector {
   text-align: center;

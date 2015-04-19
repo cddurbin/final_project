@@ -39,6 +39,23 @@ function getQuestion(){
   });
 };
 
+Handlebars.registerHelper("splitQuestionContent", function(questionContent){
+  
+  var showChar = 100;
+  var ellipsestext = "...";
+  console.log(questionContent)
+
+  if(questionContent.length > showChar) {
+    var firstSection = questionContent.substr(0, showChar);
+    var secondSection = questionContent.substr(showChar-1, questionContent.length - showChar);
+
+    var html = firstSection + '<span class="moreellipses">' + ellipsestext + ' </span><span class="morecontent"><span>' + secondSection + '</span>';
+    
+    return html;
+  };
+
+});  
+
 function toggleQuestionComments () {
   $(".post-container.question").on('click', '#question-comments-btn', function() {
     console.log('toggle question comments');
@@ -47,11 +64,18 @@ function toggleQuestionComments () {
 };
 
 function toggleQuestionContent() {
-  console.log('toggle question content');
-  var content = $('.post-content.question');
-  var label = $(this).text();
-  
-  content.toggle('blind', 500);
+  console.log('click');
+  var moretext = "more";
+  var lesstext = "less";
+
+  if($(this).hasClass("less")) {
+      $(this).removeClass("less");
+  } else {
+      $(this).addClass("less");
+  };
+
+  $('.morecontent').toggle('blind', 500);
+
 };
 
 function updateWantAnswerTotal () {

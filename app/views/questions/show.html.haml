@@ -83,8 +83,6 @@
   .post-title.question-show
     %a 
       %h1 {{{ title }}}
-  .post-content.question
-    %h3 {{{ content }}}
   .row.user-container
     .small-1.columns#question-user-left
       %span.user-profile-image
@@ -100,7 +98,10 @@
             %span -
             %span.user-course {{user.ga_course}}
             %span -
-            %span.timestamp {{formatDate created_at}}   
+            %span.timestamp {{formatDate created_at}}
+  .post-content-container          
+    .post-content.question.more
+      %p {{{splitQuestionContent content}}}
   {{#if comments}}
   %button{ id: 'question-comments-btn', :data=>{:id =>'{{id}}'} } Comments
   .post-comments-container.question
