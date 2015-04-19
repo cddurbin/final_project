@@ -13,57 +13,59 @@
     = javascript_include_tag "vendor/modernizr"
     = javascript_include_tag "application"
     = csrf_meta_tags
-    
-  %body{ class: "#{controller_name} #{action_name}" }
-    %nav.top-bar#mastead{"data-topbar" => "", :role => "navigation"}
-      %ul.title-area
-        %li.name
-          %h1
-            %li= link_to(image_tag('https://s3-eu-west-1.amazonaws.com/wdi11-final-project/images/ga_logo.png', class:'ga-logo'), root_path)
-        
-      %section.top-bar-section
-        / Right Nav Section
-        %ul.right
-          - if user_signed_in?
-            %li.has-dropdown
-              %a{:href => "#"}
-                -# = image_tag('https://s3-eu-west-1.amazonaws.com/wdi11-final-project/images/ga_account_icon.svg', class:'ga-account')
-              %ul.dropdown
-                %li= link_to 'Logout', destroy_user_session_path, :method => :delete
-                %li.active= link_to 'MY ACCOUNT', user_path(current_user)
-          - else
-            %ul
+  #main-container 
+    %body#body{ class: "#{controller_name} #{action_name}" }
+      %nav.top-bar#mastead{"data-topbar" => "", :role => "navigation"}
+        %ul.title-area
+          %li.name
+            %h1
+              %li= link_to(image_tag('https://s3-eu-west-1.amazonaws.com/wdi11-final-project/images/ga_logo.png', class:'ga-logo'), root_path)
+          
+        %section.top-bar-section
+          / Right Nav Section
+          %ul.right
+            - if user_signed_in?
+              %li.has-dropdown
+                %a{:href => "#"}
+                  -# = image_tag('https://s3-eu-west-1.amazonaws.com/wdi11-final-project/images/ga_account_icon.svg', class:'ga-account')
+                %ul.dropdown
+                  %li= link_to 'Logout', destroy_user_session_path, :method => :delete
+                  %li.active= link_to 'MY ACCOUNT', user_path(current_user)
+            - else
+              %ul
+                %li
+                  %a{"data-reveal-id" => "deviseLoginsModal", :href => "#"} Login
+                  
+                %li= link_to 'Register', new_user_registration_path
+               
+      .main-container
+        #wrapper
+          #sub-top-bar
+            %ul.heading
+              %li.app-title
+                %a{ :href => "#{questions_path}" } OPEN FORUM
+              %li#search-field
+                = form_tag('/search', method: :get) do
+                  = text_field_tag :q, nil, :placeholder => 'Search'  
               %li
-                %a{"data-reveal-id" => "deviseLoginsModal", :href => "#"} Login
-                
-              %li= link_to 'Register', new_user_registration_path
-             
-    .main-container
-      #wrapper
-        #sub-top-bar
-          %ul.heading
-            %li.app-title
-              %a{ :href => "#{questions_path}" } OPEN FORUM
-            %li#search-field
-              = form_tag('/search', method: :get) do
-                = text_field_tag :q, nil, :placeholder => 'Search'  
-            %li
-              %a.button.small.add-question{"data-reveal-id" => "addQuestionModal", :href => "#"} Add Question 
-      -# %p.notice= notice
-      -# %p.alert= alert
+                %a.button.small.add-question{"data-reveal-id" => "addQuestionModal", :href => "#"} Add Question 
+        -# %p.notice= notice
+        -# %p.alert= alert
+        
+        = yield
       
-      = yield
-    
-      #addQuestionModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "add-question", "data-reveal" => "", :role => "dialog"}
+        #addQuestionModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "add-question", "data-reveal" => "", :role => "dialog"}
 
-        = render 'questions/new'
+          = render 'questions/new'
 
-        %a.close-reveal-modal{"aria-label" => "Close"} x
+          %a.close-reveal-modal{"aria-label" => "Close"} x
 
-      #deviseLoginsModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "devise-logins", "data-reveal" => "", :role => "dialog"}
+        #deviseLoginsModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "devise-logins", "data-reveal" => "", :role => "dialog"}
 
-        = render 'devise/sessions/new'        
+          = render 'devise/sessions/new'        
 
-        %a.close-reveal-modal{"aria-label" => "Close"} x
-%footer
-  #copyright &copy #{Time.now.year} Colin Durbin
+          %a.close-reveal-modal{"aria-label" => "Close"} x
+
+       
+      -# %footer#footer
+      -#   #copyright &copy #{Time.now.year} Colin Durbin

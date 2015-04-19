@@ -86,11 +86,11 @@ function acceptAnswerButton () {
 }
 
 function acceptAnswer (answerId) {
-  console.log(answerId);
+  var check = $('.accept-answer-check#' + answerId)
+  console.log(check)
   var currentUserId = gon.current_user.id
   request("PUT", '/answers/' + answerId, {answer:{accepted: true }}).done(function(){
     console.log('done');
-    
   });
 };
 
@@ -130,9 +130,13 @@ $(document).ready(function(){
   $('#submit-answer').on('click', submitAnswer);
 
   //when accepted answer button is hit, mark answer as accepted
-  $('.answers-container').on('click', $('#accept-answer'), function(){
-    var answerId = $('.post-container.answer').data('id');
+  $('.answers-container').on('click', '.accept-answer-check', function(){
+    console.log($(this).attr('id'));
+    var answerId = $(this).attr('id');
+    var changeId = $(this).attr('id', 'accepted-answer-check');
     acceptAnswer (answerId);
+    getAnswers();
+
   });
 });
 
