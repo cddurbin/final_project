@@ -102,22 +102,28 @@ function sumbitQuestion () {
 
 Handlebars.registerHelper('answerTotal', function(sorted_answers) {
   var num = Object.keys(sorted_answers).length;
-  var answer = 'Answer'
-  if(num > 1){
-    return num + ' Answers'
-  } else {
-    return num + ' Answer'
+  if(num > 1) {
+    return num + ' Answers';
+   } else {
+    if (num === 0) {
+      return 'Waiting for Answers';
+    } else {
+      return num + ' Answer';
+    }
   }
 });
 
 Handlebars.registerHelper('acceptedAnswerTotal', function(sorted_answers) {
 
   var num = Object.keys(sorted_answers).length + 1;
-  var answer = 'Answer'
-  if(num > 1){
-    return num + ' Answers'
+  if(num > 1) {
+    return num + ' Answers';
   } else {
-    return num + ' Answer'
+    if (num === 0) {
+      return 'Waiting for Answers';
+    } else {
+      return num + ' Answer';
+    }
   }
   
 });
