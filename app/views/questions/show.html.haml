@@ -78,7 +78,7 @@
     %li.tag
       %a{ href: '/tags/{{name}}'} {{name}}
     {{/tags}} 
-    
+
 
 %script{ id: 'question-tpl', type: 'text/x-handlebars-template'}
   .post-title.question-show
@@ -126,12 +126,13 @@
         .small-2.columns.accepted
           .post-vote-container.answer
             .stat.helpful
-              .total{id: 'accepted-total'}
-              .total-label{id: 'helpful', value: "{{id}}"}
+              .total#accepted-total
+              .total-label#helpful{ value: "{{id}}" }
                 %a Helpful
               .total-label{id: 'unhelpful'} 
                 %a Unhelpful
-            .accepted-selector Accepted
+            .accepted-selector
+              %i.fi-check#accepted-answer-check
         .small-10.columns.answers-middle-container
           .post-container.answer{ id: 'answer-{{ id }}'}
             %p {{{ content }}}
@@ -155,7 +156,8 @@
         .small-2.columns
           .post-vote-container.answer
             {{> answer-voting}}
-            .button.accept-selector
+            .accepted-selector
+              %i.fi-check.accept-answer-check
         .small-10.columns.answers-middle-container
           .post-container.answer{ id: 'answer-{{ id }}', :data=>{:id =>'{{id}}'}}
             %p {{{ content }}}
@@ -173,8 +175,8 @@
 
 %script{ id: 'question-voting-tpl', type: 'text/x-handlebars-template'}
   .stat.want-answer
-    .total{id: "want-answer"} {{voteTotal votes}}
-    .total-label{id: 'want-answer-label'} 
+    .total#want-answer {{voteTotal votes}}
+    .total-label.want-answer-clickable#want-answer-label
       %a Want Answers
 
 %script{ id: 'answer-voting-partial', type: 'text/x-handlebars-template'}

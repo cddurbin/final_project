@@ -72,8 +72,8 @@ function postQuestionVote (votable_type, value) {
   var questionId = $('.post-container.question').attr('value');
   var currentUserId = gon.current_user.id;
   request("POST", '/questions/' + questionId + '/votes', {vote:{user_id: currentUserId, votable_id: questionId, votable_type: votable_type, score: value }}).done(function(){
-    console.log('want answer clicked')
     updateWantAnswerTotal();
+    
   });
 };
 

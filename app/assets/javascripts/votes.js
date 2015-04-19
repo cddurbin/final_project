@@ -34,21 +34,21 @@ function getVoteTotal (votes) {
   return total;
 };
 
+function removeWantAnswerClick () {
+  $('#want-answer-label').removeClass('want-answer-clickable');
+};
+
 Handlebars.registerHelper('voteTotal', function(votes) {
   return getVoteTotal (votes) 
 });
 
 $(document).ready(function(){
 
-  $('.post-vote-container.question').on('click', $('#want-answer'), function(){
+  $('.post-vote-container.question').on('click', $('.want-answer-clickable'), function(){
     console.log('this is an upvote');
     postQuestionVote('Question', 1);
+    removeWantAnswerClick ();
   });
-
-  // $('.post-vote-container.question').on('click', '#question-downvote', function(){
-  //   console.log('this is a downvote');
-  //   questionVote('Question', -1);
-  // });
 
   $('.answers-container').on('click', '#helpful', function(){
     console.log('this is an answer upvote');

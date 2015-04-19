@@ -80,6 +80,7 @@ p {
     font-style: bold;
 
   }
+
   .total-label {
     padding-top: 4px;
     font-size: 0.75rem;
@@ -88,35 +89,42 @@ p {
     text-align: center;
     background-color: $color-stat-label;
 
-      a {
-        color: $color-logo-grey;
-      }
+    a {
+      color: $color-logo-grey;
+    }
 
   }
   
 }
 
-.total-label:hover {
-  background-color: white;
-  border: 1px solid $color-logo-grey;
+#want-answer-label:hover {
+  background-color: $color-blue;
+
+  a {
+    color: white;
+  }
 }
 
-.stat.answers {
-  padding-top: 4px;
-  font-size: 0.75rem;
-  width: 120px;
-  height: 25px;
-  text-align: center;
-  background-color: $color-stat-label;
+#helpful:hover {
+  background-color: $color-green;
+
+  a {
+    color: white;
+  }
 }
-.stat.views {
-  padding-top: 4px;
-  font-size: 0.75rem;
-  width: 120px;
-  height: 25px;
-  text-align: center;
-  background-color: $color-stat-label;
+
+#unhelpful {
+  border-top: 1px solid $color-input-grey;
 }
+
+#unhelpful:hover {
+  background-color: $color-yellow;
+
+  a {
+    color: white;
+  }
+}
+
 
 
 .stat.answers {
@@ -156,14 +164,16 @@ ul.tag-list {
 }
 
 .accepted-selector {
+  font-size: 3rem;
   text-align: center;
-  box-shadow: 0 3px 0 0 $color-deep-red;
-  color: white;
-  background-color: $color-red;
-  font-size: 0.8rem;
-  padding: 0.2rem 0.5rem; 
-  font-family: $font-button;
-  border-radius: 3px;
+}
+
+#accepted-answer-check {
+  color: $color-green;
+}
+
+.accept-answer-check {
+  color: $color-stat-label; 
 }
 
 #question-comments-btn, #answer-comments-btn {
@@ -212,7 +222,12 @@ ul.tag-list {
   width: 50px;
 }
 
-.post-signature-user.question {
-  padding: 0;
+footer {
+  border-top: 2px solid $color-stat-label;
+  height: 5rem;
+  padding: 2rem;
+  text-align: right;
+
 }
+
 
