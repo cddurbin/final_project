@@ -5,6 +5,8 @@
       %li Javascript
       %li Rails
       %li Ruby
+    %p= link_to 'Edit Profile', edit_user_registration_path, :class => 'button small', :id => 'edit-profile'
+
   .small-10.columns.user-profile-right
     .user-details
       %h2= "#{@user.first_name} #{@user.last_name}"
@@ -13,6 +15,7 @@
       %h4= @user.location
       %h4= @user.graduate
       %h4= @user.graduated_date
+
 
 
 

@@ -24,8 +24,8 @@ function getAnswers () {
   });
 };
 
-function toggleAnswerInput () {
-  $('#add-answer-input').toggle();
+function toggleAnswerInput (effect, rate) {
+  $('#add-answer-input').toggle(effect, rate);
 };
 
 function focusAnswerEditoriFrame () {
@@ -37,7 +37,7 @@ function focusAnswerEditoriFrame () {
 function openAnswerEditor () {
 
   toggleAnswerInput ();
-
+  // $('#add-answer-input').replace('$('#answer-editor-container').toggle()')
   $('#answer-editor-container').toggle('blind', 500);
   iFrameOn('#add-answer-iframe');
 
@@ -45,8 +45,16 @@ function openAnswerEditor () {
 };
 
 function closeAnswerEditor () {
-  toggleAnswerInput ()
-  $('#answer-editor-container').toggle('blind', 500);
+  
+  $('#answer-editor-container').toggle('blind', function() {
+    if($('#answer-editor-container').is(':visible')) {
+      return false;
+    } else {
+      toggleAnswerInput ('blind', 200);
+    };
+  },500);
+  
+
 };
 
 function submitAnswer (){

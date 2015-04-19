@@ -10,10 +10,11 @@
           - if current_user
             .row.add-answer-user
               .small-1.columns.user-profile-image
+                .image-placeholder
               .small-11.columns.user-details-snippet
                 %ul
-                  %li= link_to(current_user.first_name, current_user)
-                  %li= current_user.location
+                  %li#current-user-name= link_to("#{current_user.first_name} #{current_user.last_name}", current_user)
+                  %li#current-user-location= current_user.location
             .add-answer-input-container
               %input#add-answer-input{ :type => "text", :placeholder => "Help #{@question.user.first_name} Out" }
           - else
@@ -115,7 +116,7 @@
             .total-label{id: 'unhelpful'} 
               %a Unhelpful
           .accepted-selector Accepted
-      .small-8.columns
+      .small-10.columns
         .post-container.answer{ id: 'answer-{{ id }}'}
           %p {{{ content }}}
           .post-signature-user.answer
@@ -128,7 +129,6 @@
             {{> comment}}
           {{/comments}}
           {{/if}}
-      .small-2.columns
       {{else}}
       .answers-heading
         %h3 {{answerTotal sorted_answers}}
@@ -140,7 +140,7 @@
           .post-vote-container.answer
             {{> answer-voting}}
             .button.accept-selector
-        .small-8.columns
+        .small-10.columns
           .post-container.answer{ id: 'answer-{{ id }}', :data=>{:id =>'{{id}}'}}
             %p {{{ content }}}
             .post-signature-user.answer

@@ -26,6 +26,7 @@ body {
   background-color: white;
   width:100%;
   word-wrap: break-word;
+  font-size: 1rem;
 }
 
 .ga-logo {
@@ -269,9 +270,12 @@ ul.user-details li {
 }
 
 .answers-heading {
-  margin-left: 20px;
-  background-color: $color-stat-label;
+  // background-color: $color-stat-label;
   border-bottom: 2px solid $color-input-grey;
+
+  h3 {
+    margin-left: 2rem;
+  }
 }
 
 .all-answers {
