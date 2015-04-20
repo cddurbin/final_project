@@ -24,6 +24,7 @@ class QuestionsController < ApplicationController
     gon.current_user = current_user
     @question = Question.find(params[:id])
     @q = Question.ransack(params[:q])
+    @questions = Question.all
     
     respond_to do |format|
       format.html

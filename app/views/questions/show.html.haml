@@ -30,11 +30,18 @@
               %input#add-answer-input{ :type => "text", :placeholder => "Help #{@question.user.first_name} Out", "data-reveal-id" => "deviseLoginsModal" }
           #answer-editor-container
             = render 'answers/new'
+    .row
+      .answers-heading
+        %h3#answers-total
+    #accepted
     .answers-container
   .small-2.columns
     .related-topics
       %ul
-        %li Related Topics
+        %li#list-heading Related Questions
+        -# - @questions.each do |question|
+        -#   %li
+        -#     %a= link_to question.title, question_path
       
       
       
@@ -117,61 +124,60 @@
 
 
 %script{ id: 'answers-tpl', type: 'text/x-handlebars-template'}
-  {{#if accepted_answer}}
-  .row
-    .answers-heading
-      %h3 {{acceptedAnswerTotal sorted_answers}}
-    .all-answers
-      .row.answer-row
-        .small-2.columns.accepted
-          .post-vote-container.answer
-            .stat.helpful
-              .total#accepted-total
-              .total-label#helpful{ value: "{{id}}" }
-                %a Helpful
-              .total-label{id: 'unhelpful'} 
-                %a Unhelpful
-            .accepted-selector
-              %i.fi-check#accepted-answer-check
-        .small-10.columns.answers-middle-container
-          .post-container.answer{ id: 'answer-{{ id }}'}
-            %p {{{ content }}}
-            .post-signature-user.answer
-              {{> user }}
-            {{#if comments}}
-          %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
-          .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
-            {{#comments}}
-            .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
-              {{> comment}}
-            {{/comments}}
-            {{/if}}
-        {{else}}
-        .answers-heading
-          %h3 {{answerTotal sorted_answers}}
-        {{/if}}
-        {{#sorted_answers}}
-    .all-answers
-      .row.answer-row
-        .small-2.columns
-          .post-vote-container.answer
-            {{> answer-voting}}
-            .accepted-selector{ :id =>'{{id}}'}
-              %i.fi-check.accept-answer-check{ :id =>'{{id}}'}
-        .small-10.columns.answers-middle-container
-          .post-container.answer{ id: 'answer-{{ id }}', :data=>{:id =>'{{id}}'}}
-            %p {{{ content }}}
-            .post-signature-user.answer
-              {{> user }}
-            {{#if comments}}
-          %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
-          .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
-            {{#comments}}
-            .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
-              {{> comment}}
-            {{/comments}}
-            {{/if}} 
-        {{/sorted_answers}}
+  .all-answers 
+  {{#sorted_answers}}
+  .row.answer-row
+    .small-2.columns
+      .post-vote-container.answer
+        {{> answer-voting}}
+        .accepted-selector{ :id =>'{{id}}'}
+          %i.fi-check.accept-answer-check{ :id =>'{{id}}'}
+    .small-10.columns.answers-middle-container
+      .post-container.answer{ id: 'answer-{{ id }}', :data=>{:id =>'{{id}}'}}
+        %p {{{ content }}}
+        .post-signature-user.answer
+          {{> user }}
+        {{#if comments}}
+      %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
+      .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
+        {{#comments}}
+        .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
+          {{> comment}}
+        {{/comments}}
+        {{/if}} 
+  {{/sorted_answers}}
+
+
+%script{ id: 'accepted-answer-tpl', type: 'text/x-handlebars-template'} 
+  .all-answers
+    .row.answer-row
+      .small-2.columns.accepted
+        .post-vote-container.answer
+          .stat.helpful
+            .total#accepted-total
+            .total-label#helpful{ value: "{{id}}" }
+              %a Helpful
+            .total-label{id: 'unhelpful'} 
+              %a Unhelpful
+          .accepted-selector
+            %i.fi-check#accepted-answer-check
+      .small-10.columns.answers-middle-container
+        .post-container.answer{ id: 'answer-{{ id }}'}
+          %p {{{ content }}}
+          .post-signature-user.answer
+            {{> user }}
+          {{#if comments}}
+        %button{ id: 'answer-comments-btn', :data=>{:id =>'{{id}}'} } Comments
+        .post-comments-container.answer{ id: 'answer-comments-{{ id }}'}
+          {{#comments}}
+          .post-comment-container.anwer{ id: 'answer-comment-{{ id }}'}
+            {{> comment}}
+          {{/comments}}
+          {{/if}}
+      -# {{else}}
+      -# .answers-heading
+      -#   %h3 {{answerTotal }}
+      -# {{/if}}
 
 %script{ id: 'question-voting-tpl', type: 'text/x-handlebars-template'}
   .stat.want-answer

@@ -1,14 +1,49 @@
+function answersTotalHeading (response) {
+  var acceptedTotal = response.accepted_answer.length
+  var sortedTotal = response.sorted_answers.length
+  var overall;
+
+  if(acceptedTotal > 0){
+    overall = sortedTotal + 1;
+    if(overall > 1) {
+      $('#answers-total').text(overall + + ' Answers');
+    } else {
+      if (overall === 0) {
+        $('#answers-total').text('Waiting for Answers');
+      } else {
+        $('#answers-total').text(overall + ' Answer');
+      }
+    }
+  } else {
+    overall = sortedTotal;
+    if(overall > 1) {
+      $('#answers-total').text(overall + + ' Answers');
+    } else {
+      if (overall === 0) {
+        $('#answers-total').text('Waiting for Answers');
+      } else {
+        $('#answers-total').text(overall + ' Answer');
+      }
+    }
+  }
+};
+
 function getAnswers () {
   var questionId = $('.post-container.question').attr('value');
   
   request("GET", '/questions/' + questionId + '/answers', null).done(function(response){
     console.log(response);
 
+    answersTotalHeading (response);
+
     var source = $("#answers-tpl").html();
     var template = Handlebars.compile(source);
     $(".answers-container").html(template(response));
-
+    
     if(response.accepted_answer.length > 0) {
+      var accepted_source = $("#accepted-answer-tpl").html();
+      var accepted_template = Handlebars.compile(accepted_source);
+      $("#accepted").html(accepted_template(response.accepted_answer[0]));
       console.log('true');
       acceptedAnswerVotes (response.accepted_answer);
     } else {
@@ -135,6 +170,7 @@ $(document).ready(function(){
     console.log($(this).attr('id'));
     var answerId = $(this).attr('id');
     var changeId = $(this).attr('id', 'accepted-answer-check');
+    console.log(changeId)
     acceptAnswer (answerId);
     getAnswers();
 

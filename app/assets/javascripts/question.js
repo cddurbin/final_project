@@ -140,9 +140,10 @@ Handlebars.registerHelper('answerTotal', function(sorted_answers) {
   }
 });
 
-Handlebars.registerHelper('acceptedAnswerTotal', function(sorted_answers) {
+Handlebars.registerHelper('acceptedAnswerTotal', function(votes) {
 
-  var num = Object.keys(sorted_answers).length + 1;
+  // var num = Object.keys(sorted_answers).length + 1;
+  var num = votes.length + 1;
   if(num > 1) {
     return num + ' Answers';
   } else {
