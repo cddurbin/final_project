@@ -16,7 +16,8 @@ function getAnswers () {
         var currentUserId = gon.current_user.id
         var questionUserId = $('.post-container.question').data('id');
         if(currentUserId === questionUserId){
-          acceptAnswerButton();
+          // acceptAnswerButton();
+          return false
         }
       };
       

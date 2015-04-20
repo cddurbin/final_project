@@ -79,7 +79,7 @@ function postQuestionVote (votable_type, value) {
 
 function sumbitQuestion () {
   var data = $('#hidden-text-area').val()
-  console.log(data);
+  console.log('hello');
   var title = $('#title').val();
   if(gon.current_user) {
     var currentUserId = gon.current_user.id;
@@ -87,7 +87,7 @@ function sumbitQuestion () {
   
   var tagList = $('#tag-list').val();
 
-  data = window.frames['richTextField'].document.body.innerHTML;
+  data = $('#add-question-iframe')[0].contentDocument.body.innerHTML;
   request("POST", '/questions', {question:{content: data, title: title, user_id: currentUserId, tag_list: tagList }}).done(function(){
     console.log('submit');
     $('#addQuestionModal').foundation('reveal', 'close');
