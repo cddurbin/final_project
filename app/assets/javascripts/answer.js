@@ -5,8 +5,9 @@ function answersTotalHeading (response) {
 
   if(acceptedTotal > 0){
     overall = sortedTotal + 1;
+    console.log(overall);
     if(overall > 1) {
-      $('#answers-total').text(overall + + ' Answers');
+      $('#answers-total').text(overall + ' Answers');
     } else {
       if (overall === 0) {
         $('#answers-total').text('Waiting for Answers');
@@ -17,7 +18,7 @@ function answersTotalHeading (response) {
   } else {
     overall = sortedTotal;
     if(overall > 1) {
-      $('#answers-total').text(overall + + ' Answers');
+      $('#answers-total').text(overall + ' Answers');
     } else {
       if (overall === 0) {
         $('#answers-total').text('Waiting for Answers');
