@@ -8,7 +8,9 @@ function iFrameOn (iframe) {
 //activate the basic editor controls whose value is null
 function activateBasicControl () {
   var control = $(this).attr('name');
-  $('.richTextField')[0].contentDocument.execCommand(control, false, null);
+  var iframeId = $(this).parent().parent().children()[2].children[0].id;
+  console.log(iframeId);
+  $('#' + iframeId)[0].contentDocument.execCommand(control, false, null);
 }
 
 //activate advanced editor controls which need a value argument
@@ -62,8 +64,9 @@ $(document).ready(function() {
   //Editor control click events
   $('.basic-control').on('click', activateBasicControl );
 
-  $('#code').on('click', function() {
-    activateAdvancedControl ('insertHTML', "<pre><code class='editor-code'>"+ $('.richTextField')[0].contentWindow.getSelection().anchorNode + "</code></pre>");
+  $('#code-button').on('click', function() {
+    console.log($(this));
+    // activateAdvancedControl ('insertHTML', "<pre><code class='editor-code'>"+ $('.richTextField')[0].contentWindow.getSelection().anchorNode + "</code></pre>");
   });
 
   $('#link').on('click', function () {
