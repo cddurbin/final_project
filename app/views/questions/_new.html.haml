@@ -6,25 +6,25 @@
     .row
       .small-12.columns.form-element-container#add-question-control
         #wysiwyg-control
-          %a.basic-control#bold-button{ :name => "bold" }
+          %a.basic-control.bold-button{ :name => "bold" }
             %i.fi-bold
-          %a.basic-control#underline-button{ :name => "underline" }
+          %a.basic-control.underline-button{ :name => "underline" }
             %i.fi-underline
-          %a.basic-control#italic-button{ :name => "italic" }
+          %a.basic-control.italic-button{ :name => "italic" }
             %i.fi-italic
-          %a.advanced-control#text-color-button{ :name => "text-color" }
+          %a.advanced-control.text-color-button{ :name => "text-color" }
             %i.fi-text-color
-          %a.advanced-control#link-button{ :name => "link" }
+          %a.advanced-control.link-button{ :name => "link" }
             %i.fi-link
-          %a.basic-control#unlink-button{ :name => "unlink" }
+          %a.basic-control.unlink-button{ :name => "unlink" }
             %i.fi-unlink
-          %a.basic-control#horizontal-rule-button{ :name => "insertHorizontalRule" } 
+          %a.basic-control.horizontal-rule-button{ :name => "insertHorizontalRule" } 
             %i HR
-          %a.advanced-control#unordered-list-button{ :name => "unordered-list" }
+          %a.basic-control.unordered-list-button{ :name => "insertUnorderedList", :id => "newUL" }
             %i.fi-list-bullet
-          %a.advanced-control#ordered-list-button{ :name => "ordered-list" }
+          %a.basic-control.ordered-list-button{ :name => "insertOrderedList", :id => "newOL" }
             %i.fi-list-number
-          %a.advanced-control#code-button{ :name => "code" }
+          %a.advanced-control.code-button{ :name => "formatBlock", :id => "PRE" }
             %i <>
         %textarea#hidden-text-area{ :style => "display: none;" }
         .iframe-container

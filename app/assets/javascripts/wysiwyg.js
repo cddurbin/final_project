@@ -14,10 +14,13 @@ function activateBasicControl () {
 }
 
 //activate advanced editor controls which need a value argument
-function activateAdvancedControl (control, arg) {
-  $('.richTextField')[0].contentDocument.execCommand(control, false, arg);
-
-}
+function activateAdvancedControl () {
+  var control = $(this).attr('name');
+  var arg = $(this).attr('id');
+  console.log(arg);
+  var iframeId = $(this).parent().parent().children()[2].children[0].id;
+  $('#' + iframeId)[0].contentDocument.execCommand(control, false, arg)
+};
 
 function editorBold () {
   $('#richTextField').document.execCommand('bold', false, null);
@@ -55,19 +58,20 @@ function editorOrderedList () {
 }
 
 function editorCode () {
-  $('.richTextField').document.execCommand("insertHTML", false, "<pre><code class='editor-code'>"+ document.getSelection()+"</code></pre>");
+  var iframeId = $(this).parent().parent().children()[2].children[0].id;
+  $('#' + iframeId)[0].contentDocument.execCommand("formatBlock", false, "PRE")
 }
-
 
 $(document).ready(function() {
   
   //Editor control click events
   $('.basic-control').on('click', activateBasicControl );
 
-  $('#code-button').on('click', function() {
-    console.log($(this));
+  $('.advanced-control').on('click', activateAdvancedControl );
+    
+    
     // activateAdvancedControl ('insertHTML', "<pre><code class='editor-code'>"+ $('.richTextField')[0].contentWindow.getSelection().anchorNode + "</code></pre>");
-  });
+  
 
   $('#link').on('click', function () {
     activateAdvancedControl('CreateLink', false, (document.getSelection()));

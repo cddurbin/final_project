@@ -110,12 +110,15 @@ function sumbitQuestion () {
   var tagList = $('#tag-list').val();
 
   data = $('#add-question-iframe')[0].contentDocument.body.innerHTML;
-  request("POST", '/questions', {question:{content: data, title: title, user_id: currentUserId, tag_list: tagList }}).done(function(){
+  request("POST", '/questions', {question:{content: data, title: title, user_id: currentUserId, tag_list: tagList }}).done(function(response){
     console.log('submit');
+    console.log(response.id)
+    var questionId = response.id
+
     $('#addQuestionModal').foundation('reveal', 'close');
 
     var currentUrl = window.location.origin
-    window.location.replace(currentUrl + '/questions');
+    window.location.replace(currentUrl + '/questions/' + questionId);
   });
 };
 
