@@ -39,7 +39,6 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    binding.pry
     gon.current_user = current_user
     @question = Question.create(question_params)
 

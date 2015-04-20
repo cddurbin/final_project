@@ -16,7 +16,7 @@
                       .total= question.votes.map {|vote| vote.score}.inject(:+)
                       .total-label WANT ANSWERS
                   .stat.answers= "#{question.answers.length} ANSWERS"
-                  .stat.views=  "#{question.viewed} VIEWS"
+                  -# .stat.views=  "#{question.viewed} VIEWS"
               .small-10.columns
                 .post-container.index
                   .post-title.index

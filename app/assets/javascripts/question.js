@@ -39,6 +39,24 @@ function getQuestion(){
   });
 };
 
+function escapeHtml(unsafe) {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+};
+
+function unescapeHtml(safe) {
+    return safe
+         .replace(/&amp;/g, "&")
+         .replace(/&lt;/g, "<")
+         .replace(/&gt;/g, ">")
+         .replace(/&quot;/g, '"')
+         .replace(/&#039;/g, "'");
+};
+
 function toggleQuestionComments () {
   $(".post-container.question").on('click', '#question-comments-btn', function() {
     console.log('toggle question comments');
@@ -51,6 +69,7 @@ function toggleQuestionContent() {
   var moretext = "more";
   var lesstext = "less";
 
+
   if($(this).hasClass("less")) {
       $(this).removeClass("less");
   } else {
@@ -58,7 +77,10 @@ function toggleQuestionContent() {
   };
   $('.moreellipses').toggle();
   $('.morecontent').toggle('blind', 350);
-
+  // $('.morecontent').toggle('blind', function () {
+  //   console.log('toggle');
+  var safeHTML = unescapeHtml($('.morecontent')[0].children[0].innerHTML);
+  $('.morecontent').html(safeHTML);
 
 };
 
@@ -98,6 +120,8 @@ function sumbitQuestion () {
 };
 
 
+
+
 //Handlebars helpser ----------------------------------------------------------------
 
 Handlebars.registerHelper('answerTotal', function(sorted_answers) {
@@ -132,13 +156,16 @@ Handlebars.registerHelper("splitQuestionContent", function(questionContent){
   
   var showChar = 100;
   var ellipsestext = "...";
-  console.log(questionContent)
+  // var escapedContent = escapeHtml(questionContent);
+  // console.log(escapedContent);
 
   if(questionContent.length > showChar) {
     var firstSection = questionContent.substr(0, showChar);
     var secondSection = questionContent.substr(showChar-1, questionContent.length - showChar);
+    var escapeSecondSection = escapeHtml(secondSection);
+    console.log(escapeSecondSection);
 
-    var html = firstSection + '<span class="moreellipses">' + ellipsestext + ' </span><span class="morecontent"><span>' + secondSection + '</span>';
+    var html = firstSection + '<span class="moreellipses">' + ellipsestext + ' </span><span class="morecontent"><span>' + escapeSecondSection + '</span>';
     
     return html;
   };
