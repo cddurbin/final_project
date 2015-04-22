@@ -61,17 +61,4 @@ $(document).ready(function(){
     postAnswerVote(answerId, 'Answer', -1, ($(this)));
   });
 
-  // $('.answers-container').on('click', '.unhelpful-btn', function(){
-  //   console.log('this is an answer upvote');
-  //   var answerId = $(this).attr('value');
-  //   console.log(answerId);
-  //   postAnswerVote(answerId, 'Answer', -1, ($(this)));
-  // });
-
-  // $('#sorted-answers-container').on('click', '.helpful-btn', function(){
-  //   console.log('this is an answer downvote');
-  //   var answerId = $(this).attr('value');
-  //   console.log(answerId);
-  //   postAnswerVote(answerId, 'Answer', 1, ($(this)));
-  // });
 });
