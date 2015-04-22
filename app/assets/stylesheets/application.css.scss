@@ -27,11 +27,10 @@ body {
   width:100%;
   word-wrap: break-word;
   font-size: 1rem;
-  font-family: $font-title-backup;
+  font-family: $font-paragraph;
 }
 
 p {
-  font-family: $font-paragraph;
   color: $color-logo-grey;
 }
 
@@ -168,6 +167,10 @@ ul.tag-list {
 .user-container {
   padding-bottom: 0.5rem;
   margin-bottom: 0.75rem;
+}
+
+.user-course {
+  text-transform: uppercase;
 }
 
 .accepted-selector, #accepted-selector {

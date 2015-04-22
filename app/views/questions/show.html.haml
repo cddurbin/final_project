@@ -125,8 +125,8 @@
 
 
 %script{ id: 'answers-tpl', type: 'text/x-handlebars-template'}
+  {{#sorted_answers}}
   .row.answer-row
-    {{#sorted_answers}}
     .small-2.columns
       .post-vote-container.answer
         {{> answer-voting}}

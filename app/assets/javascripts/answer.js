@@ -30,12 +30,48 @@ function answersTotalHeading (response) {
 };
 
 function removeAcceptCheck (response) {
-  var acceptedTotal = response.accepted_answer.length
-  if(acceptedTotal > 0 ) {
-    console.log('remove this please');
-    return $('.accepted-selector').remove();
+  $('.accepted-selector').empty();
+  // var acceptedTotal = response.accepted_answer.length
+  // if(acceptedTotal > 0 ) {
+  //   console.log('remove this please');
+  //   return $('.accepted-selector').empty();
+  // };
+};
+
+function checkForAcceptedAnswer (response) {
+  if(response.accepted_answer.length > 0) {
+    var accepted_source = $("#accepted-answer-tpl").html();
+    var accepted_template = Handlebars.compile(accepted_source);
+    $("#accepted-container").html(accepted_template(response.accepted_answer[0]));
+    console.log('true');
+    acceptedAnswerVotes (response.accepted_answer);
+    removeAcceptCheck (response);
+  } else {
+    return false;
   };
-  
+};
+
+function compileSortedAnswers (response) {
+  var source = $("#answers-tpl").html();
+  var template = Handlebars.compile(source);
+  $("#sorted-answers-container").html(template(response));
+};
+
+function compareCurerentUserToQuestionUser (response) {
+  var questionUserId = $('.post-container.question').data('id');
+
+  if(gon.current_user !== null) {
+    var currentUserId = gon.current_user.id
+    
+    if(currentUserId === questionUserId){
+      return false;
+    } else {
+      removeAcceptCheck (response);
+    }
+
+  } else {
+    removeAcceptCheck (response);
+  }
 };
 
 function getAnswers () {
@@ -44,30 +80,13 @@ function getAnswers () {
   request("GET", '/questions/' + questionId + '/answers', null).done(function(response){
     console.log(response);
 
+    
+    compileSortedAnswers (response);
+    checkForAcceptedAnswer (response);
+    compareCurerentUserToQuestionUser (response);
     answersTotalHeading (response);
     
-    var source = $("#answers-tpl").html();
-    var template = Handlebars.compile(source);
-    $("#sorted-answers-container").html(template(response));
-    
-    if(response.accepted_answer.length > 0) {
-      var accepted_source = $("#accepted-answer-tpl").html();
-      var accepted_template = Handlebars.compile(accepted_source);
-      $("#accepted-container").html(accepted_template(response.accepted_answer[0]));
-      console.log('true');
-      acceptedAnswerVotes (response.accepted_answer);
-      removeAcceptCheck (response);
-    } else {
-      if(gon.current_user !== null) {
-        var currentUserId = gon.current_user.id
-        var questionUserId = $('.post-container.question').data('id');
-        if(currentUserId === questionUserId){
-          // acceptAnswerButton();
-          return false
-        }
-      };
-      
-    };
+
   });
 };
 
@@ -128,16 +147,13 @@ function toggleAnswerComments () {
   });
 };
 
-// function acceptAnswerButton () {
-//   $('.accepted-selector').append('<h3><a href="#", id:"accept-answer">Accept</a></h3>');
-// }
 
 function acceptAnswer (answerId) {
   var check = $('.accept-answer-check#' + answerId)
   console.log(check)
   var currentUserId = gon.current_user.id
   request("PUT", '/answers/' + answerId, {answer:{accepted: true }}).done(function(){
-    console.log('done');
+    console.log('accepted');
   });
 };
 
@@ -178,7 +194,6 @@ $(document).ready(function(){
 
   //when accepted answer button is hit, mark answer as accepted
   $('.answers-container').on('click', '.accept-answer-check', function(){
-    console.log($(this).attr('id'));
     var answerId = $(this).attr('id');
     var changeId = $(this).attr('id', 'accepted-answer-check');
     acceptAnswer (answerId);

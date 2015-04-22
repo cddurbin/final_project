@@ -2,8 +2,8 @@
 
 .answer-row {
   border-bottom: 1px solid $color-stat-label;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
+  padding: 2rem 0;
+  margin: 1rem 0;
 }
 
 .answers-heading {
@@ -16,9 +16,14 @@
   }
 }
 
-.all-answers {
+.answers-container {
+  width: 100%;
   margin-top: 20px;
   min-height: 8rem;
+}
+
+#accepted-container {
+  width: 100%;
 }
 
 .buttons-container {
