@@ -24,7 +24,7 @@
                   .row
                     .small-6.columns
                       .post-details.index
-                        %ul.post-tags#index-tags
+                        %ul.post-tags.index-tags
                           - question.tag_list.each do |tag|
                             %li.tag= link_to "#{tag}", tag_path(tag)
                     .small-6.columns
@@ -32,7 +32,16 @@
                         %p By #{question.user.first_name} #{question.user.last_name}
                         %p= question.created_at.to_formatted_s(:long)
       -else
-        %h3 No results
+        .no-results
+          %h3 No results
+          %p Try choosing a topic or search again.
+        .suggested-tags
+          %ul.post-tags
+            - @all_tags.each do |tag|
+              %li.tag= link_to "#{tag}", tag_path(tag)
+            
+          
+
                     
               
 

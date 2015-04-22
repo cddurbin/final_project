@@ -131,7 +131,8 @@
       .post-vote-container.answer
         {{> answer-voting}}
         .accepted-selector{ :id =>'{{id}}'}
-          %i.fi-check.accept-answer-check{ :id =>'{{id}}'}
+          %a
+            %i.fi-check.accept-answer-check{ :id =>'{{id}}'}
     .small-10.columns.answers-middle-container
       .post-container.answer{ id: 'answer-{{ id }}', :data=>{:id =>'{{id}}'}}
         %p {{{ content }}}

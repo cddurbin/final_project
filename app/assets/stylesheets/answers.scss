@@ -26,6 +26,10 @@
   width: 100%;
 }
 
+.accepted-selector i:hover {
+  color: $color-green;
+}
+
 .buttons-container {
   text-align: right;
   padding-top: 1rem;

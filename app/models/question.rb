@@ -8,6 +8,4 @@ class Question < ActiveRecord::Base
   has_many :watches
   has_many :watchers, through: :watches
 
- 
-
 end

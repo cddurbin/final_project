@@ -5,6 +5,8 @@ class QuestionsController < ApplicationController
     gon.current_user = current_user
     @question = Question.new
     @q = Question.ransack(params[:q])
+    @all_tags = ActsAsTaggableOn::Tag.all.order('name ASC')
+
     if params[:tag]
       @questions = Question.tagged_with(params[:tag])
     elsif params[:q]
@@ -49,7 +51,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:title, :content, :user_id, :viewed, :tag_list)
+    params.require(:question).permit(:title, :content, :user_id, :viewed, :tag_list, :q, :tag)
   end
 
 end
