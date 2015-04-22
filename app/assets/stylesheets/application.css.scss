@@ -112,7 +112,7 @@ pre {
   }
 }
 
-#helpful:hover {
+.helpful-btn:hover {
   background-color: $color-green;
 
   a {
@@ -120,11 +120,11 @@ pre {
   }
 }
 
-#unhelpful {
+.unhelpful-btn {
   border-top: 1px solid $color-input-grey;
 }
 
-#unhelpful:hover {
+.unhelpful-btn:hover {
   background-color: $color-yellow;
 
   a {

@@ -1,13 +1,12 @@
-function updateHelpfulTotal (button, value) {
-  var voteTotal = parseInt(button.siblings('.total').text());
-  return button.siblings('.total').text(voteTotal + value);
+function updateVoteTotal (button, value) {
+  var voteTotal = parseInt(button.parent().children()[0].innerHTML);
+  return button.parent().children()[0].innerHTML = voteTotal + value;
 };
 
 function postAnswerVote (answerId, votable_type, value, button) {
-  console.log(answerId);
   var currentUserId = gon.current_user.id;
   request("POST", '/answers/' + answerId + '/votes', {vote:{user_id: currentUserId, votable_id: answerId, votable_type: votable_type, score: value }}).done(function(){
-    updateHelpfulTotal(button, value);
+    updateVoteTotal(button, value);
     
   });
 };
@@ -50,16 +49,29 @@ $(document).ready(function(){
     removeWantAnswerClick ();
   });
 
-  $('.answers-container').on('click', '#helpful', function(){
+  $('.answers-container').on('click', '.helpful-btn', function(){
     console.log('this is an answer upvote');
     var answerId = $(this).attr('value');
     postAnswerVote(answerId, 'Answer', 1, ($(this)));
   });
 
-  $('.answers-container').on('click', '#unhelpful', function(){
+  $('.answers-container').on('click', '.unhelpful-btn', function(){
     console.log('this is an answer downvote');
     var answerId = $(this).attr('value');
-    console
     postAnswerVote(answerId, 'Answer', -1, ($(this)));
   });
+
+  // $('.answers-container').on('click', '.unhelpful-btn', function(){
+  //   console.log('this is an answer upvote');
+  //   var answerId = $(this).attr('value');
+  //   console.log(answerId);
+  //   postAnswerVote(answerId, 'Answer', -1, ($(this)));
+  // });
+
+  // $('#sorted-answers-container').on('click', '.helpful-btn', function(){
+  //   console.log('this is an answer downvote');
+  //   var answerId = $(this).attr('value');
+  //   console.log(answerId);
+  //   postAnswerVote(answerId, 'Answer', 1, ($(this)));
+  // });
 });

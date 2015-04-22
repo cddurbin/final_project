@@ -39,12 +39,12 @@ function getAnswers () {
 
     var source = $("#answers-tpl").html();
     var template = Handlebars.compile(source);
-    $(".answers-container").html(template(response));
+    $("#sorted-answers-container").html(template(response));
     
     if(response.accepted_answer.length > 0) {
       var accepted_source = $("#accepted-answer-tpl").html();
       var accepted_template = Handlebars.compile(accepted_source);
-      $("#accepted").html(accepted_template(response.accepted_answer[0]));
+      $("#accepted-container").html(accepted_template(response.accepted_answer[0]));
       console.log('true');
       acceptedAnswerVotes (response.accepted_answer);
     } else {

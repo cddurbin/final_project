@@ -33,8 +33,9 @@
     .row
       .answers-heading
         %h3#answers-total
-    #accepted
     .answers-container
+      #accepted-container
+      #sorted-answers-container
   .small-2.columns
     .related-topics
       %ul
@@ -153,9 +154,9 @@
       .post-vote-container.answer
         .stat.helpful
           .total#accepted-total
-          .total-label#helpful{ value: "{{id}}" }
+          .total-label.helpful-btn{ value: "{{id}}", name: "helpful" }
             %a Helpful
-          .total-label{id: 'unhelpful'} 
+          .total-label.unhelpful-btn{ value: "{{id}}", name: "unhelpful" }
             %a Unhelpful
         .accepted-selector
           %i.fi-check#accepted-answer-check
@@ -186,9 +187,9 @@
 %script{ id: 'answer-voting-partial', type: 'text/x-handlebars-template'}
   .stat.helpful
     .total {{voteTotal votes}}
-    .total-label{id: 'helpful', value: "{{id}}"}
+    .total-label.helpful-btn{ value: "{{id}}", name: "helpful" }
       %a Helpful
-    .total-label{id: 'unhelpful', value: "{{id}}"}
+    .total-label.unhelpful-btn{ value: "{{id}}", name: "unhelpful"}
       %a Unhelpful
 
 
