@@ -38,7 +38,8 @@
         .suggested-tags
           %ul.post-tags
             - @all_tags.each do |tag|
-              %li.tag= link_to "#{tag}", tag_path(tag)
+              %li.tag
+                %a{ href: "/tags/#{tag}" } #{tag}
 
             
           

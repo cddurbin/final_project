@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
     @q = Question.ransack(params[:q])
     @all_tags = ActsAsTaggableOn::Tag.all.order('name ASC')
 
+
     if params[:tag]
       @questions = Question.tagged_with(params[:tag])
     elsif params[:q]

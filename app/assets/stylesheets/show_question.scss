@@ -97,6 +97,35 @@ li.tag:hover {
   display: none;
 }
 
+ul#related-topics {
+  margin: 0;
+}
+
+#related-topics {
+  font-size: 0.8rem;
+
+  li {
+    list-style: none;
+    padding: 0.75rem 0 0.75rem 0;
+    border-bottom: 1px solid $color-stat-label;
+  }
+
+  a {
+    color: $color-logo-grey;
+  }
+
+  a:hover {
+    color: black;
+  }
+}
+
+li#list-heading {
+  font-size: 1rem;
+  padding: 0;
+  color: black;
+  border-bottom: 1px solid black;
+}
+
 
 
 pre code {

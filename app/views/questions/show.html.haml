@@ -1,6 +1,6 @@
 //HTML
 .row.show-container
-  .small-10.columns
+  .small-9.columns
     .row.chosen-question
       .small-2.columns
         .post-vote-container.question
@@ -36,10 +36,10 @@
     .answers-container
       #accepted-container
       #sorted-answers-container
-  .small-2.columns
-    .related-topics
-      %ul
-        %li#list-heading
+  .small-3.columns
+    .related-topics-container
+      %ul#related-topics
+        %li#list-heading Related Questions
         - @related_questions.each do |question|
           %li
             %a= link_to question.title, question_path
