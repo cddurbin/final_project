@@ -9,8 +9,6 @@ class QuestionsController < ApplicationController
 
     if params[:tag]
       @questions = Question.tagged_with(params[:tag])
-      binding.pry
-      nil
     elsif params[:q]
       @q = Question.ransack(params[:q])
       @questions = @q.result(distinct: true)
@@ -30,7 +28,7 @@ class QuestionsController < ApplicationController
     @q = Question.ransack(params[:q])
     @questions = Question.all
 
-    
+
     @related_questions = Question.tagged_with(params[:tag])
     
     respond_to do |format|
