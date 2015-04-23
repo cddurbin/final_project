@@ -39,6 +39,8 @@ function getQuestion(){
   });
 };
 
+
+
 function escapeHtml(unsafe) {
     return unsafe
          .replace(/&/g, "&amp;")
