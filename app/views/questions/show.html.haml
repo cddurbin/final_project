@@ -42,7 +42,7 @@
         %li#list-heading Related Questions
         - @related_questions.each do |question|
           %li
-            %a= link_to question.title, question_path
+            %a{ href: "/questions/#{question.id}" } #{question.title}
       
       
       

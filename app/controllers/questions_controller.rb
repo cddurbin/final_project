@@ -30,8 +30,8 @@ class QuestionsController < ApplicationController
     @questions = Question.all
 
     question_tags = @question.tag_list
-    @related_questions = question_tags.map { |tag| Question.tagged_with(tag) }.flatten
-
+    @related_questions = question_tags.map { |tag| Question.tagged_with(tag) }.flatten.uniq
+  
     respond_to do |format|
       format.html
       format.json { render json: @question.as_json(include: { tags: {}, user: {}, votes: {},comments: {include: [:user]}})}
