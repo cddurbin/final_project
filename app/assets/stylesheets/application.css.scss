@@ -30,6 +30,11 @@ body {
   font-family: $font-paragraph;
 }
 
+.reveal-modal-bg {
+  position:fixed;
+}
+
+
 p {
   color: $color-logo-grey;
 }

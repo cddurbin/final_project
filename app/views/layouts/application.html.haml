@@ -49,10 +49,10 @@
                 = f.search_field :title_or_content_cont  
             %li
               %a.button.small.add-question{"data-reveal-id" => "addQuestionModal", :href => "#"} Add Question 
-      -# %p.notice= notice
-      -# %p.alert= alert
-      
-      = yield
+          -# %p.notice= notice
+          -# %p.alert= alert
+        #main-content-container
+          = yield
     
       #addQuestionModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "add-question", "data-reveal" => "", :role => "dialog"}
 

@@ -5,6 +5,22 @@
   height: 5rem;
 }
 
+#sub-top-bar.fixed {
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+}
+#sub-top-bar.fixed ul {
+    display: block;
+    margin: 0 auto;
+    // width:960px;
+}
+
+#sub-top-bar.fixed+#main-content-container {
+    margin-top: 5rem;
+}
+
 .heading {
   width: 1000px;
   text-align: left;

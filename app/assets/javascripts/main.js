@@ -7,6 +7,22 @@ function request(method, url, data) {
           })
 };
 
+function stickyNav () {
+  console.log('sticky');
+  var subTopBar = $('#sub-top-bar');
+  var menuOffsetTop = subTopBar[0].offsetTop;
+
+  $(document).bind('ready scroll', function () {
+      var docScroll = $(this).scrollTop();
+
+      if (docScroll >= menuOffsetTop) {
+          subTopBar.addClass('fixed');
+      } else {
+          subTopBar.removeClass('fixed');
+      }
+  });
+}
+
 function loadQuestionShowPage() {
     Handlebars.registerPartial("user", $("#answer-user-partial").html());
     Handlebars.registerPartial("comment", $("#comment-partial").html());
@@ -25,13 +41,11 @@ Handlebars.registerHelper("formatDate", function(created_at){
 
 $(document).ready(function() {
 
-  // hljs.initHighlightingOnLoad();
-  // $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
-
- 
+  stickyNav ();
 
   if($('body').is('.questions.show')){
     loadQuestionShowPage();
   };
+
 
 });
