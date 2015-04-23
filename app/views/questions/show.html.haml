@@ -40,9 +40,9 @@
     .related-topics
       %ul
         %li#list-heading
-        -# - @questions.each do |question|
-        -#   %li
-        -#     %a= link_to question.title, question_path
+        - @related_questions.each do |question|
+          %li
+            %a= link_to question.title, question_path
       
       
       
