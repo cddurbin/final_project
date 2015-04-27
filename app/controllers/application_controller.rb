@@ -3,9 +3,18 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :configure_devise_params, if: :devise_controller?
+  before_filter :set_cache_buster
   skip_before_filter :verify_authenticity_token
 
   after_filter :store_location
+
+  
+
+  def set_cache_buster
+   response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+   response.headers["Pragma"] = "no-cache"
+   response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+  end
 
   def store_location
     # store last url - this is needed for post-login redirect to whatever the user last visited.
