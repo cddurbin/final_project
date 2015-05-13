@@ -12,8 +12,7 @@
             .row.user-container
               .small-1.columns#add-answer-user-left
                 %span.user-profile-image
-                  %img{ :src => "https://s3-eu-west-1.amazonaws.com/wdi11-final-project/images/social_profile_photo_01_200x200.jpg"}
-                  -# %img{ :src => "#{current_user.image}"}
+                  %img{ :src => current_user.image.thumb }
               .small-11.columns#add-answer-user-right
                 %span.user-details-snippet-container
                   %span.user-details-name
@@ -55,8 +54,7 @@
   .row.user-container
     .small-1.columns#answer-user-left
       %span.user-profile-image
-        %img{ :src => "https://s3-eu-west-1.amazonaws.com/wdi11-final-project/images/user_default_pic2.png"}
-        -# %img{ :src => "#{current_user.image}"}
+        %img{ :src => "{{ user.image.thumb.url }}" }
     .small-11.columns#answer-user-right
       %span.user-details-snippet-container
         %span.user-details-name
@@ -94,8 +92,7 @@
   .row.user-container
     .small-1.columns#question-user-left
       %span.user-profile-image
-        %img{ :src => "https://s3-eu-west-1.amazonaws.com/wdi11-final-project/images/user_default_pic2.png"}
-        -# %img{ :src => "#{current_user.image}"}
+        %img{ :src => @question.user.image.thumb }
     .small-11.columns#question-user-right
       %span.user-details-snippet-container
         %span.user-details-name
@@ -174,10 +171,6 @@
           {{> comment}}
         {{/comments}}
         {{/if}}
-    -# {{else}}
-    -# .answers-heading
-    -#   %h3 {{answerTotal }}
-    -# {{/if}}
 
 %script{ id: 'question-voting-tpl', type: 'text/x-handlebars-template'}
   .stat.want-answer

@@ -28,6 +28,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @q = Question.ransack(params[:q])
     @questions = Question.all
+    
 
     question_tags = @question.tag_list
     @related_questions = question_tags.map { |tag| Question.tagged_with(tag) }.flatten.uniq
