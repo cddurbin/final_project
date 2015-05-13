@@ -66,4 +66,10 @@
 
         %a.close-reveal-modal{"aria-label" => "Close"} x
 
+      #deviseSignupModal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "devise-signup", "data-reveal" => "", :role => "dialog"}
+
+        = render 'devise/registrations/new'        
+
+        %a.close-reveal-modal{"aria-label" => "Close"} x
+
         

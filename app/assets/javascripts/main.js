@@ -8,7 +8,6 @@ function request(method, url, data) {
 };
 
 function stickyNav () {
-  console.log('sticky');
   var subTopBar = $('#sub-top-bar');
   var menuOffsetTop = subTopBar[0].offsetTop;
 

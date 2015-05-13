@@ -46,8 +46,9 @@
   margin-bottom: 0;
 }
 
-#submit-answer, #add-answer-btn, #login-btn {
+#submit-answer, #add-answer-btn, #login-btn, #signup-btn {
   box-shadow: 0 3px 0 0 $color-blue-dark;
+  border-radius: 3px;
   color: white;
   background-color: $color-blue;
   transition-property: all;
@@ -60,7 +61,7 @@
     }
 }
 
-#submit-answer:hover, #add-answer-btn:hover, #login-btn:hover {
+#submit-answer:hover, #add-answer-btn:hover, #login-btn:hover, #signup-btn:hover {
   background-color: $color-blue-hover;
 }
 

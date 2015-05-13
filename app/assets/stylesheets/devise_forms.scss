@@ -9,6 +9,21 @@
 }
 
 
-#login-form {
+.devise-form {
   width: 100%;
+}
+
+#deviseSignupModal {
+  width: 60rem;
+
+  h2 {
+    font-family: $font-title;
+  }
+}
+
+#signup-left, #signup-right {
+  width: 44.9%;
+  margin: 0 1rem;
+  display: inline-block;
+  float: left
 }

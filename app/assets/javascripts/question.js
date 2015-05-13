@@ -191,6 +191,7 @@ $(document).ready(function(){
   $(document).on('opened', '[data-reveal]', function () {
     $('#title').first().focus();
     $('#email-input').first().focus();
+    $('#first-name').first().focus();
   });
 
   //reveal and hide the content of the question
