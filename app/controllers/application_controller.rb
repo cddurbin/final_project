@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_devise_params, if: :devise_controller?
   before_filter :set_cache_buster
   skip_before_filter :verify_authenticity_token
+  before_filter :set_instance_variables
 
   after_filter :store_location
 
@@ -42,6 +43,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) do |u|
       u.permit(:first_name, :last_name, :location, :ga_course, :image, :role, :graduate,:email, :password, :password_confirmation, :image, :image_cache)
     end
+  end
+
+  private
+
+  def set_instance_variables
+    @q = Question.ransack(params[:q])
   end
 
   
